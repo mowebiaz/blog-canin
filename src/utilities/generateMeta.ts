@@ -49,7 +49,7 @@ export const generateMeta = async (args: {
       title,
       description,
       type: 'article',
-      url: `${getServerSideURL()}/posts/${doc?.slug}`,
+      url: `${getServerSideURL()}/blog/${doc?.slug}`,
       images: [
         {
           url: ogImage,
@@ -65,6 +65,6 @@ export const generateMeta = async (args: {
       description,
       images: [ogImage],
     }, */
-    //alternates: { canonical: `${getServerSideURL()}/posts/${doc?.slug}`
+    //alternates: { canonical: `${getServerSideURL()}/blog/${doc?.slug}`
   }
 }

@@ -16,12 +16,16 @@ export const ArticleCard: React.FC<{
   alignItems?: 'center'
   className?: string
   doc?: CardPostData
-  relationTo?: 'posts'
+  basePath?: string
   showCategories?: boolean
   title?: string
 }> = (props) => {
-  const { card, link } = useClickableCard({})
-  const { className, doc, relationTo, showCategories, title: titleFromProps } = props
+  //const { card, link } = useClickableCard({})
+    const {
+    card: { ref: cardRef },
+    link: { ref: linkRef },
+  } = useClickableCard<HTMLElement>({})
+  const { className, doc, basePath, showCategories, title: titleFromProps } = props
 
   const { slug, categories, meta, title, coverImage } = doc || {}
   const { description } = meta || {}
@@ -29,12 +33,12 @@ export const ArticleCard: React.FC<{
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
-  const href = `/${relationTo}/${slug}`
+  const href = `/${basePath}/${slug}`
 
   return (
     <article
       className="article-card"
-      ref={card.ref}
+      ref={cardRef}
     >
       <div className='article-card__media'>
         {!coverImage && <div className="no-image">No image</div>}
@@ -70,7 +74,7 @@ export const ArticleCard: React.FC<{
         {titleToUse && (
           <div className="article-card__title">
             <h3>
-              <Link className="article-card__link" href={href} ref={link.ref}>
+              <Link className="article-card__link" href={href} ref={linkRef}>
                 {titleToUse}
               </Link>
             </h3>

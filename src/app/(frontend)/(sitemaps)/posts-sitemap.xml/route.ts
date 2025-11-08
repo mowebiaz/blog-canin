@@ -30,7 +30,7 @@ const getPostsSitemap = unstable_cache(
 
     const sitemap = results.docs
       ? results.docs.map(({ slug, updatedAt }) => ({
-          loc: `${url}/posts/${slug}`,
+          loc: `${url}/blog/${slug}`,
           lastmod: updatedAt || dateFallback,
         }))
       : []

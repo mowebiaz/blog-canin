@@ -15,7 +15,7 @@ export const ArticleCardContainer: React.FC<Props> = (props) => {
             if (typeof result === 'object' && result !== null) {
               return (
                 <div className="posts__item" key={index}>
-                  <ArticleCard doc={result} relationTo="posts" showCategories />
+                  <ArticleCard doc={result} basePath="blog" showCategories />
                 </div>
               )
             }

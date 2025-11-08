@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main>
       <h1>Home page</h1>
-      <Link href={'/posts'}>Tous les posts</Link>
+      <Link href={'/blog'}>Tous les posts</Link>
       <Link href={'/search'}>Rechercher</Link>
       <Link href={'/contact'}>Contact</Link>
     </main>

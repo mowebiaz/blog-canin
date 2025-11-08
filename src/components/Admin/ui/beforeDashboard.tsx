@@ -6,7 +6,7 @@ export const Welcome = () => {
       <h2>Bienvenue sur votre dashboard</h2>
       <p>Cliquez sur une collection pour commencer</p>
               <Link
-                href={'/posts'}
+                href={'/blog'}
                 target={'_blank'}
               >
                 Voir tous les articles

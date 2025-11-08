@@ -1,0 +1,15 @@
+.nav-group__toggle {
+  background-color: #00ECAE;
+  color: black;
+}
+
+.nav__link-indicator {
+  background-color: #00ECAE;
+}
+
+.selected--draft > span {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: gray;
+  color: black;
+}

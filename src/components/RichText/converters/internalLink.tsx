@@ -10,11 +10,11 @@ export const internalDocToHref = ({
     throw new Error('Expected value to be an object')
   }
   const slug = value.slug
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
+  return relationTo === 'posts' ? `/blog/${slug}` : `/${slug}`
 }
 
 /*   if (relationTo === 'posts') {
-    return `/posts/${slug}`
+    return `/blog/${slug}`
   } else if (relationTo === 'users') {
     return `/users/${slug}`
   } else {

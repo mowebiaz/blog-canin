@@ -43,7 +43,7 @@ type Args = { params: Promise<{ slug?: string }> }
 export default async function Post({ params: paramsPromise }: Args) {
   const { slug = '' } = await paramsPromise
   const { isEnabled: draft } = await draftMode()
-  const url = '/posts/' + slug
+  const url = '/blog/' + slug
   const post = await queryPostBySlug({ slug })
 
   // check if there is no page to return.

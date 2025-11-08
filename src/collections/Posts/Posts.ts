@@ -250,7 +250,7 @@ export const Posts: CollectionConfig = {
               hooks: {
                 beforeChange: [
                   async ({ data, value }) =>
-                    !value ? `https://example.com/posts/${data?.slug}` : value,
+                    !value ? `https://example.com/blog/${data?.slug}` : value,
                 ],
               },
             },
