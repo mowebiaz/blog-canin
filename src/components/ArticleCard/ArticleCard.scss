@@ -1,0 +1,94 @@
+.article-card {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem; 
+  color: var(--card-foreground);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  will-change: transform;
+
+  // état "cliquable" (le hook rend toute la carte cliquable)
+  &,
+  & * {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus-within {
+    border-color: var(--border);
+    box-shadow: 0 0 10px var(--ring);
+  }
+
+  // accessibilité
+  &:focus-within .card__link {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  // zone média (image)
+  &__media {
+    position: relative;
+    width: 100%;
+    background: var(--muted);
+
+    // Garde un ratio propre si l'image tarde à charger
+    aspect-ratio: 16 / 9;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;  
+      object-position: center;
+    }
+
+    // placeholder "No image"
+    .no-image {
+      display: grid;
+      place-items: center;
+      font-size: 0.875rem;
+      color: var(--muted-foreground);
+      padding: 2rem;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  &__content {
+    padding: 1rem; 
+  }
+
+  &__categories {
+    margin-bottom: 1rem; 
+    font-size: 0.875rem; 
+    letter-spacing: 0.04em;
+    color: var(--muted-foreground);
+    line-height: 1.4;
+    // gestion de la liste "A, B, C"
+    & > * {
+      display: inline;
+    }
+  }
+
+  &__title {
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+    font-weight: 700;
+    //font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem);
+  }
+
+
+  &__desc {
+    margin-top: 0.5rem; // mt-2
+    color: hsl(from var(--card-foreground) h s l / 0.9);
+    
+
+    p {
+      margin: 0;
+    }
+  }
+}

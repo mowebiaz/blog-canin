@@ -1,0 +1,30 @@
+@use '@/styles/mixins' as *;
+
+#payload-admin-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    color: var(--foreground);
+
+    > * {
+        grid-row: 1;
+    }
+}
+
+.admin-bar__logo {
+    grid-column: 1;
+}
+
+.adminbar__logout {
+    grid-column: 3;
+    justify-self: end;
+}
+
+.adminbar__user {
+    grid-column: 2;
+    justify-self: center;
+    pointer-events: none;
+}

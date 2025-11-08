@@ -1,7 +1,27 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
+import { withPayload } from '@payloadcms/next/withPayload'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  experimental: { 
+    globalNotFound: true 
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+      },
+    ]
+  },
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.cjs': ['.cts', '.cjs'],
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+    }
 
-export default nextConfig;
+    return webpackConfig
+  },
+}
+
+export default withPayload(nextConfig, { devBundleServerPackages: false })
