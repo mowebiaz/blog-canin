@@ -33,6 +33,11 @@ export default async function Posts() {
   return (
     <main>
       <h1>Tous les Posts</h1>
+      <p>
+        H1 + intro courte (à qui s’adresse le blog). 
+        Filtres (catégories :  Éducation, Matériel, Vie quotidienne, Légal, Balades locales). 
+        Liste d&apos;articles (carte : titre, chapo, date, catégories).
+      </p>
       <PageRange
         collection="posts"
         currentPage={posts.page}
