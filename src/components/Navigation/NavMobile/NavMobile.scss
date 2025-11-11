@@ -1,0 +1,34 @@
+@use '@/styles/mixins' as *;
+
+.nav-mobile {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    @include lg {
+        display: none;
+    }
+
+    .hamburger-react {
+        z-index: 1000;
+    }
+
+    &__container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        padding-top: 50px;
+        background-color: red;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+    }
+}

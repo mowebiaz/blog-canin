@@ -1,0 +1,35 @@
+@use '@/styles/mixins' as *;
+
+.nav-desktop {
+    display: none;
+
+    @include lg {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--background);
+        height: 100px;
+        box-shadow: none;
+        padding: 0 0.5rem;
+        transition: all 0.5s ease-in-out;
+
+        &.scrolled {
+            background-color: blue;
+            height: 60px;
+            box-shadow: 0 4px 12px var(--border);
+        }
+    }
+
+    &__container {
+        ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+            li {
+                padding: 0.5rem;
+                color: red;
+            }
+        }
+    }
+}
