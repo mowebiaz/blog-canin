@@ -113,20 +113,27 @@ main {
     // margin-top: hauteur du header
     //max-width: 1280px;
     padding: 1rem;
+    
     @include md {
         padding: 2rem;
     }
     @include lg {
-        padding: 2rem;
+        padding: 1rem;
+        margin-top: 100px;
     }
     @include xl {
         padding: 3rem;
     }
 }
 
-/* .container {
-
-} */
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: 1rem;
+    @media screen and (min-width: $container-max-width) {
+        padding: 1.5rem;
+    }
+}
 
 input,
 button,
@@ -144,7 +151,6 @@ a {
 ul {
     list-style-type: disc;
     list-style-position: inside;
-    margin-left: 1rem;
 }
 
 hr {
