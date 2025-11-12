@@ -1,3 +1,5 @@
+import { ServicesCircle } from '@/components/ServicesCircle/ServicesCircle'
+
 export default function ServicesPage() {
   return (
     <main>
@@ -47,16 +49,22 @@ export default function ServicesPage() {
       </p>
 
       <h2> Zone couverte</h2>
-      <p> déjà sur la page d&apos;accueil: Intro : rayon d’action + pourquoi : réduire le stress, travailler “dans la vraie vie”.
-Carte (ou image statique) + liste alphabétique des communes.</p>
+      <p>
+        {' '}
+        déjà sur la page d&apos;accueil: Intro : rayon d’action + pourquoi :
+        réduire le stress, travailler “dans la vraie vie”. Carte (ou image
+        statique) + liste alphabétique des communes.
+      </p>
+      <p>faire une roue avec Grenoble au centre</p>
 
-<h2>FAQ</h2>
+      <ServicesCircle/>
+
+      <h2>FAQ</h2>
       <p>
         FAQ : “Quelle.visitMethodes utilisez-vous ?” → renforcement positif,
         respect du rythme “Combien de séances faut-il ?” → dépend objectif,
         bilan + plan “Vous déplacez-vous à [Commune] ?” → liste et frais
-        éventuels
-        FAQ (3) : paiement, durée, validité des packs.
+        éventuels FAQ (3) : paiement, durée, validité des packs.
       </p>
     </main>
   )
