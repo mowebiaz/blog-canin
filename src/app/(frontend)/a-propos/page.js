@@ -1,4 +1,4 @@
-export default function AProposPage() {
+export default function AproposPage() {
   return (
     <main>
       <h1>Qui suis-je ?</h1>
