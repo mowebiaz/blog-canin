@@ -11,26 +11,26 @@ export const PostHero: React.FC<{
   return (
     //relative -mt-[10.4rem] flex items-end
     <div className="posthero">
-        <div className="posthero__categories">
+
+        <h1 className="posthero__title">{title}</h1>
+
+                <div className="posthero__categories">
           {categories?.map((category, index) => {
             if (typeof category === 'object' && category !== null) {
               const { title: categoryTitle } = category
 
               const titleToUse = categoryTitle || 'Untitled category'
 
-              const isLast = index === categories.length - 1
 
               return (
-                <React.Fragment key={index}>
+                <span key={index}>
                   {titleToUse}
-                  {!isLast && <React.Fragment>, &nbsp;</React.Fragment>}
-                </React.Fragment>
+                </span>
               )
             }
             return null
           })}
         </div>
-        <h1 className="posthero__title">{title}</h1>
 
         {publishedAt && (
           <div className="posthero__date">

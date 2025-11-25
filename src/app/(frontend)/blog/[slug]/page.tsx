@@ -77,8 +77,7 @@ export default async function Post({ params: paramsPromise }: Args) {
         {draft && <LivePreviewListener />}
 
         <section>
-          {/*
-          <h1>{post.title}</h1>
+{/*           <h1>{post.title}</h1>
            {post.coverImage &&
           typeof post.coverImage === 'object' &&
           post.coverImage.url ? (
@@ -109,13 +108,13 @@ export default async function Post({ params: paramsPromise }: Args) {
           </section>
         )}
 
-        <p>Status: {post._status}</p>
+{/*         <p>Status: {post._status}</p>
         <p>
           posts liés:{' '}
           {post.relatedPosts && post.relatedPosts.length > 0
             ? post.relatedPosts.length
             : 'none'}
-        </p>
+        </p> */}
         <p>n° d&apos;id: {post.id}</p>
         <p>Crée le: {format(new Date(post.createdAt), 'dd/MM/yyyy')}</p>
         <p>Updated at: {format(new Date(post.updatedAt), 'dd/MM/yyyy')}</p>

@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as *;
+
 .article-card {
     position: relative;
     display: block;
@@ -67,7 +69,6 @@
         margin-bottom: 1rem;
         font-size: 0.9rem;
         letter-spacing: 0.04em;
-        color: var(--background);
         line-height: 1.4;
         position: absolute;
         top: 1rem;
@@ -75,17 +76,14 @@
         width: 100%;
 
         div {
-          max-width: 50%;
+            max-width: 50%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             gap: 0.5rem;
 
             span {
-                background-color: var(--primary);
-                padding: 0.2rem 0.5rem;
-                border-radius: 5px;
-                font-weight: 500;
+                @include badge;
             }
         }
     }

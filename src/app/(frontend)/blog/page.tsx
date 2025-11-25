@@ -4,6 +4,8 @@ import { getPayload } from 'payload'
 import { ArticleCardContainer } from '@/components/ArticleCardContainer/ArticleCardContainer'
 import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
+import { Search } from '@/components/Search/Search'
+import Link from 'next/link'
 
 const postPerPage = 6
 
@@ -34,6 +36,7 @@ export default async function Posts() {
   return (
     <main>
       <h1>Tous les Posts</h1>
+      <Link href="/search">Rechercher un article</Link>
       <p>
         H1 + intro courte (à qui s’adresse le blog). 
         Filtres (catégories :  Éducation, Matériel, Vie quotidienne, Légal, Balades locales). 
@@ -53,26 +56,6 @@ export default async function Posts() {
         />
       )}
 
-      {/*       <p>Nombre de posts: {posts.totalDocs}</p>
-      <p>Page actuelle: {posts.page}</p>
-      <p>Nombre de pages: {posts.totalPages}</p>
-      <p>Nombre de posts par page: {posts.limit}</p>
-      <p>
-        Nombre de posts restants:{' '}
-        {posts.totalDocs - (posts.page - 1) * posts.limit}
-      </p>
-      <p>Nombre de posts affichés: {posts.docs.length}</p>
-      <p>Nombre de posts filtrés: {posts.totalDocs - posts.docs.length}</p>
-      <p>Nombre de posts triés: {posts.totalDocs}</p>
-      <p>Nombre de posts non triés: {posts.docs.length}</p>
-      <p>
-        Nombre de posts uniques:{' '}
-        {new Set(posts.docs.map((post) => post.slug)).size}
-      </p>
-      <p>
-        Nombre de posts dupliqués:{' '}
-        {posts.docs.length - new Set(posts.docs.map((post) => post.slug)).size}
-      </p> */}
     </main>
   )
 }

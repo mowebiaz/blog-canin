@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as *;
+
 .posthero {
     display: flex;
     flex-direction: column;
@@ -8,15 +10,19 @@
     border-radius: 10px;
     background-color: var(--secondary);
     color: var(--accent-foreground);
-  
+
     &__date {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.875rem;
-      color: var(--muted-foreground);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        font-size: 1rem;
     }
 
-
-
+    &__categories {
+        display: flex;
+        gap: 0.5rem;
+        span {
+            @include badge;
+        }
+    }
 }

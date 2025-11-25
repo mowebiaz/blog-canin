@@ -1,26 +1,33 @@
 @use './variables' as *;
 
 @mixin sm {
-  @media (min-width: $breakpoint-sm) {
-    @content;
-  }
+    @media (min-width: $breakpoint-sm) {
+        @content;
+    }
 }
 
 @mixin md {
-  @media (min-width: $breakpoint-md) {
-    @content;
-  }
+    @media (min-width: $breakpoint-md) {
+        @content;
+    }
 }
 
 @mixin lg {
-  @media (min-width: $breakpoint-lg) {
-    @content;
-  }
+    @media (min-width: $breakpoint-lg) {
+        @content;
+    }
 }
 
 @mixin xl {
-  @media (min-width: $breakpoint-xl) {
-    @content;
-  }
+    @media (min-width: $breakpoint-xl) {
+        @content;
+    }
 }
 
+@mixin badge {
+    background-color: var(--primary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    color: var(--background);
+}
