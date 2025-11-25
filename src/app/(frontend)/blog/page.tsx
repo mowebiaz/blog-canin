@@ -27,6 +27,7 @@ export default async function Posts() {
       id: true,
       coverImage: true,
       meta: true,
+      publishedAt: true,
     },
   })
 

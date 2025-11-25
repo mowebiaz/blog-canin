@@ -1,95 +1,112 @@
 .article-card {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: var(--card);
-  border:1px solid var(--secondary-30);
-  border-radius: 0.75rem; 
-  color: var(--foreground);
-  transition: all 160ms ease-in-out;
-  will-change: transform;
-
-  // état "cliquable" (le hook rend toute la carte cliquable)
-  &,
-  & * {
-    cursor: pointer;
-  }
-
-  &:hover,
-  &:focus-within {
-    background-color: var(--secondary-20);
-    border: 1px solid var(--secondary-50);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  // accessibilité
-  &:focus-within .card__link {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
-    border-radius: 0.25rem;
-  }
-
-  // zone média (image)
-  &__media {
     position: relative;
+    display: block;
     width: 100%;
-    background: var(--muted);
+    height: 100%;
+    overflow: hidden;
+    background-color: var(--card);
+    border: 1px solid var(--secondary-30);
+    border-radius: 0.75rem;
+    color: var(--foreground);
+    transition: all 160ms ease-in-out;
+    will-change: transform;
 
-    // Garde un ratio propre si l'image tarde à charger
-    aspect-ratio: 16 / 9;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;  
-      object-position: center;
+    // état "cliquable" (le hook rend toute la carte cliquable)
+    &,
+    & * {
+        cursor: pointer;
     }
 
-    // placeholder "No image"
-    .no-image {
-      display: grid;
-      place-items: center;
-      font-size: 0.875rem;
-      color: var(--muted-foreground);
-      padding: 2rem;
-      aspect-ratio: 16 / 9;
+    &:hover,
+    &:focus-within {
+        background-color: var(--secondary-20);
+        border: 1px solid var(--secondary-50);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-  }
 
-  &__content {
-    padding: 1rem; 
-  }
-
-  &__categories {
-    margin-bottom: 1rem; 
-    font-size: 0.875rem; 
-    letter-spacing: 0.04em;
-    color: var(--muted-foreground);
-    line-height: 1.4;
-    // gestion de la liste "A, B, C"
-    & > * {
-      display: inline;
+    // accessibilité
+    &:focus-within .card__link {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+        border-radius: 0.25rem;
     }
-  }
 
-  &__title {
-    margin: 0 0 0.25rem 0;
-    line-height: 1.2;
-    font-weight: 700;
-    //font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem);
-  }
+    // zone média (image)
+    &__media {
+        position: relative;
+        width: 100%;
+        background: var(--muted);
 
+        // Garde un ratio propre si l'image tarde à charger
+        aspect-ratio: 16 / 9;
 
-  &__desc {
-    margin-top: 0.5rem; // mt-2
-    color: hsl(from var(--card-foreground) h s l / 0.9);
-    
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
 
-    p {
-      margin: 0;
+        // placeholder "No image"
+        .no-image {
+            display: grid;
+            place-items: center;
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+            padding: 2rem;
+            aspect-ratio: 16 / 9;
+        }
     }
-  }
+
+    &__content {
+        padding: 1rem;
+    }
+
+    &__categories {
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 0.04em;
+        color: var(--background);
+        line-height: 1.4;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        width: 100%;
+
+        div {
+          max-width: 50%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            span {
+                background-color: var(--primary);
+                padding: 0.2rem 0.5rem;
+                border-radius: 5px;
+                font-weight: 500;
+            }
+        }
+    }
+
+    &__title {
+        margin: 0 0 0.25rem 0;
+        line-height: 1.2;
+        font-weight: 700;
+        //font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.35rem);
+    }
+
+    &__desc {
+        margin-top: 0.5rem; // mt-2
+        color: hsl(from var(--card-foreground) h s l / 0.9);
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__date {
+        font-size: 0.875rem;
+    }
 }
