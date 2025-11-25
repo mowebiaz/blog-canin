@@ -1,3 +1,8 @@
+#home  {
+  margin: 0;
+  padding: 0;
+}
+
 .color-effect {
     color: var(--primary);
 }
@@ -8,7 +13,7 @@
     color: transparent;
 }
 
-.secondary-button {
+/* .secondary-button {
     padding: 0.5em 2em;
     background-color: var(--secondary-30);
     color: var(--foreground);
@@ -22,9 +27,9 @@
     &:hover {
         transform: translate(0, -3px);
     }
-}
+} */
 
-.primary-button {
+/* .primary-button {
     padding: 0.5em 2em;
     background-color: var(--primary);
     color: rgb(249, 246, 241);
@@ -40,4 +45,4 @@
         transform: translate(0, -3px);
         box-shadow: 0 20px 80px -10px var(--primary);
     }
-}
+} */

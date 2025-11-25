@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import './page.scss'
+import { HomeHero } from '@/components/HomeHero/HomeHero'
 
 export default function HomePage() {
   return (
-    <main>
+    <main id="home">
+      <HomeHero />
       <h1>Hero + Éducatrice canine positive à Grenoble + CTA</h1>
       <h1>
         Visualize Your <span className="color-effect">Colors</span> & <span className='font-effect'>Fonts</span> On a Real Site

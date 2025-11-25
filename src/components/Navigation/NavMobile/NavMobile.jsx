@@ -40,7 +40,7 @@ export const NavMobile = () => {
       <Hamburger
         direction="left"
         // duration
-        color="#8b4513"
+        color="white"
         toggle={toggleMenu}
         toggled={isOpen}
         distance="sm"
