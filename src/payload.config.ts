@@ -17,6 +17,7 @@ import { Posts } from './collections/Posts/Posts'
 import { Users } from './collections/Users/config'
 import { defaultLexical } from './components/RichText/defaultLexical'
 import { beforeSyncWithSearch } from './components/Search/beforeSync'
+import { searchFields } from './components/Search/fieldOverrides'
 //import { Logos } from './globals/Logos'
 import { getServerSideURL } from './utilities/getURL'
 
@@ -212,11 +213,9 @@ Logo: {
         admin: {
           group: 'Search',
         },
-        fields: ({ defaultFields }) => [
-          ...defaultFields,
-          { name: 'excerpt', type: 'textarea' },
-          { name: 'slug', type: 'text' },
-        ],
+        fields: ({ defaultFields }) => {
+          return [...defaultFields, ...searchFields]
+        },
       },
       beforeSync: beforeSyncWithSearch,
       syncDrafts: false, // default is false
