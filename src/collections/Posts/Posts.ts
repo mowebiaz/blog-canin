@@ -11,6 +11,7 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
 //import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
 //import { TableOfContent } from '@/blocks/TableOfContent/config'
 import { slugField } from '@/components/Admin/Fields/slug/slugField'
@@ -19,7 +20,6 @@ import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import editor from '../Users/access/editor'
 //import { afterErrorHook } from './hooks'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -41,7 +41,6 @@ export const Posts: CollectionConfig = {
     title: true,
     slug: true,
     categories: true,
-    
   }, */
 
   trash: true,
@@ -98,6 +97,7 @@ export const Posts: CollectionConfig = {
   fields: [
     {
       name: 'title',
+      label: 'Titre',
       type: 'text',
       required: true,
     },
@@ -111,37 +111,28 @@ export const Posts: CollectionConfig = {
             {
               name: 'coverImage',
               type: 'upload',
-              label: 'Image de couverture du post',
+              label: 'Image de couverture',
               relationTo: 'media',
               required: false,
-              admin: {
-                description: 'Image de couverture du post',
-                /*                 components: {
-                  Label: {
-                    path: 'src/components/Admin/Fields/Label.tsx',
-                    exportName: 'CustomTextLabel',
-                  }
-                } */
-              },
             },
             {
               name: 'excerpt',
+              label: "Résumé de l'article",
               type: 'textarea',
-              admin: {
-                description: "Résumé de l'article",
-              },
             },
             {
               name: 'plaintext',
-              type: 'text',
+              label: "Description de l'article",
+              type: 'textarea',
               required: true,
               admin: {
-                description: "Texte brut de l'article, utilisé pour le SEO",
+                description: "Utilisée pour le SEO et les vignettes d'articles",
               },
             },
 
             {
               name: 'content',
+              label: 'Contenu',
               type: 'richText',
 
               // Pass the Lexical editor here and override base settings as necessary
@@ -170,14 +161,6 @@ export const Posts: CollectionConfig = {
                     blocks: [MediaBlock],
                   }),
                 ],
-
-                /*features: ({ rootFeatures }) => {
-                  console.log(
-                    'FEATURE KEYS:',
-                    rootFeatures.map((f) => f.key),
-                  )
-                  return rootFeatures
-                }, */
               }),
             },
           ],
@@ -187,12 +170,14 @@ export const Posts: CollectionConfig = {
           fields: [
             {
               name: 'categories',
+              label: 'Catégories',
               type: 'relationship',
               relationTo: 'categories',
               hasMany: true,
             },
             {
               name: 'relatedPosts',
+              label: 'Articles liés',
               type: 'relationship',
 
               filterOptions: ({ id }) => {
@@ -208,6 +193,7 @@ export const Posts: CollectionConfig = {
             },
             {
               name: 'publishedAt',
+              label: 'Date de publication',
               type: 'date',
               admin: {
                 date: {

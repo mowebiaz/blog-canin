@@ -140,16 +140,10 @@ export interface Post {
   title: string;
   slug: string;
   slugLock?: boolean | null;
-  /**
-   * Image de couverture du post
-   */
   coverImage?: (number | null) | Media;
-  /**
-   * Résumé de l'article
-   */
   excerpt?: string | null;
   /**
-   * Texte brut de l'article, utilisé pour le SEO
+   * Utilisée pour le SEO et les vignettes d'articles
    */
   plaintext: string;
   content?: {
