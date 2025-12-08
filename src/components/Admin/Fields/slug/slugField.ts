@@ -29,6 +29,7 @@ export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
     index: true,
     label: 'Slug *',
     required: true,
+    //defaultValue: 'slugpar default',
     ...(slugOverrides || {}),
     hooks: {
       // Kept this in for hook or API based updates

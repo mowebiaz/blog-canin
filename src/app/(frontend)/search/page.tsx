@@ -49,6 +49,7 @@ export default async function SearchPage(props: {
       <h1>Search</h1>
       <Search />
       {query && <h2>Résultats pour &quot;{query}&quot;</h2>}
+      <p>retourner à la liste de tous les articles</p>
       <PageRange
         collection="posts"
         limit={searchResults.limit}

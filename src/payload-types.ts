@@ -96,6 +96,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
+  fallbackLocale: null;
   globals: {};
   globalsSelect: {};
   locale: null;
@@ -291,6 +292,8 @@ export interface Media {
 export interface Category {
   id: number;
   title: string;
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -715,6 +718,8 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface CategoriesSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }
