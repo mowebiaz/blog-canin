@@ -1,10 +1,10 @@
 import { AdminBar } from '@/components/AdminBar/AdminBar'
 import Favicon from '@/components/Favicon/Favicon'
 import { Footer } from '@/components/Footer/Footer'
+import { Navigation } from '@/components/Navigation/Navigation'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { ThemeProvider } from '@/providers/Theme/ThemeProvider'
-import { Navigation } from '@/components/Navigation/Navigation'
-import { playfair, raleway } from '@/styles/fonts'
+import { nunito, openSans } from '@/styles/fonts'
 import '@/styles/globals.scss'
 
 export const metadata = {
@@ -37,7 +37,7 @@ export default function RootLayout({
       <head>
         <InitTheme />
       </head>
-      <body className={`${playfair.variable} ${raleway.variable}`}>
+      <body className={`${openSans.variable} ${nunito.variable}`}>
         <ThemeProvider>
           <Favicon />
           <Navigation />

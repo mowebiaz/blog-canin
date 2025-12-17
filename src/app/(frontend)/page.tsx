@@ -1,18 +1,32 @@
 import Link from 'next/link'
-import './page.scss'
 import { HomeHero } from '@/components/HomeHero/HomeHero'
+import './page.scss'
 
 export default function HomePage() {
   return (
     <main id="home">
       <HomeHero />
-      <h1>Hero + Éducatrice canine positive à Grenoble + CTA</h1>
+      <p className='tagline'>
+        Comprendre, guider, grandir{' '}
+        <span className="color-effect">ensemble</span>
+      </p>
+
       <h1>
-        Visualize Your <span className="color-effect">Colors</span> & <span className='font-effect'>Fonts</span> On a Real Site
-        </h1>
-        <Link href="/blog" className='secondary-button'>How does it work?</Link>
-        <Link href="/blog" className='primary-button'>How does it work?</Link>
-      <h2>Comprendre, guider, grandir ensemble</h2>
+        Visualize Your <span className="color-effect">Colors</span> &{' '}
+        <span className="font-effect">Fonts</span> On a Real Site
+      </h1>
+      <Link
+        href="/blog"
+        className="secondary-button"
+      >
+        How does it work?
+      </Link>
+      <Link
+        href="/blog"
+        className="primary-button"
+      >
+        How does it work?
+      </Link>
       <p>
         Accroche (2-3 phrases) : “J’aide les humains… méthodes bienveillantes…
         séances à domicile ou en extérieur.”
@@ -25,16 +39,16 @@ export default function HomePage() {
       </ul>
       <h2>zone couverte</h2>
 
-      <section>
-        plus de xx chiens accompagné
-        xxxxx
-      </section>
+      <section>plus de xx chiens accompagné xxxxx</section>
       <h2>Ce qu&apos;ils disent de moi / avis</h2>
       <p>
         Avis : 6–9 témoignages courts (photo chien si possible: photo/nom du
         chien + 1 phrase
       </p>
-      <p>Grille de 6–9 témoignages courts, chacun avec : prénom, chien, avant/après en une phrase.</p>
+      <p>
+        Grille de 6–9 témoignages courts, chacun avec : prénom, chien,
+        avant/après en une phrase.
+      </p>
       <button>CTA : Boutons “Demander un devis” / “Voir les tarifs”</button>
       <h2>Contact ?</h2>
 
