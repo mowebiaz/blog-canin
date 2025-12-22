@@ -28,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
     <Comp
       ref={ref}
       className={[
-        'btn',
+        'btn-base',
         variant && `btn--${variant}`,
         props.disabled && 'is-disabled',
         className,

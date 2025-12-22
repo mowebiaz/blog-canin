@@ -16,18 +16,19 @@ export const HomeHero = () => {
       <div className="home-hero__content">
         <h1 className="home-hero__title">Éducatrice canine à Grenoble </h1>
         <div className="home-hero__cta">
+                    <Link
+            className="btn btn--primary"
+            href="/contact"
+          >
+            Me contacter
+          </Link>
           <Link
             className="btn btn--secondary"
-            href="/"
+            href="/services"
           >
-            En savoir plus
+            Mes services
           </Link>
-          <Link
-            className="btn btn--primary"
-            href="/"
-          >
-            En savoir plus
-          </Link>
+
         </div>
       </div>
     </div>
