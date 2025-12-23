@@ -1,0 +1,23 @@
+.home-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  border: 1px solid var(--secondary-50);
+  overflow: hidden;
+  //box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  h3 {
+    background-color: var(--card);
+    padding: 0.5rem;
+    //border-bottom: 1px solid var(--secondary-20);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  }
+
+  &__desc {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+  }
+}

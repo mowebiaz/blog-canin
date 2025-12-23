@@ -1,22 +1,66 @@
-#home  {
-  margin: 0;
-  padding: 0;
+@use '@/styles/mixins' as *;
+
+#home {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 1rem;
+    @include md {
+        padding: 2rem;
+    }
+    @include lg {
+        padding: 2rem;
+    }
+    @include xl {
+        padding: 3rem;
+    }
+}
+
+.article-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+
+    @include sm {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    @include lg {
+        grid-template-columns: repeat(12, 1fr);
+        gap: 2rem;
+    }
+    .home-card {
+        grid-column: span 4;
+    }
 }
 
 .color-effect {
     color: var(--primary);
+    //text-transform:uppercase;
 }
 
-.font-effect {
+/* .font-effect {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--primary);
     color: transparent;
-}
+} */
 
 .tagline {
     font-weight: 700;
     font-size: 2rem;
-    margin-top: 1rem;
+    //     margin-top: 1rem;
     text-align: center;
-    font-family:  var(--font-nunito);
+    margin: 1rem auto;
+    font-family: var(--font-nunito);
+    line-height: 1.2;
+}
+
+.centered {
+    margin-bottom: 0.5rem;
+    @include xl {
+        text-align: center;
+    }
 }
