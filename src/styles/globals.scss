@@ -93,14 +93,6 @@ main {
     }
 }
 
-.container {
-    max-width: $container-max-width;
-    margin: 0 auto;
-    padding: 1rem;
-    @media screen and (min-width: $container-max-width) {
-        padding: 1.5rem;
-    }
-}
 
 input,
 button,
@@ -121,6 +113,14 @@ ul {
 hr {
     border-top: 1px solid red;
     margin: 1.5rem 0;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-accent {
+    font-weight: 700;
 }
 
 blockquote {

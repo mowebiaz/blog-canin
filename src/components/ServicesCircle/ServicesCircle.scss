@@ -1,73 +1,148 @@
-.radial {
-    position: relative;
-    width: var(--size);
-    aspect-ratio: 1;
-    margin: auto;
-}
+@use '@/styles/mixins' as *;
 
-.hub {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
+.services-circle {
     display: grid;
-    place-items: center;
-    min-width: var(--hub);
-    min-height: var(--hub);
-    padding: 0.5rem 0.8rem;
-    border-radius: 999px;
-    background: #0b132b;
-    color: #e0faec;
-    font-weight: 600;
-    white-space: nowrap;
-    z-index: 2;
-}
+    gap: 1.25rem;
+    max-width: 64rem;
+    margin: 2rem auto;
+    text-align: left;
 
-/* Un "slot" polaire pour chaque ville */
-.city {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    /* chaîne de placement en coordonnées polaires */
-    transform: rotate(var(--deg)) translateY(calc(-1 * var(--r)));
-    /* On ne remet PAS forcément à niveau l’orientation ici
-     pour que l’edge reste radial ; le label sera re-redressé */
-}
+    @include md {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-/* La liaison (du centre jusqu’au nœud) */
-.city .edge {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% 0; /* centré horizontalement */
-    width: 2px;
-    height: var(--r);
-    background: #cfd8e3;
-    transform-origin: 50% 0; /* étire vers l’extérieur */
-}
+    .card {
+        background-color: rgb(0 0 0 / 40%);
+        padding: 1.5rem;
+        position: relative;
 
-/* Le label, redressé pour rester horizontal */
-.city .label {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    translate: -50% -100%; /* place le label juste au bout de l’edge */
-    transform: rotate(calc(-1 * var(--deg)));
-    display: inline-block;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 999px;
-    padding: 0.35rem 0.7rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    white-space: nowrap; /* largeur variable ok */
-    font-size: 0.95rem;
-}
+        &__content {
+            position: relative;
+            padding-left: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
 
-/* Responsive : le rayon peut être en % */
-@media (max-width: 640px) {
-    .radial {
-        --size: 320px;
-        --hub: 36px;
+            h2 {
+                color: whitesmoke; //à revoir
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                //transition: 0.8s; // à revoir
+                margin-bottom: 1rem;
+            }
+
+            button {
+                margin-top: auto;
+            }
+        }
+
+        &:hover {
+            // à revoir
+            box-shadow: 0.063rem 0.063rem 1.25rem 0.375rem rgb(0 0 0 / 53%);
+        }
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            transition: ease-in-out 0.3s; // à revoir
+            z-index: 0;
+            background-color: var(--secondary);
+        }
+
+        &:nth-child(1) {
+            @media screen and (min-width: 992px) {
+                padding-right: calc(6.25rem + 7.5vw);
+            }
+            &::before {
+                bottom: 0;
+                right: 0;
+                clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
+            }
+        }
+
+        &:nth-child(2) {
+            @media screen and (min-width: 992px) {
+                padding-left: calc(6.25rem + 7.5vw);
+            }
+            &::before {
+                bottom: 0;
+                left: 0;
+                clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%);
+            }
+        }
+
+        &:nth-child(3) {
+            @media screen and (min-width: 992px) {
+                padding-right: calc(6.25rem + 7.5vw);
+            }
+
+            &::before {
+                top: 0;
+                right: 0;
+                clip-path: circle(calc(6.25rem + 7.5vw) at 100% 0%);
+            }
+        }
+
+        &:nth-child(4) {
+            @media screen and (min-width: 992px) {
+                padding-left: calc(6.25rem + 7.5vw);
+            }
+            &::before {
+                top: 0;
+                left: 0;
+                clip-path: circle(calc(6.25rem + 7.5vw) at 0% 0%);
+            }
+        }
+
+        &:hover::before {
+            clip-path: circle(110vw at 100% 100%);
+        }
+
+/*         &:hover p {
+            color: #fff;
+        } */
+    }
+
+    .card__circle {
+        @media screen and (min-width: 992px) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    }
+    .card:nth-child(1) .card__circle {
+        background: url('https://images.unsplash.com/photo-1587440871875-191322ee64b0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            no-repeat 50% 50% / cover;
+        bottom: 0;
+        right: 0;
+        clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
+    }
+
+    .card:nth-child(2) .card__circle {
+        background: url('https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            no-repeat 50% 50% / cover;
+        bottom: 0;
+        left: 0;
+        clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%);
+    }
+    .card:nth-child(3) .card__circle {
+        background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            no-repeat 50% 50% / cover;
+        top: 0;
+        right: 0;
+        clip-path: circle(calc(6.25rem + 7.5vw) at 100% 0%);
+    }
+
+    .card:nth-child(4) .card__circle {
+        background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')
+            no-repeat 50% 50% / cover;
+        top: 0;
+        left: 0;
+        clip-path: circle(calc(6.25rem + 7.5vw) at 0% 0%);
     }
 }

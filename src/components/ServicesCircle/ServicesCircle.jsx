@@ -2,52 +2,57 @@ import './ServicesCircle.scss'
 
 export const ServicesCircle = () => {
   return (
-    <div
-      className="radial"
-      style={{ '--size': '520px', '--hub': '40px' }}
-    >
-      <div className="hub">Grenoble</div>
-      <div
-        className="city"
-        style={{ '--deg': '10deg', '--r': '180px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Meylan</span>
+    <div className="services-circle">
+      <div className="card">
+        <div className="card__circle"></div>
+        <div className="card__content">
+          <h2>Bilan comportemental</h2>
+          <p>
+            Une première séance pour comprendre la situation, identifier les
+            déclencheurs et construire un plan clair.
+          </p>
+          <button className="btn btn--primary">Découvrir le bilan</button>
+        </div>
+        <div className="card__icon"></div>
       </div>
-      <div
-        className="city"
-        style={{ '--deg': '55deg', '--r': '220px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Crolles</span>
+
+      <div className="card">
+        <div className="card__circle"></div>
+        <div className="card__content">
+          <h2>Séances individuelles</h2>
+          <p>
+            On travaille sur le concret : marche en laisse, rappel, gestion des
+            émotions, calme à la maison…
+          </p>
+          <button className="btn btn--primary">Voir les séances</button>
+        </div>
+        <div className="card__icon"></div>
       </div>
-      <div
-        className="city"
-        style={{ '--deg': '110deg', '--r': '140px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Échirolles</span>
+
+      <div className="card">
+        <div className="card__circle"></div>
+        <div className="card__content">
+          <h2>Balades éducatives</h2>
+          <p>
+            Pour apprendre à observer, garder la distance, se détendre et
+            progresser en extérieur (petits groupes).
+          </p>
+          <button className="btn btn--primary">Voir les balades</button>
+        </div>
+        <div className="card__icon"></div>
       </div>
-      <div
-        className="city"
-        style={{ '--deg': '160deg', '--r': '240px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Vif</span>
-      </div>
-      <div
-        className="city"
-        style={{ '--deg': '210deg', '--r': '200px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Seyssins</span>
-      </div>
-      <div
-        className="city"
-        style={{ '--deg': '300deg', '--r': '170px' }}
-      >
-        <span className="edge"></span>
-        <span className="label">Voiron</span>
+
+      <div className="card">
+        <div className="card__circle"></div>
+        <div className="card__content">
+          <h2>Et plus encore !</h2>
+          <p>
+            Séances collectives, garde à domicile et visites en votre absence
+            (sur devis).
+          </p>
+          <button className="btn btn--primary">Voir tous les services</button>
+        </div>
+        <div className="card__icon"></div>
       </div>
     </div>
   )

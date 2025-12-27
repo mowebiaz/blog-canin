@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { HomeCard } from '@/components/HomeCard/HomeCard'
 import { HomeHero } from '@/components/HomeHero/HomeHero'
+import { ServicesCircle } from '@/components/ServicesCircle/ServicesCircle'
 import './page.scss'
 
 const cardList = [
@@ -74,25 +75,7 @@ export default function HomePage() {
             On avance étape par étape, à ton rythme, avec des objectifs
             réalistes.
           </p>
-          <p>
-            Carte 1 — Bilan & plan d’action Titre : Bilan comportemental Texte :
-            Une première séance pour comprendre la situation, identifier les
-            déclencheurs et construire un plan clair. Tu repars avec : objectifs
-            + exercices + conseils du quotidien. Bouton : Découvrir le bilan
-          </p>
-          <p>
-            Carte 2 — Séances d’éducation Titre : Séances individuelles Texte :
-            On travaille sur le concret : marche en laisse, rappel, gestion des
-            émotions, calme à la maison… Option : à l’unité ou en pack selon les
-            besoins. Bouton : Voir les séances{' '}
-          </p>
-          <p>
-            Carte 3 — Socialisation & balades (si pertinent) Titre : Balades
-            éducatives / socialisation Texte : Pour apprendre à observer, garder
-            la distance, se détendre et progresser en extérieur (petits
-            groupes). Bouton : Voir les balades (Si l’éducateur n’en fait pas :
-            remplace par “Accompagnement chiot”)
-          </p>
+          <ServicesCircle />
         </section>
 
         <section>

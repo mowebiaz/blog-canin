@@ -1,4 +1,4 @@
-import { ServicesCircle } from '@/components/ServicesCircle/ServicesCircle'
+import { AreaCircle } from '@/components/AreaCircle/AreaCircle'
 
 export default function ServicesPage() {
   return (
@@ -57,7 +57,7 @@ export default function ServicesPage() {
       </p>
       <p>faire une roue avec Grenoble au centre</p>
 
-      <ServicesCircle/>
+      <AreaCircle/>
 
       <h2>FAQ</h2>
       <p>
