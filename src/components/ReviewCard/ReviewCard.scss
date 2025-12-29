@@ -1,0 +1,44 @@
+
+.review {
+    &__card {
+        border-radius: 0.75rem;
+        padding: 1.25rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+        height: 100%;
+        background-color: var(--primary-5);
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--primary-10);
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    &__image {
+        background-color: var(--primary);
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+    }
+
+    &__date {
+        font-size: 0.875rem;
+        opacity: 0.7;
+    }
+
+    &__rating {
+        font-size: 1.5rem;
+        white-space: nowrap;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+    }
+
+    &__text {
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+}

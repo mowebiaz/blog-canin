@@ -86,6 +86,8 @@ export default async function Page({
     <main>
       <h1>Posts</h1>
 
+      <p>Rechercher dans les articles</p>
+
       <CategoryFilters
         categories={categories}
         currentCategorySlug={categorySlug}

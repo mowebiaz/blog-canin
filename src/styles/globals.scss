@@ -15,11 +15,16 @@
     --background: hsl(38, 40%, 96%);
 
     --primary: hsl(339, 72%, 52%);
+    --primary-5: hsl(340, 69%, 95%);
+    --primary-10: hsl(339, 73%, 90%);
+    --primary-20: hsl(339, 73%, 80%);
+
     //--primary-foreground: hsl(0, 0%, 100%);
     --secondary: hsl(159, 58%, 57%);
     //--secondary-foreground: hsl(0, 0%, 100%);
+    --secondary-5: hsl(156, 60%, 95%);
     --secondary-10: hsl(159, 57%, 90%);
-    --secondary-20: hsl(159, 59%, 80%);
+    --secondary-20: hsla(159, 59%, 80%);
     --secondary-30: hsl(158, 58%, 85%);
     --secondary-50: hsl(159, 58%, 75%);
 
@@ -35,7 +40,11 @@
     --background: hsl(38, 40%, 4%);
 
     --primary: hsl(339, 72%, 48%);
+    --primary-5: hsl(339, 73%, 10%);
+    --primary-10: hsl(339, 71%, 15%);
+    --primary-20: hsl(339, 73%, 80%);
     --secondary: hsl(159, 58%, 43%);
+    --secondary-5: hsl(159, 57%, 10%);
     --secondary-10: hsl(160, 58%, 15%);
     --secondary-20: hsl(159, 58%, 25%);
     --secondary-30: hsl(159, 58%, 35%);
@@ -93,6 +102,18 @@ main {
     }
 }
 
+.container {
+    padding: 1rem;
+    @include md {
+        padding: 2rem;
+    }
+    @include lg {
+        padding: 2rem;
+    }
+    @include xl {
+        padding: 3rem;
+    }
+}
 
 input,
 button,
@@ -143,6 +164,12 @@ h1 {
 
 h2 {
     font-size: clamp(1.3rem, 1.127rem + 0.739vw, 1.6rem);
+/*     text-decoration: underline;
+    text-decoration-thickness: 0.35em;
+    text-decoration-color: hsl(339, 72%, 48%, 0.7);
+    text-underline-offset: 0.1em;
+    text-decoration-skip-ink: none;
+    margin-bottom: 1rem; */
     //color: hsla(0, 0%, 20%, 1);
     //margin-top: 1rem;
 }

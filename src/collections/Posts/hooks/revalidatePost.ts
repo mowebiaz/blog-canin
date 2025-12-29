@@ -1,6 +1,6 @@
-import { Post } from '@/payload-types'
 import { revalidatePath, revalidateTag } from 'next/cache'
 import { CollectionAfterChangeHook, CollectionAfterDeleteHook } from 'payload'
+import { Post } from '@/payload-types'
 
 export const revalidatePost: CollectionAfterChangeHook<Post> = ({
   doc,
@@ -15,6 +15,7 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
 
       revalidatePath(path)
       revalidateTag('posts-sitemap')
+      revalidateTag('home-last-posts')
     }
     // If the post was previously published, we need to revalidate the old path
     if (previousDoc._status === 'published' && doc._status !== 'published') {
@@ -24,6 +25,7 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
 
       revalidatePath(oldPath)
       revalidateTag('posts-sitemap')
+      revalidateTag('home-last-posts')
     }
   }
   return doc
