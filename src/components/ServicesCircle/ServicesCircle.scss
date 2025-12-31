@@ -25,7 +25,7 @@
             height: 100%;
 
             h3 {
-                color: var(--foreground); 
+                color: var(--foreground);
                 margin-bottom: 0.5rem;
                 line-height: 1.2;
             }
@@ -38,8 +38,7 @@
             button {
                 margin-top: auto;
                 border: 1px solid var(--secondary-50);
-                                transition: 0.3s;
-
+                transition: 0.3s;
             }
         }
 
@@ -107,19 +106,19 @@
             clip-path: circle(110vw at 100% 100%);
         }
 
-         &:hover h3 {
-            color: #fff;
-        } 
+        &:hover h3 {
+            color: var(--background);
+        }
 
-            &:hover p {
-                color: var(--background);
-            }
+        &:hover p {
+            color: var(--background);
+        }
 
-            &:hover button {
-                background-color: var(--secondary-30);
-                color: var(--foreground);
-                border: 1px solid transparent;
-            }
+        &:hover button {
+            background-color: var(--secondary-30);
+            color: var(--foreground);
+            border: 1px solid transparent;
+        }
     }
 
     .card__circle {

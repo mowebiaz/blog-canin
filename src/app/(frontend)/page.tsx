@@ -48,7 +48,7 @@ export default async function HomePage() {
         <div>
           <p className="tagline">
             Comprendre, Guider, Grandir{' '}
-            <span className="color-effect">ensemble</span>
+            <span className="color-effect color-effect--underlined">ensemble</span>
           </p>
           <p className="centered">
             Des séances concrètes, sans culpabiliser, pour retrouver un
