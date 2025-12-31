@@ -4,7 +4,7 @@ export const AreaCircle = () => {
   return (
     <div
       className="radial"
-      style={{ '--size': '520px', '--hub': '40px' }}
+      //style={{ '--size': '520px', '--hub': '40px' }}
     >
       <div className="hub">Grenoble</div>
       <div
@@ -16,11 +16,20 @@ export const AreaCircle = () => {
       </div>
       <div
         className="city"
-        style={{ '--deg': '55deg', '--r': '220px' }}
+        style={{ '--deg': '55deg', '--r': '150px' }}
       >
         <span className="edge"></span>
         <span className="label">Crolles</span>
       </div>
+
+      <div
+        className="city"
+        style={{ '--deg': '30deg', '--r': '200px' }}
+      >
+        <span className="edge"></span>
+        <span className="label">Domène</span>
+      </div>
+
       <div
         className="city"
         style={{ '--deg': '110deg', '--r': '140px' }}

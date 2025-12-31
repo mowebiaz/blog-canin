@@ -1,4 +1,7 @@
+@use '@/styles/mixins' as *;
+
 .radial {
+    display: none;
     position: relative;
     width: var(--size);
     aspect-ratio: 1;
@@ -16,8 +19,8 @@
     min-height: var(--hub);
     padding: 0.5rem 0.8rem;
     border-radius: 999px;
-    background: #0b132b;
-    color: #e0faec;
+    background: var(--foreground);
+    color: var(--background);
     font-weight: 600;
     white-space: nowrap;
     z-index: 2;
@@ -43,7 +46,7 @@
     translate: -50% 0; /* centré horizontalement */
     width: 2px;
     height: var(--r);
-    background: #cfd8e3;
+    background: var(--secondary-20);
     transform-origin: 50% 0; /* étire vers l’extérieur */
 }
 
@@ -55,7 +58,8 @@
     translate: -50% -100%; /* place le label juste au bout de l’edge */
     transform: rotate(calc(-1 * var(--deg)));
     display: inline-block;
-    background: #fff;
+    background: var(--primary-20);
+    color: var(--foreground);
     border: 1px solid #e5e7eb;
     border-radius: 999px;
     padding: 0.35rem 0.7rem;
@@ -68,6 +72,14 @@
 @media (max-width: 640px) {
     .radial {
         --size: 320px;
+        --hub: 36px;
+    }
+}
+
+@include xl {
+    .radial {
+        display: block;
+        --size: 520px;
         --hub: 36px;
     }
 }

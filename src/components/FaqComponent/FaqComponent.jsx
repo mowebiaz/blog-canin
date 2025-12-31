@@ -7,9 +7,8 @@ import {
   DisclosurePanel,
   Heading,
 } from 'react-aria-components'
-import { FaCircleChevronRight } from 'react-icons/fa6'
+import { FaPlus } from 'react-icons/fa6'
 import './FaqComponent.scss'
-import { FaPlus } from "react-icons/fa6";
 
 export const FaqComponent = ({ className, items, ...props }) => (
   <DisclosureGroup
@@ -24,7 +23,7 @@ export const FaqComponent = ({ className, items, ...props }) => (
             className="disclosure-button"
           >
             <span>{item.question}</span>
-            <FaPlus size={25}/>
+            <FaPlus size={25} />
           </Button>
         </Heading>
         <DisclosurePanel>

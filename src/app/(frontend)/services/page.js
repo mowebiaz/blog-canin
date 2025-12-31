@@ -1,10 +1,12 @@
 import { AreaCircle } from '@/components/AreaCircle/AreaCircle'
 import { FaqComponent } from '@/components/FaqComponent/FaqComponent'
-import {faqServices} from '@/data/faqs'
+import { faqServices } from '@/data/faqs'
+import './Services.scss'
+import Link from 'next/link'
 
 export default function ServicesPage() {
   return (
-    <main>
+    <main id="services">
       <h1>Mes services d’éducation canine à Grenoble et alentours</h1>
 
       <div>
@@ -22,10 +24,14 @@ export default function ServicesPage() {
           <p>Pour avancer sur vos objectifs, à votre rythme.</p>
           <ul>
             <li>
-              Idéal pour : marche en laisse, rappel, sauts, mordillements,
-              gestion des émotions, solitude, voitures/vélos, etc.
+              <span className="text-accent">Idéal pour : </span>
+              marche en laisse, rappel, sauts, mordillements, gestion des
+              émotions, solitude, voitures/vélos, ...
             </li>
-            <li>Format : séance 1h (à domicile + extérieur selon besoin)</li>
+            <li>
+              <span className="text-accent">Format : </span>séance 1h (à
+              domicile + extérieur selon besoin)
+            </li>
             <li>
               Vous repartez avec : exercices simples, plan d’entraînement,
               ajustements personnalisés
@@ -39,10 +45,13 @@ export default function ServicesPage() {
           <p>Apprendre avec d’autres… sans se sentir débordé.</p>
           <ul>
             <li>
-              Idéal pour : socialisation encadrée, focus, marche en groupe,
-              auto-contrôle
+              <span className="text-accent">Idéal pour : </span>ocialisation
+              encadrée, focus, marche en groupe, auto-contrôle
             </li>
-            <li>Format : petit groupe, ambiance safe, exercices progressifs</li>
+            <li>
+              <span className="text-accent">Format : </span>petit groupe,
+              ambiance safe, exercices progressifs
+            </li>
             <li>
               Bonus : vous voyez que “vous n’êtes pas seul(e)” et vous
               progressez aussi sur la lecture canine
@@ -59,10 +68,14 @@ export default function ServicesPage() {
           </p>
           <ul>
             <li>
-              Pour : réactivité, agressivité, peurs, anxiété, aboiements,
-              destructions, cohabitation, adoption récente…
+              <span className="text-accent">Idéal pour : </span> réactivité,
+              agressivité, peurs, anxiété, aboiements, destructions,
+              cohabitation, adoption récente…
             </li>
-            <li>Format : 1h30–2h (observation + questions + plan d’action)</li>
+            <li>
+              <span className="text-accent">Format : </span> 1h30–2h
+              (observation + questions + plan d’action)
+            </li>
             <li>
               Objectif : comprendre le “pourquoi” + définir une stratégie
               réaliste
@@ -76,23 +89,35 @@ export default function ServicesPage() {
           <p>Une balade = un cours… mais en vrai.</p>
           <ul>
             <li>
-              Idéal pour : apprendre à gérer l’environnement (chiens, humains,
-              odeurs, vélos), travailler la marche, le calme, les croisements
+              <span className="text-accent">Idéal pour : </span> apprendre à
+              gérer l’environnement (chiens, humains, odeurs, vélos), travailler
+              la marche, le calme, les croisements
             </li>
-            <li>Format : 1h / petit groupe / parcours adapté</li>
+            <li>
+              <span className="text-accent">Format : </span> 1h / petit groupe /
+              parcours adapté
+            </li>
             <li>
               Résultat : des progrès transférables à vos balades quotidiennes
             </li>
           </ul>
           <p>CTA : “Participer à une balade”</p>
         </div>
-
-        <p>
-          💡 Vous ne savez pas quel service choisir ? Commencez par un bilan si
-          le comportement vous inquiète, ou une séance individuelle si vous avez
-          un objectif précis.
-        </p>
       </section>
+
+      <div className="note">
+        <h2>Et si on commençait par en parler ? </h2>
+        <p>
+
+        </p>
+        Si vous avez un doute, si vous ne
+        savez pas trop &quot;dans quelle case&quot; vous êtes, c’est normal. Le plus
+        simple, c’est souvent de faire un premier échange pour comprendre la
+        situation et voir ce qui serait le plus adapté : bilan comportemental,
+        séances individuelles, séances collectives, ou balades éducatives. 
+        < br/>
+        👉 <Link  href="/contact" className='link-router'>Contactez-moi</Link> et on fait le point ensemble.
+      </div>
 
       <section>
         <h2>Services annexes</h2>
@@ -169,13 +194,18 @@ export default function ServicesPage() {
           lieux de passage). Le lieux de rendez-vous est à définir ensemble
           selon l’objectif (calme / urbain / contrôlé)
         </p>
-        {/* <AreaCircle /> */}
+        <div className="maps">
+          <AreaCircle />
+          <p>map Google</p>
+        </div>
       </section>
 
       <section>
         <h2>Vos questions</h2>
-        <FaqComponent className="faq" items={faqServices} />
-
+        <FaqComponent
+          className="faq"
+          items={faqServices}
+        />
       </section>
     </main>
   )
