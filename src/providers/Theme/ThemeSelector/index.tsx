@@ -1,31 +1,14 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { useTheme } from '../ThemeProvider'
 import type { Theme } from '../constants'
+import { useTheme } from '../ThemeProvider'
 import './ThemeSelector.scss'
 
 export const ThemeSelector: React.FC = () => {
   const { theme, setTheme } = useTheme()
 
-  // État visuel du toggle. On se cale sur le thème effectif (Provider ou data-theme)
-  const [isDark, setIsDark] = useState<boolean | null>(null)
-
-  useEffect(() => {
-    // 1) si le Provider connaît déjà le thème, on l’utilise
-    if (theme) {
-      setIsDark(theme === 'dark')
-      return
-    }
-    // 2) sinon, on lit l’attribut déjà posé par InitTheme (aucun accès SSR)
-    if (typeof document !== 'undefined') {
-      const current = document.documentElement.getAttribute('data-theme') as Theme | null
-      if (current === 'dark' || current === 'light') setIsDark(current === 'dark')
-    }
-  }, [theme])
-
-  // Pendant la toute première frame, on évite un “saut” visuel
-  if (isDark === null) {
+  // Si jamais theme est undefined pendant l’hydratation (rare avec InitTheme), on évite un flash
+  if (!theme) {
     return (
       <button
         className="theme-toggle theme-toggle--loading"
@@ -35,11 +18,11 @@ export const ThemeSelector: React.FC = () => {
     )
   }
 
+  const isDark = theme === 'dark'
   const nextTheme: Theme = isDark ? 'light' : 'dark'
 
   const handleToggle = () => {
-    setTheme(nextTheme)        // écrit localStorage + data-theme via le Provider
-    setIsDark(!isDark)
+    setTheme(nextTheme) // écrit localStorage + data-theme via le Provider
   }
 
   return (
