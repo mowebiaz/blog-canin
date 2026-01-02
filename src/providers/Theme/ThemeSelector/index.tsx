@@ -1,5 +1,6 @@
 'use client'
 
+import { IoMoon, IoSunny } from 'react-icons/io5'
 import type { Theme } from '../constants'
 import { useTheme } from '../ThemeProvider'
 import './ThemeSelector.scss'
@@ -35,10 +36,24 @@ export const ThemeSelector: React.FC = () => {
       title={`Passer en thème ${nextTheme}`}
       onClick={handleToggle}
     >
+      <div
+        className={
+          isDark ? 'theme-toggle__label' : 'theme-toggle__label--active'
+        }
+      >
+        <IoSunny />
+      </div>
+
       <span className="theme-toggle__track">
         <span className="theme-toggle__thumb" />
       </span>
-      <span className="theme-toggle__label">{isDark ? 'Dark' : 'Light'}</span>
+      <div
+        className={
+          isDark ? 'theme-toggle__label--active' : 'theme-toggle__label'
+        }
+      >
+        <IoMoon />
+      </div>
     </button>
   )
 }
