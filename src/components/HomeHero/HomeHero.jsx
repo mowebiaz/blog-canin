@@ -11,12 +11,13 @@ export const HomeHero = () => {
           alt="hero"
           fill
           priority
+          sizes='100vw'
         />
       </div>
       <div className="home-hero__content">
         <h1 className="home-hero__title">Éducatrice canine à Grenoble </h1>
         <div className="home-hero__cta">
-                    <Link
+          <Link
             className="btn btn--primary"
             href="/contact"
           >
@@ -28,7 +29,6 @@ export const HomeHero = () => {
           >
             Mes services
           </Link>
-
         </div>
       </div>
     </div>

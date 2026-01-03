@@ -1,0 +1,30 @@
+.blog-toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.link-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  height: fit-content;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all ease 0.2s;
+  a {
+    opacity: 0.6;
+    transition: all ease 0.2s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}

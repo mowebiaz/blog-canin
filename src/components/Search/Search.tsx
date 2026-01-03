@@ -1,7 +1,8 @@
 'use client'
 
-import { useDebouncedCallback } from 'use-debounce'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useDebouncedCallback } from 'use-debounce'
+import './Search.scss'
 
 export const Search: React.FC = () => {
   const searchParams = useSearchParams()
@@ -24,6 +25,7 @@ export const Search: React.FC = () => {
       onSubmit={(e) => {
         e.preventDefault()
       }}
+      className='search-form'
     >
       <label
         htmlFor="search"
@@ -31,15 +33,18 @@ export const Search: React.FC = () => {
       >
         Search
       </label>
+
       <input
         type="search"
         id="search"
+        autoFocus={true}
         onChange={(e) => {
           handleSearch(e.target.value)
         }}
         placeholder="Search..."
         defaultValue={searchParams.get('query')?.toString()}
       />
+
       <button
         type="submit"
         className="sr-only"

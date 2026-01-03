@@ -40,7 +40,7 @@ export async function generateStaticParams() {
 
 type Args = { params: Promise<{ slug?: string }> }
 
-export default async function Post({ params: paramsPromise }: Args) {
+export default async function PostPage({ params: paramsPromise }: Args) {
   const { slug = '' } = await paramsPromise
   const { isEnabled: draft } = await draftMode()
   const url = '/blog/' + slug

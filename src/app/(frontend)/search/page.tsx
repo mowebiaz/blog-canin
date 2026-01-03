@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { CardPostData } from '@/components/ArticleCard/ArticleCard'
@@ -45,21 +46,22 @@ export default async function SearchPage(props: {
   })
 
   return (
-    <main>
-      <h1>Search</h1>
-      <Search />
-      {query && <h2>Résultats pour &quot;{query}&quot;</h2>}
-      <p>retourner à la liste de tous les articles</p>
-      <PageRange
-        collection="posts"
-        limit={searchResults.limit}
-        currentPage={searchResults.page}
-        totalDocs={searchResults.totalDocs}
-      />
-      {searchResults.totalDocs > 0 ? (
+    <main id="search-page">
+      <h1>Rechercher un article</h1>
+        <Link href="/blog">Tous les articles</Link>
+      <div>
+        <Search />
+        {query && <p>Résultats pour &quot;{query}&quot;</p>}
+        <PageRange
+          collection="posts"
+          limit={searchResults.limit}
+          currentPage={searchResults.page}
+          totalDocs={searchResults.totalDocs}
+        />
+      </div>
+
+      {searchResults.totalDocs > 0 && (
         <ArticleCardContainer posts={searchResults.docs as CardPostData[]} />
-      ) : (
-        <div>No result found</div>
       )}
       {searchResults.totalPages > 1 && searchResults.page && (
         <SearchPagination totalPages={searchResults.totalPages} />

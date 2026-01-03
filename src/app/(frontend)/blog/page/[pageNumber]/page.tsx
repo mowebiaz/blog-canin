@@ -1,14 +1,16 @@
 import { headers as getHeaders } from 'next/headers'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { ArticleCardContainer } from '@/components/ArticleCardContainer/ArticleCardContainer'
+import { CategoryFilters } from '@/components/CategoryFilters/CategoryFilters'
 import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
 import type { Category } from '@/payload-types'
-import { CategoryFilters } from '@/components/CategoryFilters/CategoryFilters'
-
+import './Blog.scss'
+import { IoIosSearch } from "react-icons/io";
 
 export const revalidate = 600
 const postPerPage = 6
@@ -20,7 +22,7 @@ type Args = {
   searchParams?: Promise<{ category?: string }>
 }
 
-export default async function Page({
+export default async function BlogPage({
   params: paramsPromise,
   searchParams: searchParamsPromise,
 }: Args) {
@@ -83,22 +85,32 @@ export default async function Page({
   }
 
   return (
-    <main>
-      <h1>Posts</h1>
+    <main id="blog">
+      <h1>Tous les articles ({posts.totalDocs})</h1>
 
-      <p>Rechercher dans les articles</p>
+      <div className="blog-toolbar">
+        <div>
+          <CategoryFilters
+            categories={categories}
+            currentCategorySlug={categorySlug}
+          />
 
-      <CategoryFilters
-        categories={categories}
-        currentCategorySlug={categorySlug}
-      />
+          <PageRange
+            collection="posts"
+            currentPage={posts.page}
+            limit={posts.limit}
+            totalDocs={posts.totalDocs}
+          />
+        </div>
 
-      <PageRange
-        collection="posts"
-        currentPage={posts.page}
-        limit={posts.limit}
-        totalDocs={posts.totalDocs}
-      />
+          <Link
+            href="/search"
+            className="link-search"
+          >
+            Rechercher un article
+            <IoIosSearch />
+          </Link>
+      </div>
 
       <ArticleCardContainer posts={posts.docs} />
 

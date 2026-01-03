@@ -33,6 +33,7 @@ export default function RootLayout({
     <html
       lang="fr"
       suppressHydrationWarning={true}
+      data-scroll-behavior="smooth"
     >
       <head>
         <InitTheme />
