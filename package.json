@@ -7,13 +7,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "dev:prod": "rm -rf .next && npm build && npm start",
+    "dev:prod": "rm -rf .next && npm run build && npm start",
     "lint": "eslint",
     "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
     "ci": "payload migrate && npm run build"
   },
   "dependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@payloadcms/admin-bar": "^3.63.0",
     "@payloadcms/db-vercel-postgres": "^3.63.0",
     "@payloadcms/live-preview-react": "^3.63.0",
@@ -30,7 +29,7 @@
     "graphql": "^16.12.0",
     "hamburger-react": "^2.5.2",
     "motion": "^12.23.24",
-    "next": "15.5.9",
+    "next": "^15.5.9",
     "payload": "^3.63.0",
     "react": "^19.2.0",
     "react-aria-components": "^1.13.0",
@@ -41,9 +40,11 @@
     "use-debounce": "^10.0.6"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cz-git": "^1.12.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "typescript": "^5"
