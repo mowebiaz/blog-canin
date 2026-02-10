@@ -1,20 +1,18 @@
-import type { CollectionSlug } from 'payload'
-import { getPayload } from 'payload'
-
 import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
-
-import configPromise from '@payload-config'
 import { NextRequest, NextResponse } from 'next/server'
+import configPromise from '@payload-config'
+import type { CollectionSlug, PayloadRequest } from 'payload'
+import { getPayload } from 'payload'
 
-export async function GET(request: NextRequest) {
+export async function GET(req: NextRequest) {
   const payload = await getPayload({ config: configPromise })
 
-  const url = new URL(request.url)
-  const path = url.searchParams.get('path')
-  const collection = url.searchParams.get('collection') as CollectionSlug | null
-  const slug = url.searchParams.get('slug')
-  const previewSecret = url.searchParams.get('previewSecret')
+  const { searchParams } = new URL(req.url)
+  const path = searchParams.get('path')
+  const collection = searchParams.get('collection') as CollectionSlug | null
+  const slug = searchParams.get('slug')
+  const previewSecret = searchParams.get('previewSecret')
 
   if (previewSecret !== process.env.PREVIEW_SECRET) {
     return new Response('You are not allowed to preview this page', {
@@ -36,7 +34,10 @@ export async function GET(request: NextRequest) {
   let user
 
   try {
-    user = await payload.auth({ headers: request.headers })
+    user = await payload.auth({
+      req: req as unknown as PayloadRequest,
+      headers: req.headers,
+    })
   } catch (error) {
     payload.logger.error(
       { err: error },

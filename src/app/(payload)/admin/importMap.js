@@ -31,6 +31,7 @@ import { Logout as Logout_62f08f92b00a7306634db9272517c36a } from '@/components/
 import { LoginInstruction as LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c } from '@/components/Admin/ui/afterLogin.tsx'
 import { Welcome as Welcome_fdae91cc357a05f8fe0bfc660eabd8ba } from '@/components/Admin/ui/beforeDashboard.tsx'
 import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
+import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
 
 export const importMap = {
   "src/components/Admin/Fields/slug/SlugComponent#SlugComponent": SlugComponent_87bd6d03759ea917eac9ad9783d68ef0,
@@ -65,5 +66,6 @@ export const importMap = {
   "@/components/Admin/ui/logout.tsx#Logout": Logout_62f08f92b00a7306634db9272517c36a,
   "@/components/Admin/ui/afterLogin.tsx#LoginInstruction": LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c,
   "@/components/Admin/ui/beforeDashboard.tsx#Welcome": Welcome_fdae91cc357a05f8fe0bfc660eabd8ba,
-  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e,
+  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
 }

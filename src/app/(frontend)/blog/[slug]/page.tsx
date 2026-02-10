@@ -1,7 +1,6 @@
 import { cache } from 'react'
 import { Metadata } from 'next'
-import { draftMode, headers as getHeaders } from 'next/headers'
-import Image from 'next/image'
+import { draftMode} from 'next/headers'
 import Script from 'next/script'
 import configPromise from '@payload-config'
 import { format } from 'date-fns'
@@ -20,6 +19,9 @@ export async function generateStaticParams() {
   const posts = await payload.find({
     collection: 'posts',
     limit: 1000,
+    draft: false,
+    overrideAccess: false,
+    pagination: false,
     select: { slug: true },
   })
 
@@ -77,7 +79,7 @@ export default async function PostPage({ params: paramsPromise }: Args) {
         {draft && <LivePreviewListener />}
 
         <section>
-{/*           <h1>{post.title}</h1>
+          {/*           <h1>{post.title}</h1>
            {post.coverImage &&
           typeof post.coverImage === 'object' &&
           post.coverImage.url ? (
@@ -108,7 +110,7 @@ export default async function PostPage({ params: paramsPromise }: Args) {
           </section>
         )}
 
-{/*         <p>Status: {post._status}</p>
+        {/*         <p>Status: {post._status}</p>
         <p>
           posts liés:{' '}
           {post.relatedPosts && post.relatedPosts.length > 0
@@ -136,15 +138,13 @@ export async function generateMetadata({
 }
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
-  const headers = await getHeaders()
-
   const payload = await getPayload({ config: configPromise })
-  const { user } = await payload.auth({ headers })
+  const { isEnabled: draft } = await draftMode()
 
   const result = await payload.find({
     collection: 'posts',
-    overrideAccess: Boolean(user),
-    draft: Boolean(user),
+    overrideAccess: draft,
+    draft,
     limit: 1,
     depth: 2,
     where: {

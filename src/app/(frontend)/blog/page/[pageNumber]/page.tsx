@@ -1,4 +1,4 @@
-import { headers as getHeaders } from 'next/headers'
+import { IoIosSearch } from 'react-icons/io'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next/types'
@@ -10,7 +10,6 @@ import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
 import type { Category } from '@/payload-types'
 import './Blog.scss'
-import { IoIosSearch } from "react-icons/io";
 
 export const revalidate = 600
 const postPerPage = 6
@@ -32,9 +31,7 @@ export default async function BlogPage({
   const categorySlug = searchParams.category || 'all'
   const sanitizedPageNumber = Number(pageNumber)
 
-  const headers = await getHeaders()
   const payload = await getPayload({ config: configPromise })
-  const { user } = await payload.auth({ headers })
 
   if (!Number.isInteger(sanitizedPageNumber) || sanitizedPageNumber < 1)
     notFound()
@@ -73,14 +70,13 @@ export default async function BlogPage({
     limit: postPerPage,
     page: sanitizedPageNumber,
     where,
-    overrideAccess: Boolean(user),
-    draft: Boolean(user),
+    overrideAccess: false,
   })
 
   if (posts.totalPages > 0 && sanitizedPageNumber > posts.totalPages) {
     //notFound()
     return (
-      <h1>Vous avez vu tous les articles disponibles pour cette requête</h1>
+      <h1>Vous avez vu tous les articles.</h1>
     )
   }
 
@@ -103,13 +99,13 @@ export default async function BlogPage({
           />
         </div>
 
-          <Link
-            href="/search"
-            className="link-search"
-          >
-            Rechercher un article
-            <IoIosSearch />
-          </Link>
+        <Link
+          href="/search"
+          className="link-search"
+        >
+          Rechercher un article
+          <IoIosSearch />
+        </Link>
       </div>
 
       <ArticleCardContainer posts={posts.docs} />
