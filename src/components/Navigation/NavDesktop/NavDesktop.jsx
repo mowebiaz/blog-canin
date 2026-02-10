@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
+import { isLinkActive } from '../isLinkActive'
 import { navLinks } from '../Navigation'
 import './NavDesktop.scss'
 
@@ -30,7 +31,7 @@ export const NavDesktop = () => {
         {navLinks.map((link) => (
           <li
             key={link.href}
-            className={`nav-desktop__item ${pathname === link.href ? 'active' : ''}`}
+            className={`nav-desktop__item ${isLinkActive(pathname, link.href) ? 'active' : ''}`}
           >
             <Link href={link.href}>{link.label}</Link>
           </li>

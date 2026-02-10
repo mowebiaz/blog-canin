@@ -6,6 +6,7 @@ import { useClickAway } from 'react-use'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Spin as Hamburger } from 'hamburger-react'
+import { isLinkActive } from '../isLinkActive'
 import { navLinks } from '../Navigation'
 import './NavMobile.scss'
 
@@ -55,7 +56,7 @@ export const NavMobile = () => {
               <li
                 key={link.href}
                 className={`nav-mobile__item ${
-                  pathname === link.href ? 'active' : ''
+                  isLinkActive(pathname, link.href) ? 'active' : ''
                 }`}
               >
                 <Link
