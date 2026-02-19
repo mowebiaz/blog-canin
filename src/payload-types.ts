@@ -213,6 +213,7 @@ export interface Media {
    * Nom du photographe ou de l'illustrateur
    */
   photographe?: string | null;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -599,6 +600,7 @@ export interface MediaSelect<T extends boolean = true> {
   alt?: T;
   creditText?: T;
   photographe?: T;
+  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;

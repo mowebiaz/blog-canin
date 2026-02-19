@@ -5,7 +5,7 @@ import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 import { redirectsPlugin } from '@payloadcms/plugin-redirects'
 import { searchPlugin } from '@payloadcms/plugin-search'
 import { seoPlugin } from '@payloadcms/plugin-seo'
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+import { s3Storage } from '@payloadcms/storage-s3'
 import { en } from '@payloadcms/translations/languages/en'
 import { fr } from '@payloadcms/translations/languages/fr'
 import { buildConfig, PayloadRequest } from 'payload'
@@ -18,7 +18,6 @@ import { Users } from './collections/Users/config'
 import { defaultLexical } from './components/RichText/defaultLexical'
 import { beforeSyncWithSearch } from './components/Search/beforeSync'
 import { searchFields } from './components/Search/fieldOverrides'
-//import { Logos } from './globals/Logos'
 import { getServerSideURL } from './utilities/getURL'
 
 const filename = fileURLToPath(import.meta.url)
@@ -175,15 +174,24 @@ Logo: {
   },
 
   plugins: [
-    vercelBlobStorage({
-      enabled: true, // Optional, defaults to true
-      // Specify which collections should use Vercel Blob
+    s3Storage({
       collections: {
-        media: true,
+        media: {
+          prefix: 'media/images',
+          disablePayloadAccessControl: true,
+          generateFileURL: ({ filename, prefix }) =>
+            `${process.env.S3_PUBLIC_MEDIA_URL}/${prefix}/${filename}`,
+        },
       },
-      // Token provided by Vercel once Blob storage is added to your Vercel project
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-      clientUploads: true,
+      bucket: process.env.S3_BUCKET || '',
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESSKEY_ID || '',
+          secretAccessKey: process.env.S3_SECRET || '',
+        },
+        region: 'auto',
+        endpoint: process.env.S3_ENDPOINT || '',
+      },
     }),
 
     seoPlugin({

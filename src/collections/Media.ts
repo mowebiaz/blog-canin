@@ -3,8 +3,19 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
+//import type { Media as MediaType } from '@/payload-types'
 import { anyone } from './Users/access/anyone'
 import user from './Users/access/user'
+
+type MediaForThumb = {
+  url?: string | null
+  //sizes?: Record<string, { url?: string | null }>
+  sizes?: {
+    thumbnail?: {
+      filename?: string | null
+    }
+  }
+}
 
 export const Media: CollectionConfig = {
   slug: 'media',
@@ -68,7 +79,15 @@ export const Media: CollectionConfig = {
     },
     mimeTypes: ['image/*', 'video/*'],
 
-    adminThumbnail: 'thumbnail',
+    adminThumbnail: ({ doc }) => {
+      const media = doc as MediaForThumb
+      const thumbFilename = media?.sizes?.thumbnail?.filename
+      if (thumbFilename) {
+        return `${process.env.S3_PUBLIC_MEDIA_URL}/media/images/${thumbFilename}`
+      }
+
+      return media?.url ?? null
+    },
     imageSizes: [
       {
         name: 'thumbnail',

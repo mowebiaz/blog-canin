@@ -2,17 +2,19 @@ import type { NextConfig } from 'next'
 import { withPayload } from '@payloadcms/next/withPayload'
 
 const nextConfig: NextConfig = {
-  experimental: { 
-    globalNotFound: true 
+  experimental: {
+    globalNotFound: true,
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.public.blob.vercel-storage.com',
+        hostname: 'pub-53e8c9aaa9a14081b610f6067538a5af.r2.dev',
+        pathname: '/**',
       },
-    ]
+    ],
   },
+
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
       '.cjs': ['.cts', '.cjs'],
