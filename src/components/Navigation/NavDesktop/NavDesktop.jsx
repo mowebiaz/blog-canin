@@ -31,7 +31,7 @@ export const NavDesktop = () => {
         {navLinks.map((link) => (
           <li
             key={link.href}
-            className={`nav-desktop__item ${isLinkActive(pathname, link.href) ? 'active' : ''}`}
+            className={`nav__item ${isLinkActive(pathname, link.href) ? 'active' : ''}`}
           >
             <Link href={link.href}>{link.label}</Link>
           </li>

@@ -8,16 +8,15 @@
         display: flex;
         width: 100%;
         justify-content: space-between;
+        align-items: center;
         background-color: transparent;
         height: 100px;
         box-shadow: none;
         padding: 0 0.5rem;
         border-bottom: 1px solid transparent;
-
         transition: all 0.5s ease-in-out;
 
         &.scrolled {
-            //background-color: var(--secondary-10);
             background: var(--header);
             height: 60px;
             backdrop-filter: blur(10px);
@@ -37,26 +36,11 @@
         list-style-type: none;
         display: flex;
         gap: 1rem;
-    }
+        height: 100%;
 
-    &__item {
-        color: var(--foreground);
-        font-weight: 600;
-        transition: all 0.2s ease-in-out;
-
-        a {
-            padding: 0.5rem;
+        ul {
             display: flex;
-            align-items: center;
-            height: 100%;
         }
-    }
-    &__item.active {
-        color: var(--primary);
-        text-decoration: underline;
-        text-underline-offset: 5px;
-        text-decoration-thickness: 2px;
-        text-decoration-color: var(--primary);
     }
 
     &__actions {

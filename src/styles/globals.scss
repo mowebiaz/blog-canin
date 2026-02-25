@@ -90,7 +90,7 @@ main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
-    // margin-top: hauteur du header
+    margin-top: 50px;
     //max-width: 1280px;
     padding: 1rem;
 
@@ -138,8 +138,8 @@ a.link-router {
     transition: all 250ms ease-in;
 
     &:hover {
-    text-decoration: 1px solid underline var(--primary);
-    color: var(--primary);
+        text-decoration: 1px solid underline var(--primary);
+        color: var(--primary);
     }
 }
 
@@ -182,7 +182,7 @@ h1 {
 h2 {
     font-size: clamp(1.3rem, 1.127rem + 0.739vw, 1.6rem);
     margin-top: 3rem;
-/*     text-decoration: underline;
+    /*     text-decoration: underline;
     text-decoration-thickness: 0.35em;
     text-decoration-color: hsl(339, 72%, 48%, 0.7);
     text-underline-offset: 0.1em;
