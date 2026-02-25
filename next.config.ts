@@ -1,18 +1,17 @@
 import type { NextConfig } from 'next'
 import { withPayload } from '@payloadcms/next/withPayload'
 
+const urls = [
+  new URL('https://pub-53e8c9aaa9a14081b610f6067538a5af.r2.dev/**'),
+  //new URL('https://my-custom-domain.com'),
+]
+
 const nextConfig: NextConfig = {
   experimental: {
     globalNotFound: true,
   },
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'pub-53e8c9aaa9a14081b610f6067538a5af.r2.dev',
-        pathname: '/**',
-      },
-    ],
+    remotePatterns: urls
   },
 
   webpack: (webpackConfig) => {
