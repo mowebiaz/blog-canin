@@ -1,9 +1,6 @@
 import { AdminBar } from '@/components/AdminBar/AdminBar'
-import Favicon from '@/components/Favicon/Favicon'
 import { Footer } from '@/components/Footer/Footer'
 import { Navigation } from '@/components/Navigation/Navigation'
-import { InitTheme } from '@/providers/Theme/InitTheme'
-import { ThemeProvider } from '@/providers/Theme/ThemeProvider'
 import { nunito, openSans } from '@/styles/fonts'
 import '@/styles/globals.scss'
 
@@ -35,17 +32,11 @@ export default function RootLayout({
       suppressHydrationWarning={true}
       data-scroll-behavior="smooth"
     >
-      <head>
-        <InitTheme />
-      </head>
       <body className={`${openSans.variable} ${nunito.variable}`}>
-        <ThemeProvider>
-          <Favicon />
-          <Navigation />
-          <AdminBar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <Navigation />
+        <AdminBar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

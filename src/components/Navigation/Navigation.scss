@@ -35,6 +35,13 @@ header {
         text-decoration-thickness: 2px;
         text-decoration-color: var(--primary);
     }
+
+    .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
 }
 
 // Accessibility: respect prefers-reduced-motion

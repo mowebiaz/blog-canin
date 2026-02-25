@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { isLinkActive } from '../isLinkActive'
 import { navLinks } from '../Navigation'
 import './NavDesktop.scss'
@@ -24,7 +23,7 @@ export const NavDesktop = () => {
       aria-label="Menu"
       aria-controls="navigation"
     >
-      <div className="nav-desktop__logo">
+      <div className="logo-container">
         <Link href="/">Logo</Link>
       </div>
       <ul className="nav-desktop__container">
@@ -37,9 +36,6 @@ export const NavDesktop = () => {
           </li>
         ))}
       </ul>
-      <div className="nav-desktop__actions">
-        <ThemeSelector />
-      </div>
     </motion.nav>
   )
 }
