@@ -1,9 +1,113 @@
-footer {
-  background-color: var(--foreground);
-  color: var(--background);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto; /* for sticky footer */
-  padding:1rem;
+@use '@/styles/mixins' as *;
+
+.footer {
+    background-color: var(--foreground);
+    color: var(--background);
+    margin-top: auto;
+    padding: 1.5rem 2rem 1rem 2rem;
+
+    &__inner {
+        margin: 0 auto;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+    &__columns {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 0 2rem;
+
+        @include sm {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    &__column {
+        width: max-content;
+    }
+
+    &__list {
+        list-style: none;
+        display: grid;
+        gap: 0.5rem;
+
+        &--compact {
+            gap: 0;
+            margin-top: 0.5rem;
+        }
+
+        li {
+            font-size: 1rem;
+        }
+    }
+
+    p,
+    a,
+    address {
+        font-size: 1rem;
+    }
+
+    p.footer__title {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+    }
+
+    .footer__link {
+        text-decoration: dashed underline;
+        text-underline-offset: 4px;
+        text-decoration-thickness: 1px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            color: var(--secondary);
+            opacity: 1;
+        }
+
+        &:focus-visible {
+            outline: 3px solid var(--secondary);
+            outline-offset: 3px;
+        }
+    }
+
+    &__socials {
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__social:hover {
+        .footer__icon {
+            color: var(--secondary);
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    &__legal {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        .footer__link {
+            opacity: 0.8;
+        }
+    }
+
+    &__meta {
+        font-size: 0.95rem;
+        opacity: 0.8;
+    }
 }
