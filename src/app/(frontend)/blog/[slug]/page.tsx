@@ -1,10 +1,11 @@
 import { cache } from 'react'
 import { Metadata } from 'next'
-import { draftMode} from 'next/headers'
+import { draftMode } from 'next/headers'
 import Script from 'next/script'
 import configPromise from '@payload-config'
 import { format } from 'date-fns'
 import { getPayload } from 'payload'
+import { ArticleShareButton } from '@/components/ArticleShareButton/ArticleShareButton'
 import { LivePreviewListener } from '@/components/LivePreviewListener/LivePreviewListener'
 import { PostHero } from '@/components/PostHero/PostHero'
 import { Redirects } from '@/components/Redirects/Redirects'
@@ -13,6 +14,7 @@ import { RichText } from '@/components/RichText/RichText'
 import { articleSchema, imageSchema } from '@/components/Schema/Schema'
 import type { Media, Post } from '@/payload-types'
 import { generateMeta } from '@/utilities/generateMeta'
+import { getServerSideURL } from '@/utilities/getURL'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -96,11 +98,16 @@ export default async function PostPage({ params: paramsPromise }: Args) {
           <PostHero post={post} />
 
           {post.content && <RichText data={post.content} />}
+
+          <ArticleShareButton
+            title={post.title}
+            url={getServerSideURL() + url}
+          />
         </section>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (
           <section>
-            <h2>Related posts</h2>
+            <h2>Vous pourriez aussi aimer:</h2>
 
             <RelatedPosts
               docs={post.relatedPosts.filter(
@@ -119,7 +126,11 @@ export default async function PostPage({ params: paramsPromise }: Args) {
         </p> */}
         <p>n° d&apos;id: {post.id}</p>
         <p>Crée le: {format(new Date(post.createdAt), 'dd/MM/yyyy')}</p>
-        <p>Updated at: {format(new Date(post.updatedAt), 'dd/MM/yyyy')}</p>
+        <p>
+          Publié le :{' '}
+          {format(new Date(post.publishedAt ?? post.createdAt), 'dd/MM/yyyy')}
+        </p>
+        <p>Mis à jour le: {format(new Date(post.updatedAt), 'dd/MM/yyyy')}</p>
         <p>Draft: {draft ? 'Yes' : 'No'}</p>
         <p>Draft Mode: {draft ? 'Enabled' : 'Disabled'}</p>
       </main>
