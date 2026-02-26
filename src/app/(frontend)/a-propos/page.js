@@ -31,6 +31,8 @@ export default function AboutPage() {
         </p>
       </div>
 
+      <div className='container'>
+
       <p>
         Mon travail, c’est de vous accompagner,{' '}
         <span className="text-accent">sans jugement</span>, pour retrouver un
@@ -78,6 +80,7 @@ export default function AboutPage() {
         les choses redeviennent plus simples, plus légères. Quand on reprend
         confiance.
       </p>
+      </div>
     </main>
   )
 }

@@ -90,39 +90,33 @@ main {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-top: 50px;
-    //max-width: 1280px;
-    padding: 1rem;
 
-    @include md {
-        padding: 2rem;
-    }
     @include lg {
-        padding: 1rem;
         margin-top: 100px;
-    }
-    @include xl {
-        padding: 3rem;
     }
 }
 
 .container {
+    //margin: 0 auto;
+    max-width: $container-max-width;
+    width: 100%;
     padding: 1rem;
-    @include md {
-        padding: 2rem;
+    @include sm {
+        padding: 1rem 2.5rem;
     }
-    @include lg {
-        padding: 2rem;
-    }
+
     @include xl {
-        padding: 3rem;
+        padding: 1rem 3rem;
     }
 }
 
 input,
 button,
 textarea,
-select, address {
+select,
+address {
     font: inherit;
 }
 

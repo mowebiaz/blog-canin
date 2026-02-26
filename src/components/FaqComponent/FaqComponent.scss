@@ -7,20 +7,13 @@
 
     @include md {
         gap: 1rem;
-        width: 80%;
     }
-
-    @include xl {
-        width: 60%;
-    }
-
-
 }
 
 .react-aria-Disclosure {
     width: 100%;
     background-color: var(--secondary-10);
-    padding:1rem;
+    padding: 1rem;
     border-radius: 10px;
 
     .react-aria-Heading {

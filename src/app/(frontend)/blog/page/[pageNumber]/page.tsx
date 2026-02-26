@@ -69,6 +69,7 @@ export default async function BlogPage({
     depth: 1,
     limit: postPerPage,
     page: sanitizedPageNumber,
+    sort: '-publishedAt',
     where,
     overrideAccess: false,
   })
@@ -82,6 +83,7 @@ export default async function BlogPage({
 
   return (
     <main id="blog">
+      <div className='container'>
       <h1>Tous les articles ({posts.totalDocs})</h1>
 
       <div className="blog-toolbar">
@@ -119,6 +121,7 @@ export default async function BlogPage({
             categorySlug={categorySlug !== 'all' ? categorySlug : undefined}
           />
         )}
+      </div>
       </div>
     </main>
   )

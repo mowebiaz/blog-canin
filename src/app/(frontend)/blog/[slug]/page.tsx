@@ -80,7 +80,7 @@ export default async function PostPage({ params: paramsPromise }: Args) {
       <main>
         {draft && <LivePreviewListener />}
 
-        <section>
+        <section className='container'>
           {/*           <h1>{post.title}</h1>
            {post.coverImage &&
           typeof post.coverImage === 'object' &&
@@ -106,7 +106,7 @@ export default async function PostPage({ params: paramsPromise }: Args) {
         </section>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (
-          <section>
+          <section className='container'>
             <h2>Vous pourriez aussi aimer:</h2>
 
             <RelatedPosts

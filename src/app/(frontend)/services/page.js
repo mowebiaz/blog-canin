@@ -9,7 +9,7 @@ export default function ServicesPage() {
     <main id="services">
       <h1>Mes services d’éducation canine à Grenoble et alentours</h1>
 
-      <div>
+      <div className='container'>
         <p>
           Un chien agréable au quotidien, ce n’est pas “un chien parfait” :
           c’est un chien compris, guidé, et des humains outillés. Je vous
@@ -18,7 +18,7 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      <section>
+      <section className='container'>
         <div>
           <h2>Éducation individuelle</h2>
           <p>Pour avancer sur vos objectifs, à votre rythme.</p>
@@ -103,7 +103,6 @@ export default function ServicesPage() {
           </ul>
           <p>CTA : “Participer à une balade”</p>
         </div>
-      </section>
 
       <div className="note">
         <h2>Et si on commençait par en parler ? </h2>
@@ -119,7 +118,10 @@ export default function ServicesPage() {
         👉 <Link  href="/contact" className='link-router'>Contactez-moi</Link> et on fait le point ensemble.
       </div>
 
-      <section>
+      </section>
+
+
+      <section className="container">
         <h2>Services annexes</h2>
 
         <div>
@@ -153,7 +155,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section>
+      <section className="container">
         <h2>Tarifs</h2>
         <ul>
           <li>Bilan comportemental (1h30–2h) : XX €</li>
@@ -173,7 +175,7 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <section>
+      <section className="container">
         <h2>Zone d’intervention autour de Grenoble</h2>
         <p>
           J’interviens à Grenoble et dans un rayon d’environ 30 km, notamment
@@ -200,7 +202,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <section>
+      <section className="container">
         <h2>Vos questions</h2>
         <FaqComponent
           className="faq"
