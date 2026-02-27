@@ -1,0 +1,179 @@
+@use '@/styles/variables' as *;
+@use '@/styles/buttons' as *;
+@use '@/styles/mixins' as *;
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    gap: 1.5rem;
+    background-color: var(--foreground);
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    border-radius: 10px;
+    width: 90vw;
+    max-width: 900px;
+    @include md {
+        padding: 0.5rem 2rem 2rem 2rem;
+    }
+
+    input,
+    textarea {
+        padding: 0.2rem;
+        border-radius: 5px;
+        background-color: var(--background);
+        margin-bottom: 0.2rem;
+        outline: none;
+        border: 1px solid transparent;
+        color: var(--foreground);
+        &:focus {
+            border: 1px solid var(--secondary);
+            background-color: var(--secondary-5);
+        }
+    }
+
+    textarea {
+        resize: vertical;
+        overflow: auto;
+        min-height: 150px;
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        color: var(--background);
+    }
+
+    &__checkbox-container {
+        .field-inline {
+            display: flex;
+            gap: 0.5rem;
+
+            label {
+                color: var(--background);
+                line-height: 1.25;
+                align-self: center;
+            }
+        }
+    }
+
+    .error-message {
+        padding: 0.2rem;
+        margin-top: 0.2rem;
+        border-radius: 5px;
+        border: 1px solid #fd0d0d;
+        font-size: 1rem;
+        background-color: #ffd6d6;
+        color: var(--foreground);
+    }
+
+    button[type='submit'] {
+        align-self: center;
+        position: relative;
+        background-color: var(--secondary);
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            &:hover {
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+        .btn__loader {
+            display: none;
+            opacity: 0;
+        }
+
+        &.is-loading .btn__text {
+            opacity: 0;
+        }
+
+        &.is-loading .btn__loader {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            opacity: 1;
+        }
+
+        svg {
+            animation: spin 1s linear infinite;
+        }
+    }
+
+    input[type='checkbox'] {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        border: 2px solid transparent;
+
+        &:checked {
+            background-color: var(--secondary);
+            border: 2px solid var(--background);
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 6px;
+                width: 5px;
+                height: 10px;
+                border: solid var(--foreground);
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    a {
+        text-decoration: dotted underline;
+        text-underline-offset: 3px;
+        text-decoration-thickness: 1px;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--secondary);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+    }
+    &__asterisk {
+        color: var(--background);
+        text-align: right;
+        font-size: 14px;
+    }
+}
+
+.contact-dialog {
+    border-radius: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: 90vw;
+    padding: calc(1rem + 30px) 1.5rem 1.5rem 1.5rem;
+    background-color: var(--secondary);
+    color: var(--foreground);
+
+    &::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    button {
+        background-color: transparent;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        svg {
+            fill: var(--foreground);
+        }
+    }
+}

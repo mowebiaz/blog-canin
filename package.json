@@ -13,6 +13,7 @@
     "ci": "payload migrate && npm run build"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
     "@payloadcms/admin-bar": "^3.63.0",
     "@payloadcms/db-vercel-postgres": "^3.75.0",
     "@payloadcms/email-resend": "^3.75.0",
@@ -35,8 +36,10 @@
     "react": "^19.2.0",
     "react-aria-components": "^1.13.0",
     "react-dom": "^19.2.0",
+    "react-hook-form": "^7.71.2",
     "react-icons": "^5.5.0",
     "react-use": "^17.6.0",
+    "resend": "^6.9.2",
     "sharp": "^0.34.5",
     "use-debounce": "^10.0.6"
   },
