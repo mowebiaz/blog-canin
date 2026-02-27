@@ -1,39 +1,31 @@
-
-
 #services {
-  ul {
-    margin-top: 0.5rem;
-    list-style: none;
-    margin-left: 1rem;
-    li {
-      position: relative;
-      padding-left: 1.5rem;
+    ul {
+        margin-top: 0.5rem;
+        list-style: none;
+        margin-left: 1rem;
+        li {
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
     }
 
-    li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--primary)
+    .note {
+        margin-top: 3rem;
+        background-color: var(--secondary-5);
+        border-radius: 0.5rem;
+        padding: 2rem;
+        color: var(--card-foreground);
+        border: 1px solid var(--secondary-20);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+        h2 {
+            margin-top: 0;
+        }
     }
-  }
-
-  .note {
-    margin-top: 3rem;
-    background-color: var(--secondary-5);
-    border-radius: 0.5rem;
-    padding: 2rem;
-    color: var(--card-foreground);
-    border: 1px solid var(--secondary-20);
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
-    h2 {
-      margin-top: 0;
-    }
-  }
-
-  .maps {
-    display: flex;
-    flex-direction: column;
-    
-  }
 }

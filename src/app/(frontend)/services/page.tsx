@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { AreaCircle } from '@/components/AreaCircle/AreaCircle'
 import { FaqComponent } from '@/components/FaqComponent/FaqComponent'
 import { GoogleMap } from '@/components/GoogleMap/GoogleMap'
 import { faqServices } from '@/data/faqs'
@@ -201,10 +200,8 @@ export default function ServicesPage() {
           lieux de passage). Le lieux de rendez-vous est à définir ensemble
           selon l’objectif (calme / urbain / contrôlé)
         </p>
-        <div className="maps">
-          <AreaCircle />
+
           <GoogleMap />
-        </div>
       </section>
 
       <section className="container">
