@@ -60,12 +60,15 @@ export default async function SearchPage(props: {
         />
       </div>
 
+      <div className='container'>
+
       {searchResults.totalDocs > 0 && (
         <ArticleCardContainer posts={searchResults.docs as CardPostData[]} />
       )}
       {searchResults.totalPages > 1 && searchResults.page && (
         <SearchPagination totalPages={searchResults.totalPages} />
       )}
+      </div>
     </main>
   )
 }
