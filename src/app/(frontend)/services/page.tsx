@@ -1,15 +1,16 @@
+import Link from 'next/link'
 import { AreaCircle } from '@/components/AreaCircle/AreaCircle'
 import { FaqComponent } from '@/components/FaqComponent/FaqComponent'
+import { GoogleMap } from '@/components/GoogleMap/GoogleMap'
 import { faqServices } from '@/data/faqs'
 import './Services.scss'
-import Link from 'next/link'
 
 export default function ServicesPage() {
   return (
     <main id="services">
       <h1>Mes services d’éducation canine à Grenoble et alentours</h1>
 
-      <div className='container'>
+      <div className="container">
         <p>
           Un chien agréable au quotidien, ce n’est pas “un chien parfait” :
           c’est un chien compris, guidé, et des humains outillés. Je vous
@@ -18,7 +19,7 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      <section className='container'>
+      <section className="container">
         <div>
           <h2>Éducation individuelle</h2>
           <p>Pour avancer sur vos objectifs, à votre rythme.</p>
@@ -45,7 +46,7 @@ export default function ServicesPage() {
           <p>Apprendre avec d’autres… sans se sentir débordé.</p>
           <ul>
             <li>
-              <span className="text-accent">Idéal pour : </span>ocialisation
+              <span className="text-accent">Idéal pour : </span>socialisation
               encadrée, focus, marche en groupe, auto-contrôle
             </li>
             <li>
@@ -104,22 +105,26 @@ export default function ServicesPage() {
           <p>CTA : “Participer à une balade”</p>
         </div>
 
-      <div className="note">
-        <h2>Et si on commençait par en parler ? </h2>
-        <p>
-
-        </p>
-        Si vous avez un doute, si vous ne
-        savez pas trop &quot;dans quelle case&quot; vous êtes, c’est normal. Le plus
-        simple, c’est souvent de faire un premier échange pour comprendre la
-        situation et voir ce qui serait le plus adapté : bilan comportemental,
-        séances individuelles, séances collectives, ou balades éducatives. 
-        < br/>
-        👉 <Link  href="/contact" className='link-router'>Contactez-moi</Link> et on fait le point ensemble.
-      </div>
-
+        <div className="note">
+          <h2>Et si on commençait par en parler ? </h2>
+          <p>
+            Si vous avez un doute, si vous ne savez pas trop &quot;dans quelle
+            case&quot; vous êtes, c’est normal. Le plus simple, c’est souvent de
+            faire un premier échange pour comprendre la situation et voir ce qui
+            serait le plus adapté : bilan comportemental, séances individuelles,
+            séances collectives, ou balades éducatives.
+            <br />
+            👉{' '}
+            <Link
+              href="/contact"
+              className="link-router"
+            >
+              Contactez-moi
+            </Link>{' '}
+            et on fait le point ensemble.
+          </p>
+        </div>
       </section>
-
 
       <section className="container">
         <h2>Services annexes</h2>
@@ -198,7 +203,7 @@ export default function ServicesPage() {
         </p>
         <div className="maps">
           <AreaCircle />
-          <p>map Google</p>
+          <GoogleMap />
         </div>
       </section>
 
