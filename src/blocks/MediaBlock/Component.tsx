@@ -52,8 +52,8 @@ export const MediaBlock: React.FC<Props> = (props) => {
             .filter(Boolean)
             .join(' ')}
         >
-          <RichText data={caption} />
-        </div>
+          <RichText data={caption} disableContainer />
+        </figcaption>
       )}
     </div>
   )

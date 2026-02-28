@@ -6,16 +6,18 @@ import { jsxConverter } from './converters/jsxConverter'
 
 type Props = {
   data: SerializedEditorState
+  disableContainer?: boolean
 } & React.HTMLAttributes<HTMLDivElement>
 
 export function RichText(props: Props) {
-  const { className, ...rest } = props
+  const { className, disableContainer, ...rest } = props
 
   return (
     <RichTextConverter
       {...rest}
       className={className}
       converters={jsxConverter}
+      disableContainer={disableContainer}
     />
   )
 }
