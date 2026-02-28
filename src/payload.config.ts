@@ -87,9 +87,7 @@ Logo: {
       }, */
     },
     meta: {
-      titleSuffix: ' - Mon application Payload',
-      title: 'blanck payload',
-      description: 'this is exemple for educational purpose only',
+      title: 'Mon tableau de bord',
       // Admin panel favicon
       icons: [
         {

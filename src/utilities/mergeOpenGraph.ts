@@ -4,11 +4,11 @@ import { getServerSideURL } from './getURL'
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
   description: 'This is an extension of the Payload blanck template',
-  title: 'BlanckPayload',
-  siteName: 'Blanck Payload',
+  title: 'Lien Canin',
+  siteName: 'Lien Canin',
   images: [
     {
-      url: `${getServerSideURL()}/logo3_sombre.svg`,
+      url: `${getServerSideURL()}/images/opengraph/lien-canin.jpg`,
     },
   ],
 }

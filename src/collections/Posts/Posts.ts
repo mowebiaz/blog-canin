@@ -18,6 +18,7 @@ import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import editor from '../Users/access/editor'
 //import { afterErrorHook } from './hooks'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
+import { syncMetaImage } from './hooks/syncMetaImage'
 import { InfoMessageBlock } from '@/blocks/InfoMessage/config'
 
 export const Posts: CollectionConfig = {
@@ -256,6 +257,7 @@ export const Posts: CollectionConfig = {
   ],
 
   hooks: {
+    beforeChange: [syncMetaImage],
     afterChange: [revalidatePost],
     afterDelete: [revalidateDelete],
   },

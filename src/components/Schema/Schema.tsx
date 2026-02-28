@@ -1,7 +1,9 @@
-import type { Post, Media } from '@/payload-types'
+import type { Media, Post } from '@/payload-types'
+import { getImageURL } from '@/utilities/generateMeta'
 
 export const articleSchema = (props: Post) => {
-  //const image = props.meta?.image as Media | undefined
+  const metaImage = props.meta?.image
+  const imageURL = metaImage ? getImageURL(metaImage) : null
 
   return {
     '@context': 'https://schema.org',
@@ -9,8 +11,7 @@ export const articleSchema = (props: Post) => {
     headline: props.title,
     datePublished: new Date(props?.createdAt).toISOString(),
     dateModified: new Date(props?.updatedAt).toISOString(),
-    /* à revoir */
-    //image: [`${monchemindeblob}/${image?.filename}`],
+    ...(imageURL && { image: [imageURL] }),
     author: {
       '@type': 'Person',
       name: 'John Doe',
@@ -30,17 +31,21 @@ interface JsonLdImageObject {
   }
 }
 
-type MediaForSchema = Pick<Media, 'creditText' | 'photographe' | 'filename'>
+type MediaForSchema = Pick<
+  Media,
+  'creditText' | 'photographe' | 'url' | 'sizes'
+>
 
 export const imageSchema = (media: MediaForSchema): JsonLdImageObject => {
+  const contentUrl = getImageURL(media as Media) || undefined
+
   return {
     '@context': 'https://schema.org',
     '@type': 'ImageObject',
-    //'contentUrl': `${monchemindeblob}/${image?.filename}`,
+    ...(contentUrl && { contentUrl }),
     ...(media.creditText && { creditText: media.creditText }),
     ...(media.photographe && {
       creator: { '@type': 'Person', name: media.photographe },
     }),
-    // ...(media.filename && { contentUrl: `${BLOB_BASE}/${media.filename}` }),
   }
 }

@@ -1,15 +1,17 @@
 import type { Metadata } from 'next'
-import type { Post, Config, Media } from '@/payload-types'
+import type { Config, Media, Post } from '@/payload-types'
 import { getServerSideURL } from './getURL'
 import { mergeOpenGraph } from './mergeOpenGraph'
 
-const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
+export const getImageURL = (
+  image?: Media | Config['db']['defaultIDType'] | null,
+) => {
   const serverUrl = getServerSideURL()
-  let url = serverUrl + '/logo3_sombre.svg'
+  let url = serverUrl + '/images/opengraph/lien-canin.jpg'
 
   if (image && typeof image === 'object' && 'url' in image) {
     const ogURL = image.sizes?.og?.url
-    url = ogURL ? serverUrl + ogURL : serverUrl + image.url
+    url = ogURL ? ogURL : image.url ? image.url : ''
   }
 
   return url
@@ -21,11 +23,7 @@ export const generateMeta = async (args: {
   const { doc } = args || {}
 
   const ogImage = getImageURL(doc?.meta?.image)
-  const title = doc?.meta?.title
-    ? doc.meta.title
-    : doc?.title
-      ? doc.title
-      : 'Blanck Payload'
+  const title = doc?.meta?.title ? doc.meta.title : 'Lien Canin'
   const description = doc?.meta?.description ? doc.meta.description : ''
   const url = doc?.meta?.canonicalUrl
     ? doc.meta.canonicalUrl
@@ -33,12 +31,10 @@ export const generateMeta = async (args: {
       ? doc.slug.join('/')
       : '/'
 
-
   return {
     title,
     description,
     openGraph: mergeOpenGraph({
-      title,
       description,
       images: ogImage ? [{ url: ogImage }] : undefined,
       url,
