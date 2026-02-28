@@ -1,28 +1,57 @@
 import { defaultColors } from '@payloadcms/richtext-lexical/client'
-import { SerializedTextNode } from '@payloadcms/richtext-lexical'
+import { SerializedTextNode, TextStateFeature } from '@payloadcms/richtext-lexical'
 import { JSXConverters } from '@payloadcms/richtext-lexical/react'
-import type {
-  StateValues,
-  TextStateFeatureProps,
-} from 'node_modules/@payloadcms/richtext-lexical/dist/features/textState/feature.server'
 import { CSSProperties } from 'react'
+
+type TextStateFeatureProps = NonNullable<Parameters<typeof TextStateFeature>[0]>
+type StateValues = TextStateFeatureProps['state'][string]
 
 export const colorState: TextStateFeatureProps['state'] = {
   color: {
-    ...defaultColors.text,
-    black: {
-      label: 'Black',
+    //...defaultColors.text,
+    dark: {
+      label: 'Dark',
       css: {
-        color: '#000000',
+        color: '#22232a',
+      },
+    },
+        light: {
+      label: 'Clair',
+      css: {
+        'color': '#f9f6f1',
+      },
+    },
+    green: {
+      label: 'Vert',
+      css: {
+        'color': '#52d1a4',
+      },
+    },
+    pink: {
+      label: 'Rose',
+      css: {
+        'color': '#dd2c6a',
       },
     },
   },
   background: {
-    ...defaultColors.background,
-    greenmw: {
-      label: 'Green - MW',
+    //...defaultColors.background,
+    lightbkg: {
+      label: 'Clair',
       css: {
-        'background-color': '#00ECAE',
+        'background-color': '#f9f6f1',
+      },
+    },
+    greenbkg: {
+      label: 'Vert',
+      css: {
+        'background-color': '#52d1a4',
+      },
+    },
+    pinkbkg: {
+      label: 'Rose',
+      css: {
+        'background-color': '#dd2c6a',
       },
     },
   },
