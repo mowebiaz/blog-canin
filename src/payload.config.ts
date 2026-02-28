@@ -149,12 +149,12 @@ Logo: {
       // Surtout PAS de `domain` en preview ! (laisse undefined)
     },*/
 
-  upload: {
+/*   upload: {
     //whatever I upload across my entire payload projet to 5 million bytes
     limits: {
       fileSize: 5000000,
     },
-  },
+  }, */
     email: resendAdapter({
     defaultFromAddress: process.env.RESEND_FROM || 'mw@notifications.morganeweb.com',
     defaultFromName: process.env.RESEND_FROM_NAME || 'MorganeWeb',

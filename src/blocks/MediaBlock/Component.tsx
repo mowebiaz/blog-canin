@@ -5,7 +5,7 @@ import { Media } from '../../components/Media'
 import './MediaBlock.scss'
 
 type Props = MediaBlockProps & {
-  breakout?: boolean
+  //breakout?: boolean
   captionClassName?: string
   className?: string
   enableGutter?: boolean
@@ -18,7 +18,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
   const {
     captionClassName,
     className,
-    enableGutter = true,
+    enableGutter = false,
     imgClassName,
     media,
     staticImage,
@@ -36,13 +36,14 @@ export const MediaBlock: React.FC<Props> = (props) => {
     >
       {(media || staticImage) && (
         <Media
+          htmlElement={null}
           imgClassName={imgClassName}
           resource={media}
           src={staticImage}
         />
       )}
       {caption && (
-        <div
+        <figcaption
           className={[
             captionClassName,
             {

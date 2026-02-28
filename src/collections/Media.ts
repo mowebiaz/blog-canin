@@ -9,7 +9,6 @@ import user from './Users/access/user'
 
 type MediaForThumb = {
   url?: string | null
-  //sizes?: Record<string, { url?: string | null }>
   sizes?: {
     thumbnail?: {
       filename?: string | null
@@ -27,7 +26,7 @@ export const Media: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'nom',
-    description: 'Media collection for storing images and their metadata',
+    //description: 'Media collection for storing images and their metadata',
     defaultColumns: ['nom', 'filename', 'alt'],
   },
   fields: [

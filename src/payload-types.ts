@@ -178,8 +178,6 @@ export interface Post {
   _status?: ('draft' | 'published') | null;
 }
 /**
- * Media collection for storing images and their metadata
- *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media".
  */
