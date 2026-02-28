@@ -1,4 +1,4 @@
-import type { MediaBlock as MediaBlockProps } from '@/payload-types'
+import type { MediaBlock as MediaBlockProps, InfoMessageBlock as InfoMessageBlockProps } from '@/payload-types'
 import { DefaultNodeTypes, SerializedBlockNode } from '@payloadcms/richtext-lexical'
 import {
   JSXConvertersFunction,
@@ -8,8 +8,9 @@ import {
 import { internalDocToHref } from '@/components/RichText/converters/internalLink'
 import { textConverter } from './textConverter'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { InfoMessageBlock } from '@/blocks/InfoMessage/Component'
 
-type NodeTypes = DefaultNodeTypes | SerializedBlockNode<MediaBlockProps>
+type NodeTypes = DefaultNodeTypes | SerializedBlockNode<MediaBlockProps> | SerializedBlockNode<InfoMessageBlockProps>
 
 
 export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({
@@ -26,5 +27,6 @@ export const jsxConverter: JSXConvertersFunction<NodeTypes> = ({
         disableInnerContainer={true}
       />
     ),
+    infoMessage: ({ node }) => <InfoMessageBlock {...node.fields} />,
   }
 })

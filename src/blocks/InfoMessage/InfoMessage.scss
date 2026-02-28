@@ -1,0 +1,25 @@
+.info-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+
+    &--success {
+        background-color: var(--primary-5);
+        border: 1px solid var(--primary);
+    }
+
+    &--info {
+        background-color: var(--card);
+        border: 1px solid var(--accent);
+    }
+
+    &--warning {
+        background-color: var(--primary);
+        color: var(--background);
+    }
+
+    &--danger {
+        background-color: #ffe5e5;
+        border: 1px solid #ff0000;
+    }
+}

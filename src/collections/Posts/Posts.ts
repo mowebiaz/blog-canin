@@ -12,14 +12,13 @@ import {
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 import { MediaBlock } from '@/blocks/MediaBlock/config'
-//import { ContentWithMedia } from '@/blocks/ContentWithMedia/config'
-//import { TableOfContent } from '@/blocks/TableOfContent/config'
 import { slugField } from '@/components/Admin/Fields/slug/slugField'
 import { CustomBlockIcon } from '@/components/RichText/CustomBlockIcon'
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 import editor from '../Users/access/editor'
 //import { afterErrorHook } from './hooks'
 import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
+import { InfoMessageBlock } from '@/blocks/InfoMessage/config'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -158,7 +157,7 @@ export const Posts: CollectionConfig = {
                   }),
 
                   BlocksFeature({
-                    blocks: [MediaBlock],
+                    blocks: [MediaBlock, InfoMessageBlock],
                   }),
                 ],
               }),
