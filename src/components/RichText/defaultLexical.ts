@@ -15,6 +15,9 @@ import {
   TextStateFeature,
   UnderlineFeature,
   UnorderedListFeature,
+  SubscriptFeature,
+  SuperscriptFeature,
+  ChecklistFeature
 } from '@payloadcms/richtext-lexical'
 import { TextFieldSingleValidation } from 'payload'
 import { textState } from './textState'
@@ -33,6 +36,8 @@ export const defaultLexical = lexicalEditor({
     HorizontalRuleFeature(),
     HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
     StrikethroughFeature(),
+    SubscriptFeature(),
+    SuperscriptFeature(),
     TextStateFeature({ state: textState }),
     LinkFeature({
       enabledCollections: ['posts'],

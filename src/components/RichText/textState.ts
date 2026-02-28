@@ -23,18 +23,16 @@ export const textState: TextState = {
   },
   size: {
     large: {
-      label: 'Large text',
+      label: 'Grand texte',
       css: {
-        'font-size': 'large',
+        'font-size': 'larger',
       },
     },
-  },
-  underline: {
-    dashed: {
-      label: 'Dashed',
+    small: {
+      label: 'Petit texte',
       css: {
-        'text-decoration': 'underline dashed',
+        'font-size': 'smaller',
       },
-    },
+    }
   },
 }

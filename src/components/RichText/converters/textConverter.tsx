@@ -28,20 +28,17 @@ export const colorState: TextStateFeatureProps['state'] = {
   },
   size: {
     large: {
-      label: 'Large text',
+      label: 'Grand texte',
       css: {
-        'font-size': 'large',
+        'font-size': 'larger',
       },
     },
-  },
-  underline: {
-    dashed: {
-      label: 'Dashed',
+        small: {
+      label: 'Petit texte',
       css: {
-        'text-decoration': 'underline dashed',
-        'text-underline-offset': '4px',
+        'font-size': 'smaller',
       },
-    },
+    }
   },
 }
 
