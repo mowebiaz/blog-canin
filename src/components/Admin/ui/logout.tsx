@@ -1,5 +1,6 @@
 // the route transition bar at the top of the page of admin panel
-import { Link } from '@payloadcms/ui'
+'use client'
+import { Link, LogOutIcon } from '@payloadcms/ui'
 
 export const Logout = () => {
   return (
@@ -9,7 +10,7 @@ export const Logout = () => {
       tabIndex={0}
       className="nav__log-out"
     >
-      logout
+      <LogOutIcon />
     </Link>
   )
 }

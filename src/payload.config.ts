@@ -70,35 +70,33 @@ export default buildConfig({
         { path: '@/components/Admin/ui/logout.tsx', exportName: 'Logout' },
       ],
 
-      /*graphics: {
-      
-         
-// en-tête de la fenêtre de login
-Logo: {
-          path: '@/components/Admin/ui/logo.tsx',
+      graphics: {
+        // en-tête de la fenêtre de login
+        Logo: {
+          path: '@/components/Admin/ui/Logo.tsx',
           exportName: 'Logo',
-        }, */
-      /*
+        },
+        
         // icône de la navigation dans l'ui
         Icon: {
-          path: '@/components/Admin/ui/icon.tsx',
-          exportName: 'Icon',
+          path: '@/components/Admin/ui/HomeIcon.tsx',
+          exportName: 'HomeIcon',
         },
-      }, */
+      },
     },
     meta: {
       title: 'Mon tableau de bord',
       // Admin panel favicon
       icons: [
         {
-          url: '/faviconui_light.svg',
+          url: '/icons/faviconui_light.svg',
           rel: 'icon',
           type: 'image/png',
           sizes: '16x16 32x32 64x64',
           fetchPriority: 'high',
         },
         {
-          url: '/faviconui_dark.svg',
+          url: '/icons/faviconui_dark.svg',
           rel: 'icon',
           type: 'image/png',
           sizes: '16x16 32x32 64x64',
@@ -149,14 +147,15 @@ Logo: {
       // Surtout PAS de `domain` en preview ! (laisse undefined)
     },*/
 
-/*   upload: {
+  /*   upload: {
     //whatever I upload across my entire payload projet to 5 million bytes
     limits: {
       fileSize: 5000000,
     },
   }, */
-    email: resendAdapter({
-    defaultFromAddress: process.env.RESEND_FROM || 'mw@notifications.morganeweb.com',
+  email: resendAdapter({
+    defaultFromAddress:
+      process.env.RESEND_FROM || 'mw@notifications.morganeweb.com',
     defaultFromName: process.env.RESEND_FROM_NAME || 'MorganeWeb',
     apiKey: process.env.RESEND_API_KEY || '',
   }),

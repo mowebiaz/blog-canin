@@ -1,12 +1,3 @@
-.nav-group__toggle {
-  background-color: #00ECAE;
-  color: black;
-}
-
-.nav__link-indicator {
-  background-color: #00ECAE;
-}
-
 .selected--draft > span {
   padding: 5px;
   border-radius: 5px;
@@ -19,4 +10,26 @@
   border-radius: 5px;
   background-color: gray;
   color: black;
+}
+
+.home-icon--dark {
+  display: none;
+}
+
+html[data-theme='dark'] .home-icon--light {
+    display: none;
+}
+
+html[data-theme='dark'] .home-icon--dark {
+    display: block;
+}
+
+
+// Flip the logout arrow to point right
+.nav__log-out .icon--logout {
+  transform: scaleX(-1);
+}
+
+.nav__wrap .nav__controls .nav__log-out {
+  display: none;
 }

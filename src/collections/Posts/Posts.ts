@@ -80,7 +80,7 @@ export const Posts: CollectionConfig = {
       titleSuffix: ' - blog',
       title: 'mon blog',
     },
-    defaultColumns: ['title', 'createdAt', 'updatedAt', '_status'],
+    defaultColumns: ['title', 'createdAt', 'updatedAt', '_status', 'categories'],
     //useAsTitle: 'title',
     //hideAPIURL: true,
   },

@@ -9,7 +9,7 @@ const Avatar = ({ user }: { user: User }) => {
   const value = user?.avatar
   const hasMedia = isMedia(value)
 
-  const src = hasMedia && value.url ? value.url : '/avatar-default.svg'
+  const src = hasMedia && value.url ? value.url : '/icons/avatar-default.svg'
   const alt = hasMedia && value.alt ? value.alt : (user?.email ?? 'avatar')
 
   return (

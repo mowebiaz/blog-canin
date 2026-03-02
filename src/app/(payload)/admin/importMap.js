@@ -29,6 +29,8 @@ import { PostsByStatus as PostsByStatus_c35ae567a207f873a10007fa5c35a220 } from 
 import { LinkToDoc as LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
 import { ReindexButton as ReindexButton_aead06e4cbf6b2620c5c51c9ab283634 } from '@payloadcms/plugin-search/client'
 import { default as default_ae2ca3c7814c0f3a047337229fb3ba09 } from '@/components/Avatar/Avatar.tsx'
+import { HomeIcon as HomeIcon_8411005f6875333c8dd126f641eb7a52 } from '@/components/Admin/ui/HomeIcon.tsx'
+import { Logo as Logo_804c26b5b095e69c798a000ff001e302 } from '@/components/Admin/ui/Logo.tsx'
 import { Logout as Logout_62f08f92b00a7306634db9272517c36a } from '@/components/Admin/ui/logout.tsx'
 import { LoginInstruction as LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c } from '@/components/Admin/ui/afterLogin.tsx'
 import { Welcome as Welcome_fdae91cc357a05f8fe0bfc660eabd8ba } from '@/components/Admin/ui/beforeDashboard.tsx'
@@ -67,6 +69,8 @@ export const importMap = {
   "@payloadcms/plugin-search/client#LinkToDoc": LinkToDoc_aead06e4cbf6b2620c5c51c9ab283634,
   "@payloadcms/plugin-search/client#ReindexButton": ReindexButton_aead06e4cbf6b2620c5c51c9ab283634,
   "@/components/Avatar/Avatar.tsx#default": default_ae2ca3c7814c0f3a047337229fb3ba09,
+  "@/components/Admin/ui/HomeIcon.tsx#HomeIcon": HomeIcon_8411005f6875333c8dd126f641eb7a52,
+  "@/components/Admin/ui/Logo.tsx#Logo": Logo_804c26b5b095e69c798a000ff001e302,
   "@/components/Admin/ui/logout.tsx#Logout": Logout_62f08f92b00a7306634db9272517c36a,
   "@/components/Admin/ui/afterLogin.tsx#LoginInstruction": LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c,
   "@/components/Admin/ui/beforeDashboard.tsx#Welcome": Welcome_fdae91cc357a05f8fe0bfc660eabd8ba,
