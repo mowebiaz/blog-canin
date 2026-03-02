@@ -7,7 +7,6 @@
     @include lg {
         display: flex;
         width: 100%;
-        //justify-content: space-between;
         justify-content: center;
         align-items: center;
         background-color: transparent;
@@ -23,14 +22,28 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--secondary-10);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            .logo-container {
+                height: 50px;
+                top: 5px;
+            }
         }
     }
 
     .logo-container {
         position: absolute;
-        top: 0;
-        left: 0;
-        height: 60px;
+        top: 10px;
+        left: 10px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1 / 1;
+        transition: all 0.5s ease-in-out;
+        img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
     }
 
     &__container {
@@ -38,7 +51,5 @@
         display: flex;
         gap: 1rem;
         height: 100%;
-
-
     }
 }

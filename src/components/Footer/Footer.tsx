@@ -17,7 +17,7 @@ export const Footer = () => {
             <address>
               <ul className="footer__list">
                 <li>Téléphone : 06 00 00 00 00</li>
-                <li>Email : contact@blogcanin.fr</li>
+                <li>Email : contact@caniliane.fr</li>
                 <li>Grenoble</li>
               </ul>
             </address>
@@ -93,7 +93,7 @@ export const Footer = () => {
               Politique de confidentialité
             </Link>
           </div>
-          <p className="footer__meta">© {currentYear} Blog Canin</p>
+          <p className="footer__meta">© {currentYear} Caniliane</p>
           <p className="footer__meta">
             Site réalisé par{' '}
             <a

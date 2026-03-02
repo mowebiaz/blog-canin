@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Divide as Hamburger } from 'hamburger-react'
@@ -50,15 +51,12 @@ export const NavMobile = () => {
           href="/"
           aria-label="Accueil"
         >
-          Logo
-          {/*           <Image
-            src="/icons/logo-dark.svg"
-            alt=""
-            width={50}
-            height={50}
+          <Image
+            src="/images/caniliane-logo.png"
+            alt="Caniliane Logo"
+            fill
             priority
-            aria-hidden="true"
-          /> */}
+          />
         </Link>
       </div>
       <Hamburger

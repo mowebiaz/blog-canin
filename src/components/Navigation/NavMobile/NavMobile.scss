@@ -24,6 +24,12 @@
         z-index: 101;
     }
 
+    .logo-container {
+        position: relative;
+        width: 40px;
+        height: 40px;
+    }
+
     &__container {
         position: fixed;
         inset: 0; // top/left/right/bottom = 0

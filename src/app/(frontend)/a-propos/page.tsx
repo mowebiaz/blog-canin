@@ -11,14 +11,14 @@ export default function AboutPage() {
         <div className="intro__image">
           <Image
             src={'/images/educatrice-canine.webp'}
-            alt={'Elise, educatrice canine à Grenoble'}
+            alt={'Lianne, educatrice canine à Grenoble'}
             fill
             priority
             sizes={'(max-width: 576px) 100vw, (max-width: 768px) 65vw, 33vw '}
           />
         </div>
         <p>
-          Je m’appelle Elise, éducatrice canine à Grenoble et ses environs. Si
+          Je m’appelle Lianne, éducatrice canine à Grenoble et ses environs. Si
           je fais ce métier aujourd’hui, c’est parce que je crois profondément à
           une chose :{' '}
           <span className="text-accent">

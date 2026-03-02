@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { motion, useMotionValueEvent, useScroll } from 'motion/react'
@@ -24,7 +25,14 @@ export const NavDesktop = () => {
       aria-controls="navigation"
     >
       <div className="logo-container">
-        <Link href="/">Logo</Link>
+        <Link href="/">
+          <Image
+            src="/images/caniliane-logo.png"
+            alt="Caniliane Logo"
+            fill
+            priority
+          />
+        </Link>
       </div>
       <ul className="nav-desktop__container">
         {navLinks.map((link) => (

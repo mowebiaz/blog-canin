@@ -6,18 +6,18 @@ import '@/styles/globals.scss'
 
 export const metadata = {
   title: {
-    template: 'Lien Canin | %s',
-    default: 'Lien Canin', // a default is required when creating a template
+    template: 'Caniliane | %s',
+    default: 'Caniliane', // a default is required when creating a template
   },
   /*   description:
-    'MorganeWeb - création de site internet à Grenoble. Développement sur mesure pour transformer vos idées en réalité numérique.',
+    'Caniliane - création de site internet à Grenoble. Développement sur mesure pour transformer vos idées en réalité numérique.',
   openGraph: {
     type: 'website',
-    siteName: 'MorganeWeb',
-    url: 'https://morganeweb.com/',
+    siteName: 'Caniliane',
+    url: 'https://caniliane.com/',
   },
   alternates: {
-    canonical: 'https://morganeweb.com/',
+    canonical: 'https://caniliane.com/',
   }, */
 }
 
