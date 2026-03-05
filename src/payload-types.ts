@@ -232,7 +232,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    square?: {
+    xs?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -240,7 +240,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    small?: {
+    sm?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -248,7 +248,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    medium?: {
+    md?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -256,7 +256,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    large?: {
+    lg?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -264,7 +264,7 @@ export interface Media {
       filesize?: number | null;
       filename?: string | null;
     };
-    xlarge?: {
+    xl?: {
       url?: string | null;
       width?: number | null;
       height?: number | null;
@@ -623,7 +623,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        square?:
+        xs?:
           | T
           | {
               url?: T;
@@ -633,7 +633,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        small?:
+        sm?:
           | T
           | {
               url?: T;
@@ -643,7 +643,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        medium?:
+        md?:
           | T
           | {
               url?: T;
@@ -653,7 +653,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        large?:
+        lg?:
           | T
           | {
               url?: T;
@@ -663,7 +663,7 @@ export interface MediaSelect<T extends boolean = true> {
               filesize?: T;
               filename?: T;
             };
-        xlarge?:
+        xl?:
           | T
           | {
               url?: T;

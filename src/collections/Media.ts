@@ -95,38 +95,37 @@ export const Media: CollectionConfig = {
           format: 'webp',
         },
       },
-      {
-        name: 'square',
-        width: 500,
-        height: 500,
+            {
+        name: 'xs',
+        width: 375,
         formatOptions: {
           format: 'webp',
         },
       },
       {
-        name: 'small',
-        width: 600,
+        name: 'sm',
+        width: 576,
         formatOptions: {
           format: 'webp',
         },
       },
       {
-        name: 'medium',
-        width: 900,
+        name: 'md',
+        width: 768,
         formatOptions: {
           format: 'webp',
         },
       },
       {
-        name: 'large',
-        width: 1400,
+        name: 'lg',
+        width: 992,
         formatOptions: {
           format: 'webp',
         },
       },
       {
-        name: 'xlarge',
-        width: 1920,
+        name: 'xl',
+        width: 1280,
         formatOptions: {
           format: 'webp',
         },
