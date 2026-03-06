@@ -1,9 +1,10 @@
 import { cache } from 'react'
+import { FaArrowLeft } from 'react-icons/fa6'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
+import Link from 'next/link'
 import Script from 'next/script'
 import configPromise from '@payload-config'
-import { format } from 'date-fns'
 import { getPayload } from 'payload'
 import { ArticleShareButton } from '@/components/ArticleShareButton/ArticleShareButton'
 import { LivePreviewListener } from '@/components/LivePreviewListener/LivePreviewListener'
@@ -15,6 +16,7 @@ import { articleSchema, imageSchema } from '@/components/Schema/Schema'
 import type { Media, Post } from '@/payload-types'
 import { generateMeta } from '@/utilities/generateMeta'
 import { getServerSideURL } from '@/utilities/getURL'
+import './Post.scss'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
@@ -77,10 +79,19 @@ export default async function PostPage({ params: paramsPromise }: Args) {
       >
         {JSON.stringify(schema)}
       </Script>
-      <main>
+      <main id="post-page">
         {draft && <LivePreviewListener />}
 
-        <section className='container'>
+        <div className="return-container">
+          <Link
+            href="/blog"
+            className="return"
+          >
+            <FaArrowLeft size={15} /> tous les articles
+          </Link>
+        </div>
+
+        <section className="container">
           {/*           <h1>{post.title}</h1>
            {post.coverImage &&
           typeof post.coverImage === 'object' &&
@@ -94,7 +105,6 @@ export default async function PostPage({ params: paramsPromise }: Args) {
           ) : (
             <p>No cover image available</p>
           )} */}
-
           <PostHero post={post} />
 
           {post.content && <RichText data={post.content} />}
@@ -106,7 +116,7 @@ export default async function PostPage({ params: paramsPromise }: Args) {
         </section>
 
         {post.relatedPosts && post.relatedPosts.length > 0 && (
-          <section className='container'>
+          <section className="container">
             <h2>Vous pourriez aussi aimer:</h2>
 
             <RelatedPosts
@@ -116,23 +126,6 @@ export default async function PostPage({ params: paramsPromise }: Args) {
             />
           </section>
         )}
-
-        {/*         <p>Status: {post._status}</p>
-        <p>
-          posts liés:{' '}
-          {post.relatedPosts && post.relatedPosts.length > 0
-            ? post.relatedPosts.length
-            : 'none'}
-        </p> */}
-        <p>n° d&apos;id: {post.id}</p>
-        <p>Crée le: {format(new Date(post.createdAt), 'dd/MM/yyyy')}</p>
-        <p>
-          Publié le :{' '}
-          {format(new Date(post.publishedAt ?? post.createdAt), 'dd/MM/yyyy')}
-        </p>
-        <p>Mis à jour le: {format(new Date(post.updatedAt), 'dd/MM/yyyy')}</p>
-        <p>Draft: {draft ? 'Yes' : 'No'}</p>
-        <p>Draft Mode: {draft ? 'Enabled' : 'Disabled'}</p>
       </main>
     </>
   )

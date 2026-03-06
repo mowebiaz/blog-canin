@@ -7,15 +7,22 @@ export const HomeHero = () => {
     <div className="home-hero">
       <div className="home-hero__image">
         <Image
-          src="/images/educatrice-canine.webp"
+          src="/images/lianne.webp"
           alt="hero"
           fill
           priority
-          sizes='100vw'
+          sizes="100vw"
         />
       </div>
       <div className="home-hero__content">
-        <h1 className="home-hero__title">Éducatrice canine à Grenoble </h1>
+        <h1 className="home-hero__title">
+          Lianne
+          <br />
+          <span className="subtitle">
+            Éducatrice canine à Grenoble
+          </span>
+        </h1>
+
         <div className="home-hero__cta">
           <Link
             className="btn btn--primary"

@@ -68,7 +68,7 @@ const PaginationPrevious = ({
     {...props}
   >
     <GrFormPrevious />
-    <span>Previous</span>
+    <span>Précédent</span>
   </PaginationLink>
 )
 
@@ -85,7 +85,7 @@ const PaginationNext = ({
       .join(' ')}
     {...props}
   >
-    <span>Next</span>
+    <span>Suivant</span>
     <GrFormNext />
   </PaginationLink>
 )
@@ -99,7 +99,7 @@ const PaginationEllipsis = ({
     {...props}
   >
     <FaEllipsis />
-    <span className="sr-only">More pages</span>
+    <span className="sr-only">Plus de pages</span>
   </span>
 )
 

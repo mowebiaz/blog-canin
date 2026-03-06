@@ -19,7 +19,7 @@ const queryLastPosts = unstable_cache(
       collection: 'posts',
       overrideAccess: false,
       draft: false,
-      limit: 3,
+      limit: 4,
       depth: 2,
       sort: '-publishedAt',
       select: {

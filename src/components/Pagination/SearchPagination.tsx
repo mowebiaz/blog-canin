@@ -39,7 +39,7 @@ export function SearchPagination({ totalPages }: { totalPages: number }) {
               aria-label="aller à la page précédente"
             >
               <GrFormPrevious />
-              <span>Previous</span>
+              <span>Précédent</span>
             </Link>
           </li>
 
@@ -102,7 +102,7 @@ export function SearchPagination({ totalPages }: { totalPages: number }) {
               className={!hasNextPage ? 'isDisabled' : ''}
               aria-label="aller à la page suivante"
             >
-              <span>Next</span>
+              <span>Suivant</span>
               <GrFormNext />
             </Link>
           </li>

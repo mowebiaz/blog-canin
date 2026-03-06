@@ -1,0 +1,21 @@
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+#post-page {
+  .return-container {
+        //margin: 0 auto;
+    max-width: $container-max-width;
+    width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    @include sm {
+        padding: 1rem 2.5rem 0 2.5rem;
+    }
+    @include xl {
+        padding: 1rem 3rem 0 3rem;
+    }
+
+    .return {
+        @include returnBtn;
+    }
+  }
+}

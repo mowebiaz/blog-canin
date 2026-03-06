@@ -3,19 +3,24 @@
 .posthero {
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--card-foreground);
     padding: 1rem;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-bottom: 3rem;
     border-radius: 10px;
-    background-color: var(--secondary);
-    color: var(--accent-foreground);
+    background-color: var(--secondary-50);
+    color: var(--card-foreground);
 
     &__date {
         display: flex;
         align-items: center;
         gap: 0.4rem;
         font-size: 1rem;
+    }
+
+    h1 {
+        text-align: left;
+        text-wrap: unset;
+        align-self: center;
     }
 
     &__categories {
