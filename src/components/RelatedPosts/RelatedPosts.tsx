@@ -18,7 +18,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
           <ArticleCard
             key={index}
             doc={doc}
-            relationTo="posts"
+            basePath="blog" 
             showCategories
           />
         )
