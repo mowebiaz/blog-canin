@@ -3,15 +3,19 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Media } from '@/components/Media'
-import type { Post } from '@/payload-types'
+import type { Media as MediaProps} from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
 import useClickableCard from './useClickableCard'
 import './ArticleCard.scss'
 
-export type CardPostData = Pick<
-  Post,
-  'slug' | 'categories' | 'plaintext' | 'title' | 'coverImage' | 'publishedAt'
->
+export type CardPostData = {
+  slug?: string | null
+  title?: string | null
+  plaintext?: string | null
+  coverImage?: (number | null) | MediaProps
+  publishedAt?: string | null
+  categories?: ({ title?: string | null } | number)[] | null
+}
 
 export const ArticleCard: React.FC<{
   alignItems?: 'center'

@@ -1,0 +1,17 @@
+@use '@/styles/buttons' as *;
+@use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
+
+#search-page {
+    .return {
+        @include returnBtn;
+        margin-bottom: 1rem;
+    }
+
+    .search-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+    }
+}

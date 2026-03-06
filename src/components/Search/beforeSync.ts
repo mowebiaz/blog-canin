@@ -18,7 +18,7 @@ export const beforeSyncWithSearch: BeforeSync = async ({
   const {
     doc: { relationTo: collection },
   } = searchDoc
-  const { slug, id, title, content, categories, coverImage, meta, publishedAt } = originalDoc
+  const { slug, id, title, content, categories, coverImage, meta, publishedAt, plaintext } = originalDoc
 
   // if many fields named "content"
   // make a switch statement as it grows in complexity
@@ -39,7 +39,7 @@ export const beforeSyncWithSearch: BeforeSync = async ({
     },
   }
 
-  const plaintext = data
+  const contentText = data
     ? convertLexicalToPlaintext({
         // @ts-expect-error: converters type is not compatible but required for custom block handling
         converters,
@@ -54,14 +54,9 @@ export const beforeSyncWithSearch: BeforeSync = async ({
     coverImage,
     categories: [],
     meta: { ...meta, description: meta?.description },
-    content: plaintext,
+    content: contentText,
+    plaintext,
     publishedAt,
-    excerpt:
-      collection === 'posts'
-        ? plaintext
-        : collection === 'pages'
-          ? pageText.join(' ')
-          : '',
   }
 
   if (categories && Array.isArray(categories) && categories.length > 0) {

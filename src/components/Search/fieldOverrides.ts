@@ -9,7 +9,13 @@ export const searchFields: Field[] = [
       readOnly: true,
     },
   },
-  { name: 'excerpt', label: "Résumé de l'article", type: 'textarea' },
+  {
+    name: 'plaintext',
+    label: 'Texte complet (indexé)',
+    type: 'textarea',
+    index: true,
+    admin: { readOnly: true },
+  },
   { name: 'coverImage', type: 'upload', relationTo: 'media' },
   {
     name: 'publishedAt',

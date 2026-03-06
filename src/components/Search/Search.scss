@@ -1,69 +1,136 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
 
-.search-form {
+// ─── Token shortcuts ───────────────────────────────────────────────
+$_search-border-width: 2px;
+$_clear-size: 1.75rem;
+
+// ─── SearchField wrapper ───────────────────────────────────────────
+.search-field {
+  display: block;
+  width: 100%;
+  max-width: 42rem;
   margin: 0 auto;
-}
 
+  // ── Inner flex wrapper ────────────────────────────────────────
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--background);
+    border: 2px solid var(--secondary);
+    border-radius: 10px;
+    transition: all 200ms ease-in-out;
 
-/* .react-aria-SearchField {
-  display: grid;
-  grid-template-areas: "label label label"
-                       "icon input button"
-                       "help help  help";
-  grid-template-columns: 0px 1fr auto;
-  align-items: center;
-  width: auto;
-  color: var(--text-color);
+    .search-field[data-focused] & {
+      border-color: var(--secondary);
+      outline: none;
+    }
 
-  .lucide-search {
-    grid-area: icon;
-    z-index: 2;
-    margin-inline-start: var(--spacing-2);
-  }
-
-  &[data-disabled] .lucide-search {
-    color: var(--text-color-disabled);
-  }
-
-  .react-aria-Label {
-    grid-area: label;
-  }
-
-  .react-aria-Input {
-    grid-area: input;
-    width: 100%;
-    border-radius: 9999px;
-    padding: 0 var(--spacing-8);
-
-    &::-webkit-search-cancel-button,
-    &::-webkit-search-decoration {
-      -webkit-appearance: none;
+    // Hover (when not focused)
+    &:hover {
+      border-color: var(--secondary-50);
     }
   }
 
-  .clear-button {
-    all: unset;
-    grid-area: button;
-    width: var(--spacing-4);
-    height: var(--spacing-4);
-    border-radius: 9999px;
-    margin-left: calc(-1 * var(--spacing-6));
-    text-align: center;
-    background: var(--gray-700);
-    color: var(--gray-50);
+  // ── Search icon ───────────────────────────────────────────────
+  &__icon {
+    flex-shrink: 0;
+    margin-inline-start: 0.875rem;
+    color: var(--secondary);
+    pointer-events: none;
+    // Mute icon when field is empty
+    .search-field[data-empty] & {
+      opacity: 0.55;
+    }
+  }
+
+  // ── Input ─────────────────────────────────────────────────────
+  &__input {
+    flex: 1 1 auto;
+    min-width: 0;
     border: none;
-    padding: 0;
+    background: transparent;
+    color: var(--foreground);
+    padding: 0.65rem 0.5rem 0.65rem 0.6rem;
+    font-size: clamp(1.2rem, 1.171rem + 0.123vw, 1.25rem);
+    caret-color: var(--secondary);
+
+    // Remove browser-native search decorations
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-decoration,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    // Firefox
+    &::-moz-placeholder { opacity: 1; }
+
+    &::placeholder {
+      color: var(--foreground);
+      opacity: 0.45;
+    }
+
+    // The outer SearchField manages focus highlight; suppress inner outline
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // ── Clear button ──────────────────────────────────────────────
+  &__clear {
+    // Reset
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-tap-highlight-color: transparent;
+    margin-inline-end: 0.4rem;
+    border-radius: 50%;
+    color: var(--foreground);
+    opacity: 0.6;
+    //font-size: 1.2rem;
+    transition: all 200ms ease-in-out;;
 
+
+    // react-aria sets data-empty on the SearchField root when the field is empty
+    .search-field[data-empty] & {
+      display: none;
+    }
+
+    &:hover,
+    &[data-hovered] {
+      background-color: var(--secondary-10);
+      color: var(--secondary);
+      opacity: 1;
+    }
+
+    &:focus-visible,
+    &[data-focus-visible] {
+      outline: 2px solid var(--secondary);
+      outline-offset: 1px;
+      border-radius: 50%;
+      opacity: 1;
+    }
+
+    &:active,
     &[data-pressed] {
-      background: var(--gray-800);
+      background-color: var(--secondary-20);
+      color: var(--secondary);
     }
+  }
 
-    &[data-disabled] {
-      background: var(--text-color-disabled);
+  // ── Responsive ────────────────────────────────────────────────
+  @include md {
+    &__input {
+      padding-block: 0.75rem;
     }
-  } 
-
-}*/
+  }
+}

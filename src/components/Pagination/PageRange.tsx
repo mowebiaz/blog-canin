@@ -5,8 +5,8 @@ const defaultLabels = {
 
 const defaultCollectionLabels = {
   posts: {
-    plural: 'Articles',
-    singular: 'Article',
+    plural: 'articles',
+    singular: 'article',
   },
 }
 
@@ -47,7 +47,7 @@ export const PageRange: React.FC<{
         'Pas de résultats'}
       {typeof totalDocs !== 'undefined' &&
         totalDocs > 0 &&
-        `${indexStart}${indexStart > 0 ? ` - ${indexEnd}` : ''} / ${totalDocs} ${
+        `${indexStart}${indexStart > 0 ? ` à ${indexEnd}` : ''} sur ${totalDocs} ${
           totalDocs > 1 ? plural : singular
         }`}
     </div>

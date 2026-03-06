@@ -31,3 +31,20 @@
     font-weight: 500;
     color: var(--background);
 }
+
+@mixin returnBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid var(--primary);
+    padding: 0.2rem 0.5rem;
+    transition: all ease 0.2s;
+    &:hover {
+        background-color: var(--primary);
+        color: var(--background);
+    }
+}

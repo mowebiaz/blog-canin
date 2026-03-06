@@ -338,7 +338,7 @@ export interface SearchResult {
     value: number | Post;
   };
   slug?: string | null;
-  excerpt?: string | null;
+  plaintext?: string | null;
   coverImage?: (number | null) | Media;
   publishedAt?: string | null;
   categories?:
@@ -731,7 +731,7 @@ export interface SearchResultsSelect<T extends boolean = true> {
   priority?: T;
   doc?: T;
   slug?: T;
-  excerpt?: T;
+  plaintext?: T;
   coverImage?: T;
   publishedAt?: T;
   categories?:
