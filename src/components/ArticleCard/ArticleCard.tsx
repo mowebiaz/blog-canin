@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { Media } from '@/components/Media'
 import type { Post } from '@/payload-types'
@@ -9,7 +10,7 @@ import './ArticleCard.scss'
 
 export type CardPostData = Pick<
   Post,
-  'slug' | 'categories' | 'meta' | 'title' | 'coverImage' | 'publishedAt'
+  'slug' | 'categories' | 'plaintext' | 'title' | 'coverImage' | 'publishedAt'
 >
 
 export const ArticleCard: React.FC<{
@@ -32,13 +33,13 @@ export const ArticleCard: React.FC<{
     title: titleFromProps,
   } = props
 
-  const { slug, categories, meta, title, coverImage, publishedAt } = doc || {}
-  const { description } = meta || {}
+  const { slug, categories, plaintext, title, coverImage, publishedAt } =
+    doc || {}
 
   const hasCategories =
     categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
-  const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
+  const sanitizedDescription = plaintext?.replace(/\s/g, ' ') // replace non-breaking space with white space
   const href = `/${basePath}/${slug}`
 
   return (
@@ -47,7 +48,16 @@ export const ArticleCard: React.FC<{
       ref={cardRef}
     >
       <div className="article-card__media">
-        {!coverImage && <div className="no-image">pas d&apos;image</div>}
+        {!coverImage && (
+          <div className="no-image">
+            <Image
+              src={'/images/article-default.webp'}
+              alt="Default article image"
+              fill 
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        )}
         {coverImage && typeof coverImage === 'object' && (
           <Media
             resource={coverImage}
@@ -94,9 +104,9 @@ export const ArticleCard: React.FC<{
             </h3>
           </div>
         )}
-        {description && (
+        {plaintext && (
           <div className="article-card__desc">
-            {description && <p>{sanitizedDescription}</p>}
+            {plaintext && <p>{sanitizedDescription}</p>}
           </div>
         )}
       </div>
