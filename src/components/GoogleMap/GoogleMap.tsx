@@ -1,7 +1,10 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { FaMapMarkerAlt } from 'react-icons/fa'
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader'
+import { useAxeptioConsent } from '@/contexts/AxeptioConsentContext'
+import { AxeptioConsentButton } from '../AxeptioConsentButton/AxeptioConsentButton'
 import './GoogleMap.scss'
 
 const zonePaths: google.maps.LatLngLiteral[] = [
@@ -17,16 +20,22 @@ const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY
 
 let configured = false
 const LOADING_MESSAGE = 'Chargement de la carte'
+
+/** Vendor name configured in the Axeptio dashboard for Google Maps */
+const CONSENT_VENDOR = 'gmaps'
 const UNAVAILABLE_MESSAGE =
   'La carte n’est pas disponible pour le moment. Vous pouvez me contacter pour vérifier votre zone d’intervention.'
 
 export function GoogleMap() {
   const mapDivRef = useRef<HTMLDivElement | null>(null)
+  const { vendors, ready, openConsentManager } = useAxeptioConsent()
+  const gmapsGranted = ready && vendors[CONSENT_VENDOR] === true
   const [statusMessage, setStatusMessage] = useState<string | null>(
     apiKey ? LOADING_MESSAGE : UNAVAILABLE_MESSAGE,
   )
 
   useEffect(() => {
+    if (!gmapsGranted) return
     if (!mapDivRef.current) return
 
     if (!apiKey) {
@@ -85,7 +94,25 @@ export function GoogleMap() {
       polygon?.setMap(null)
       polygon = null
     }
-  }, [])
+  }, [gmapsGranted])
+
+  if (!gmapsGranted) {
+    return (
+      <div className="google-map google-map--placeholder">
+        <div className="google-map__placeholder-overlay">
+          <FaMapMarkerAlt
+            className="google-map__placeholder-icon"
+            size={40}
+          />
+          <p className="google-map__placeholder-text">
+            Pour afficher la carte Google Maps, veuillez accepter les cookies
+            correspondants.
+          </p>
+          <AxeptioConsentButton />
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div
