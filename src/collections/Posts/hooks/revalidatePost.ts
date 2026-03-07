@@ -43,6 +43,7 @@ export const revalidateDelete: CollectionAfterDeleteHook<Post> = ({
 
       revalidatePath(path)
       revalidateTag('posts-sitemap')
+      revalidateTag('home-last-posts')
     }
   }
 
