@@ -7,11 +7,10 @@ export async function GET() {
 
   const pages = [
     '',               
-    '/about',
+    '/services',
     '/blog',
+    '/a-propos',
     '/contact',
-    '/privacy-policy',
-    '/terms-of-service',
   ]
 
   const xml =
