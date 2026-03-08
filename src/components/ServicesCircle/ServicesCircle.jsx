@@ -1,3 +1,6 @@
+'use client'
+
+import { Link } from 'react-aria-components'
 import './ServicesCircle.scss'
 
 export const ServicesCircle = () => {
@@ -11,7 +14,9 @@ export const ServicesCircle = () => {
             Une première séance pour comprendre la situation, identifier les
             déclencheurs et construire un plan clair.
           </p>
-          <button className="btn btn--primary">Découvrir le bilan</button>
+                    <Link href="/services#bilan" className="btn btn--primary">
+            Découvrir le bilan
+          </Link>
         </div>
         <div className="card__icon"></div>
       </div>
@@ -24,7 +29,9 @@ export const ServicesCircle = () => {
             On travaille sur le concret : marche en laisse, rappel, gestion des
             émotions, calme à la maison…
           </p>
-          <button className="btn btn--primary">Voir les séances</button>
+          <Link href="/services#seance-individuelle" className="btn btn--primary">
+            Voir les séances
+          </Link>
         </div>
         <div className="card__icon"></div>
       </div>
@@ -37,7 +44,9 @@ export const ServicesCircle = () => {
             Pour apprendre à observer, garder la distance, se détendre et
             progresser en extérieur (petits groupes).
           </p>
-          <button className="btn btn--primary">Voir les balades</button>
+          <Link href="/services#balades-educatives" className="btn btn--primary">
+            Voir les balades
+          </Link>
         </div>
         <div className="card__icon"></div>
       </div>
@@ -50,7 +59,9 @@ export const ServicesCircle = () => {
             Séances collectives, garde à domicile et visites en votre absence
             (sur devis).
           </p>
-          <button className="btn btn--primary">Voir tous les services</button>
+          <Link href="/services" className="btn btn--primary">
+            Voir tous les services
+          </Link>
         </div>
         <div className="card__icon"></div>
       </div>

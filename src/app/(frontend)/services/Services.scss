@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as *;
+
 #services {
     ul {
         margin-top: 0.5rem;
@@ -28,4 +30,11 @@
             margin-top: 0;
         }
     }
+
+    #bilan, #seance-individuelle, #balades-educatives {
+        scroll-margin-top: 55px; 
+        @include lg {
+            scroll-margin-top: 110px; 
+        }
+}
 }

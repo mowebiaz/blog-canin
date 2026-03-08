@@ -19,7 +19,7 @@ export default function ServicesPage() {
       </div>
 
       <section className="container">
-        <div>
+        <div id='seance-individuelle'>
           <h2>Éducation individuelle</h2>
           <p>Pour avancer sur vos objectifs, à votre rythme.</p>
           <ul>
@@ -40,7 +40,7 @@ export default function ServicesPage() {
           <p>CTA : “Réserver une séance”</p>
         </div>
 
-        <div>
+        <div >
           <h2>Éducation collective (en petit groupe)</h2>
           <p>Apprendre avec d’autres… sans se sentir débordé.</p>
           <ul>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
           <p>CTA : “Voir les prochains créneaux”</p>
         </div>
 
-        <div>
+        <div  id='bilan'>
           <h2>Bilan comportemental</h2>
           <p>
             Quand la situation est compliquée (ou que vous voulez repartir sur
@@ -84,7 +84,7 @@ export default function ServicesPage() {
           <p>CTA : “Faire un bilan”</p>
         </div>
 
-        <div>
+        <div id='balades-educatives'>
           <h2>Balades éducatives</h2>
           <p>Une balade = un cours… mais en vrai.</p>
           <ul>
@@ -179,7 +179,7 @@ export default function ServicesPage() {
         </p>
       </section>
 
-      <section className="container">
+      <section className="container" id='map-section'>
         <h2>Zone d’intervention autour de Grenoble</h2>
         <p>
           J’interviens à Grenoble et dans un rayon d’environ 30 km, notamment

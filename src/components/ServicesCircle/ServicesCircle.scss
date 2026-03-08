@@ -34,7 +34,7 @@
                 margin-bottom: 1rem;
             }
 
-            button {
+            a {
                 margin-top: auto;
                 border: 1px solid var(--secondary-50);
                 transition: 0.3s;
@@ -112,7 +112,7 @@
             color: var(--background);
         }
 
-        &:hover button {
+        &:hover a {
             background-color: var(--secondary-30);
             color: var(--foreground);
             border: 1px solid transparent;
