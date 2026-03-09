@@ -4,11 +4,10 @@
     .intro {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: (1fr, 1fr);
         gap: 1rem;
-        //margin: 0 auto 1rem auto;
         align-items: center;
-        height: max-content;
+        width: 100%;
+        padding: 1rem;
 
         &__image {
             aspect-ratio: 4 / 3;
@@ -25,6 +24,8 @@
 
     @include sm {
         .intro {
+            padding: 1rem 2.5rem;
+
             &__image {
                 width: 65%;
             }
@@ -33,29 +34,32 @@
 
     @include md {
         .intro {
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 1fr;
+            grid-template-columns: 1fr 2fr;
+            align-items: stretch;
 
             &__image {
                 width: 100%;
-                justify-self: center;
+                aspect-ratio: unset;
+                height: 100%;
+                min-height: 200px;
             }
+
             p {
-                //grid-row-start', 'grid-column-start', 'grid-row-end', and 'grid-column-end'.
-                grid-area: 1 / 2 / 2 / 4;
+                align-self: center;
             }
         }
     }
 
     @include lg {
         .intro {
+            padding: 0;
             width: 80%;
             overflow: hidden;
             background-color: var(--secondary-10);
             border-radius: 10px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
             &__image {
-                aspect-ratio: 1 / 1;
                 img {
                     border-radius: 0;
                 }
