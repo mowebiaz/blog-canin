@@ -2,8 +2,12 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  motion,
+  type HTMLMotionProps,
+} from 'motion/react'
 import { Media } from '@/components/Media'
-import type { Media as MediaProps} from '@/payload-types'
+import type { Media as MediaProps } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
 import useClickableCard from './useClickableCard'
 import './ArticleCard.scss'
@@ -15,16 +19,18 @@ export type CardPostData = {
   coverImage?: (number | null) | MediaProps
   publishedAt?: string | null
   categories?: ({ title?: string | null } | number)[] | null
+
 }
 
-export const ArticleCard: React.FC<{
+export interface ArticleCardProps extends HTMLMotionProps<'article'> {
   alignItems?: 'center'
-  className?: string
   doc?: CardPostData
   basePath?: string
   showCategories?: boolean
   title?: string
-}> = (props) => {
+}
+
+export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const {
     card: { ref: cardRef },
     link: { ref: linkRef },
@@ -35,6 +41,7 @@ export const ArticleCard: React.FC<{
     basePath,
     showCategories,
     title: titleFromProps,
+    ...rest
   } = props
 
   const { slug, categories, plaintext, title, coverImage, publishedAt } =
@@ -47,8 +54,9 @@ export const ArticleCard: React.FC<{
   const href = `/${basePath}/${slug}`
 
   return (
-    <article
-      className="article-card"
+    <motion.article
+      {...rest}
+      className={`article-card${className ? ` ${className}` : ''}`}
       ref={cardRef}
     >
       <div className="article-card__media">
@@ -57,7 +65,7 @@ export const ArticleCard: React.FC<{
             <Image
               src={'/images/article-default.webp'}
               alt="Default article image"
-              fill 
+              fill
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
@@ -114,6 +122,6 @@ export const ArticleCard: React.FC<{
           </div>
         )}
       </div>
-    </article>
+    </motion.article>
   )
 }

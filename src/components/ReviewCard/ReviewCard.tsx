@@ -1,10 +1,27 @@
+import { motion, type Variants } from 'motion/react'
 import './ReviewCard.scss'
 
-export const ReviewCard = ({ review }) => {
+type Review = {
+  author_name: string
+  rating: number
+  relative_time_description: string
+  text: string
+}
+
+export const ReviewCard = ({
+  review,
+  variants,
+}: {
+  review: Review
+  variants: Variants
+}) => {
   return (
-    <article className="review__card">
+    <motion.article
+      className="review__card"
+      variants={variants}
+    >
       <div className="review__header">
-        <div className='review__image'> </div>
+        <div className="review__image"> </div>
         <div>
           <p className="review__author">{review.author_name}</p>
           <p className="review__date">{review.relative_time_description}</p>
@@ -20,6 +37,6 @@ export const ReviewCard = ({ review }) => {
       </span>
 
       <p className="review__text">{review.text}</p>
-    </article>
+    </motion.article>
   )
 }

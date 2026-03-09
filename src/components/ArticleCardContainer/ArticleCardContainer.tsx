@@ -1,4 +1,12 @@
+'use client'
+
+import { useReducedMotion } from 'motion/react'
 import { ArticleCard, CardPostData } from '../ArticleCard/ArticleCard'
+import {
+  itemVariants,
+  noMotionVariants,
+  StaggerContainer,
+} from '../StaggerContainer/StaggerContainer'
 import './ArticleCardContainer.scss'
 
 export type Props = {
@@ -7,22 +15,27 @@ export type Props = {
 
 export const ArticleCardContainer: React.FC<Props> = (props) => {
   const { posts } = props
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <div>
-        <div className="posts">
-          {posts?.map((result, index) => {
-            if (typeof result === 'object' && result !== null) {
-              return (
-                <div className="posts__item" key={index}>
-                  <ArticleCard doc={result} basePath="blog" showCategories />
-                </div>
-              )
-            }
+      <StaggerContainer className="posts">
+        {posts?.map((result, index) => {
+          if (typeof result === 'object' && result !== null) {
+            return (
+              <ArticleCard
+                doc={result}
+                basePath="blog"
+                showCategories
+                key={index}
+                variants={shouldReduceMotion ? noMotionVariants : itemVariants}
+              />
+            )
+          }
 
-            return null
-          })}
-        </div>
+          return null
+        })}
+      </StaggerContainer>
     </div>
   )
 }

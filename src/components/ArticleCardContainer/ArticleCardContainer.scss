@@ -10,7 +10,7 @@
         grid-template-columns: repeat(8, 1fr);
     }
 
-    &__item {
+    .article-card {
         grid-column: span 4;
     }
 }

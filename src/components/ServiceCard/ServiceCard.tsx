@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion, type Variants } from 'motion/react'
 import './ServiceCard.scss'
 
 export interface ServicePoint {
@@ -14,6 +15,7 @@ export interface ServiceCardProps {
   points: ServicePoint[]
   price: string
   pack?: string
+  variants?: Variants
 }
 
 export const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -24,11 +26,13 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   points,
   price,
   pack,
+  variants,
 }) => {
   return (
-    <article
+    <motion.article
       id={id}
       className="service-card"
+      variants={variants}
     >
       <div
         className="icon-wrapper"
@@ -57,6 +61,6 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
           {pack && <p className="service-card__point-text">{pack}</p>}
         </div>
       </div>
-    </article>
+    </motion.article>
   )
 }

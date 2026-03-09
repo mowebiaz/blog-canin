@@ -1,18 +1,6 @@
-@use '@/styles/mixins' as *;
-
 #services {
-    .services-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-
-        @include md {
-            grid-template-columns: 1fr 1fr;
-        }
-    }
-
     .note {
-        margin-top: 3rem;
+        margin: 1rem 0;
         background-color: var(--secondary-5);
         border-radius: 0.5rem;
         padding: 2rem;

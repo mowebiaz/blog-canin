@@ -1,0 +1,18 @@
+@use '@/styles/mixins' as *;
+
+.reviews {
+    display: grid;
+    max-width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @include xl {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

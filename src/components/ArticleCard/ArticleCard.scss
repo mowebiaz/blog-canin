@@ -10,8 +10,7 @@
     border: 1px solid var(--secondary-30);
     border-radius: 0.75rem;
     color: var(--foreground);
-    transition: all 160ms ease-in-out;
-    will-change: transform;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 
     // état "cliquable" (le hook rend toute la carte cliquable)
     &,
@@ -21,9 +20,10 @@
 
     &:hover,
     &:focus-within {
+        transform: translateY(-4px);
         background-color: var(--secondary-20);
         border: 1px solid var(--secondary-50);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     &:focus-within .card__link {

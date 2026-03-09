@@ -3,10 +3,6 @@ import Image from 'next/image'
 import type { Media as MediaType } from '@/payload-types'
 import type { Props as MediaProps } from './types'
 
-/**
- * Construit un srcset à partir des variantes générées par Payload (stockées sur S3).
- * Chaque entrée utilise l'URL de la variante et sa largeur réelle.
- */
 function buildSrcSet(resource: MediaType): string {
   const { sizes, url, width } = resource
   const entries: string[] = []
@@ -26,9 +22,7 @@ function buildSrcSet(resource: MediaType): string {
     if (sizes?.xl?.url && sizes.xl.width) {
     entries.push(`${sizes.xl.url} ${sizes.xl.width}w`)
   }
-/*   if (sizes?.xlarge?.url && sizes.xlarge.width) {
-    entries.push(`${sizes.xlarge.url} ${sizes.xlarge.width}w`)
-  } */
+
   // Fallback sur l'image originale
   if (url && width) {
     entries.push(`${url} ${width}w`)

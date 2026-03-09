@@ -76,52 +76,50 @@ export default async function BlogPage({
 
   if (posts.totalPages > 0 && sanitizedPageNumber > posts.totalPages) {
     //notFound()
-    return (
-      <h1>Vous avez vu tous les articles.</h1>
-    )
+    return <h1>Vous avez vu tous les articles.</h1>
   }
 
   return (
     <main id="blog">
-      <div className='container'>
-      <h1>Tous les articles ({posts.totalDocs})</h1>
+      <div className="container">
+        <h1>Tous les articles ({posts.totalDocs})</h1>
 
-      <div className="blog-toolbar">
-        <div>
-          <CategoryFilters
-            categories={categories}
-            currentCategorySlug={categorySlug}
-          />
+        <div className="blog-toolbar">
+          <div>
+            <CategoryFilters
+              categories={categories}
+              currentCategorySlug={categorySlug}
+            />
 
-          <PageRange
-            collection="posts"
-            currentPage={posts.page}
-            limit={posts.limit}
-            totalDocs={posts.totalDocs}
-          />
+            <PageRange
+              collection="posts"
+              currentPage={posts.page}
+              limit={posts.limit}
+              totalDocs={posts.totalDocs}
+            />
+          </div>
+
+          <Link
+            href="/search"
+            className="link-search"
+          >
+            Rechercher un article
+            <IoIosSearch />
+          </Link>
         </div>
 
-        <Link
-          href="/search"
-          className="link-search"
-        >
-          Rechercher un article
-          <IoIosSearch />
-        </Link>
-      </div>
+        <ArticleCardContainer posts={posts.docs} />
 
-      <ArticleCardContainer posts={posts.docs} />
-
-      <div>
-        {posts?.page && posts?.totalPages > 1 && (
-          <Pagination
-            page={posts.page}
-            totalPages={posts.totalPages}
-            basePath="/blog"
-            categorySlug={categorySlug !== 'all' ? categorySlug : undefined}
-          />
-        )}
-      </div>
+        <div>
+          {posts?.page && posts?.totalPages > 1 && (
+            <Pagination
+              page={posts.page}
+              totalPages={posts.totalPages}
+              basePath="/blog"
+              categorySlug={categorySlug !== 'all' ? categorySlug : undefined}
+            />
+          )}
+        </div>
       </div>
     </main>
   )
