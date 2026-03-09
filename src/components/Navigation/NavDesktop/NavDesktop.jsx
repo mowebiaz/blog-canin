@@ -12,6 +12,9 @@ import './NavDesktop.scss'
 export const NavDesktop = () => {
   const pathname = usePathname()
   const { scrollY } = useScroll()
+/*   const [isScrolled, setIsScrolled] = useState(
+    typeof window !== 'undefined' && !window.location.hash,
+  ) */
   const [isScrolled, setIsScrolled] = useState(false)
 
   useMotionValueEvent(scrollY, 'change', (latest) => {

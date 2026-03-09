@@ -1,0 +1,96 @@
+@use '@/styles/mixins' as *;
+
+.service-card {
+    border-radius: 0.75rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    scroll-margin-top: 55px;
+
+    @include lg {
+        scroll-margin-top: 110px;
+    }
+
+    &:nth-child(1) {
+        background-color: var(--secondary-5);
+        border-color: var(--secondary-20);
+        .icon-wrapper {
+            background-color: var(--secondary-20);
+        }
+    }
+
+        &:nth-child(2) {
+        background-color: var(--primary-5);
+        border-color: var(--primary-20);
+        .icon-wrapper {
+            background-color: var(--primary-20);
+        }
+    }
+
+            &:nth-child(3) {
+        background-color: var(--secondary-10);
+        border-color: var(--secondary-20);
+        .icon-wrapper {
+            background-color: var(--secondary-20);
+        }
+    }
+
+                &:nth-child(4) {
+        background-color: var(--primary-10);
+        border-color: var(--primary-20);
+        .icon-wrapper {
+            background-color: var(--primary-20);
+        }
+    }
+    
+
+    .icon-wrapper {
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.25rem;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--foreground);
+        }
+    }
+
+    &__title {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+    }
+
+    &__description {
+        margin-bottom: 1.5rem;
+        color: var(--foreground);
+    }
+
+    &__points {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+        margin-top: auto;
+    }
+
+    &__point {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+
+    &__point-label {
+        color: var(--accent);
+        font-weight: 600;
+    }
+
+    &__point-text {
+        margin: 0;
+    }
+}

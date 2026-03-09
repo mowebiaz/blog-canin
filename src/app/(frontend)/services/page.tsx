@@ -1,6 +1,13 @@
+import {
+  FaClipboardList,
+  FaDog,
+  FaPeopleGroup,
+  FaPersonWalking,
+} from 'react-icons/fa6'
 import Link from 'next/link'
 import { FaqComponent } from '@/components/FaqComponent/FaqComponent'
 import { GoogleMap } from '@/components/GoogleMap/GoogleMap'
+import { ServiceCard } from '@/components/ServiceCard/ServiceCard'
 import { faqServices } from '@/data/faqs'
 import './Services.scss'
 
@@ -11,106 +18,149 @@ export default function ServicesPage() {
 
       <div className="container">
         <p>
-          Un chien agréable au quotidien, ce n’est pas “un chien parfait” :
-          c’est un chien compris, guidé, et des humains outillés. Je vous
-          accompagne avec une méthode bienveillante et concrète, adaptée à votre
-          chien, votre rythme et vos objectifs.
+          Vivre avec son chien au quotidien, ce n’est pas chercher la perfection
+          : c’est apprendre à mieux se comprendre, avancer pas à pas, et
+          retrouver plus de sérénité ensemble. Je vous accompagne avec une
+          approche bienveillante, concrète et adaptée à votre chien, à votre
+          rythme et à votre réalité.
         </p>
       </div>
 
       <section className="container">
-        <div id='seance-individuelle'>
-          <h2>Éducation individuelle</h2>
-          <p>Pour avancer sur vos objectifs, à votre rythme.</p>
-          <ul>
-            <li>
-              <span className="text-accent">Idéal pour : </span>
-              marche en laisse, rappel, sauts, mordillements, gestion des
-              émotions, solitude, voitures/vélos, ...
-            </li>
-            <li>
-              <span className="text-accent">Format : </span>séance 1h (à
-              domicile + extérieur selon besoin)
-            </li>
-            <li>
-              Vous repartez avec : exercices simples, plan d’entraînement,
-              ajustements personnalisés
-            </li>
-          </ul>
-          <p>CTA : “Réserver une séance”</p>
-        </div>
+        <div className="services-grid">
+          <ServiceCard
+            id="seance-individuelle"
+            icon={<FaDog aria-hidden="true" />}
+            title="Éducation individuelle"
+            description="Un accompagnement sur mesure pour travailler ce qui compte vraiment dans votre quotidien avec votre chien."
+            points={[
+              {
+                label: 'Pour quoi ?',
+                text: 'Marche en laisse, rappel, mordillements, sauts, gestion des émotions, croisements, voitures, vélos, solitude…',
+              },
+              {
+                label: 'Comment ?',
+                text: 'Une séance d’environ 1h, à domicile et/ou en extérieur selon vos besoins.',
+              },
+              {
+                label: 'Concrètement :',
+                text: 'Vous repartez avec des exercices simples, des repères clairs et des conseils adaptés à votre chien.',
+              },
+            ]}
+            price="Séance individuelle (1h) : XX €"
+            pack="Forfait Pack de 5 séances individuelles : XX €"
+          />
 
-        <div >
-          <h2>Éducation collective (en petit groupe)</h2>
-          <p>Apprendre avec d’autres… sans se sentir débordé.</p>
-          <ul>
-            <li>
-              <span className="text-accent">Idéal pour : </span>socialisation
-              encadrée, focus, marche en groupe, auto-contrôle
-            </li>
-            <li>
-              <span className="text-accent">Format : </span>petit groupe,
-              ambiance safe, exercices progressifs
-            </li>
-            <li>
-              Bonus : vous voyez que “vous n’êtes pas seul(e)” et vous
-              progressez aussi sur la lecture canine
-            </li>
-          </ul>
-          <p>CTA : “Voir les prochains créneaux”</p>
-        </div>
+          <ServiceCard
+            id="education-collective"
+            icon={<FaPeopleGroup aria-hidden="true" />}
+            title="Éducation collective"
+            description="Des séances en petit groupe pour apprendre avec d’autres chiens, dans un cadre progressif et rassurant."
+            points={[
+              {
+                label: 'Pour quoi ?',
+                text: 'Socialisation encadrée, concentration, marche en groupe, auto-contrôle, gestion de l’excitation.',
+              },
+              {
+                label: 'Comment ?',
+                text: 'Petit groupe, ambiance calme, exercices adaptés au niveau des chiens.',
+              },
+              {
+                label: 'Ce que ça apporte :',
+                text: 'Vous progressez avec votre chien, mais vous apprenez aussi à mieux lire ses signaux et ceux des autres.',
+              },
+            ]}
+            price="Cours collectif (1h) : XX € / chien"
+            pack="Forfait Pack de 5 séances collectives : XX €"
+          />
 
-        <div  id='bilan'>
-          <h2>Bilan comportemental</h2>
+          <ServiceCard
+            id="bilan"
+            icon={<FaClipboardList aria-hidden="true" />}
+            title="Bilan comportemental"
+            description="Quand le quotidien devient compliqué, ou pour retrouver des bases plus sereines."
+            points={[
+              {
+                label: 'Pour quoi ?',
+                text: 'Réactivité, peurs, anxiété, aboiements, destructions, difficultés de cohabitation, adoption récente…',
+              },
+              {
+                label: 'Comment ?',
+                text: 'Un rendez-vous de 1h30 à 2h pour observer, échanger et comprendre la situation dans son ensemble.',
+              },
+              {
+                label: 'Objectif :',
+                text: 'Mettre en lumière les causes possibles et définir un plan d’action réaliste, adapté à vous et à votre chien.',
+              },
+            ]}
+            price="Bilan comportemental (1h30–2h) : XX €"
+          />
+
+          <ServiceCard
+            id="balades-educatives"
+            icon={<FaPersonWalking aria-hidden="true" />}
+            title="Balades éducatives"
+            //description="Une balade = un cours… mais en vrai."
+            description="Une balade éducative : pour progresser ensemble, en situation réelle."
+            points={[
+              {
+                label: 'Pour quoi ?',
+                text: 'Gérer l’environnement, travailler la marche, les croisements, le calme, l’attention malgré les distractions.',
+              },
+              {
+                label: 'Comment ?',
+                text: 'Une balade en petit groupe d’environ 1h, sur un parcours choisi selon les objectifs.',
+              },
+              {
+                label: 'Ce que ça change :',
+                text: 'Des progrès directement transférables dans vos promenades de tous les jours.',
+              },
+            ]}
+            price="Balade éducative (1h–1h30) : XX € / chien"
+          />
+        </div>
+      </section>
+
+      <section className="container">
+        <h2>Accompagnements complémentaires</h2>
+
+        <div>
+          <h3>Garde à domicile</h3>
           <p>
-            Quand la situation est compliquée (ou que vous voulez repartir sur
-            de bonnes bases).
+            Pour que votre chien reste dans son environnement habituel, avec ses
+            repères et sa routine.
           </p>
           <ul>
-            <li>
-              <span className="text-accent">Idéal pour : </span> réactivité,
-              agressivité, peurs, anxiété, aboiements, destructions,
-              cohabitation, adoption récente…
-            </li>
-            <li>
-              <span className="text-accent">Format : </span> 1h30–2h
-              (observation + questions + plan d’action)
-            </li>
-            <li>
-              Objectif : comprendre le “pourquoi” + définir une stratégie
-              réaliste
-            </li>
+            <li>visites régulières et rythme respecté</li>
+            <li>nouvelles et photos pendant votre absence</li>
+            <li>possibilité de réactiver quelques bases si besoin</li>
           </ul>
-          <p>CTA : “Faire un bilan”</p>
         </div>
 
-        <div id='balades-educatives'>
-          <h2>Balades éducatives</h2>
-          <p>Une balade = un cours… mais en vrai.</p>
+        <div>
+          <h3>Visites en votre absence</h3>
+          <p>Pour les journées chargées ou les absences ponctuelles.</p>
           <ul>
-            <li>
-              <span className="text-accent">Idéal pour : </span> apprendre à
-              gérer l’environnement (chiens, humains, odeurs, vélos), travailler
-              la marche, le calme, les croisements
-            </li>
-            <li>
-              <span className="text-accent">Format : </span> 1h / petit groupe /
-              parcours adapté
-            </li>
-            <li>
-              Résultat : des progrès transférables à vos balades quotidiennes
-            </li>
+            <li>sortie hygiène, jeux, repas, présence</li>
+            <li>idéal chiots / chiens seniors</li>
           </ul>
-          <p>CTA : “Participer à une balade”</p>
         </div>
 
+        <div>
+          <h3>Vous avez une demande particulière ?</h3>
+          <p>
+            Cohabitation chien/chat, arrivée d’un bébé, adoption en refuge,
+            déménagement, changement de rythme, présentation à un congénère…
+          </p>
+          <p>CTA : &quot;Me décrire votre situation&quot;</p>
+        </div>
         <div className="note">
-          <h2>Et si on commençait par en parler ? </h2>
+          <h2>Et si on commençait par en parler ? </h2>
           <p>
             Si vous avez un doute, si vous ne savez pas trop &quot;dans quelle
             case&quot; vous êtes, c’est normal. Le plus simple, c’est souvent de
             faire un premier échange pour comprendre la situation et voir ce qui
-            serait le plus adapté : bilan comportemental, séances individuelles,
+            serait le plus adapté : bilan comportemental, séances individuelles,
             séances collectives, ou balades éducatives.
             <br />
             👉{' '}
@@ -126,82 +176,40 @@ export default function ServicesPage() {
       </section>
 
       <section className="container">
-        <h2>Services annexes</h2>
-
-        <div>
-          <h3>Garde à domicile</h3>
-          <p>Pour que votre chien reste dans son environnement.</p>
-          <ul>
-            <li>visites régulières, routine respectée, nouvelles + photos</li>
-            <li>
-              option “mini séance” intégrée si besoin (rappel des bases /
-              marche)
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Visites en votre absence</h3>
-          <p>Pour les journées chargées ou les absences ponctuelles.</p>
-          <ul>
-            <li>sortie hygiène, jeux, repas, présence</li>
-            <li>idéal chiots / chiens seniors</li>
-          </ul>
-        </div>
-
-        <div>
-          <h3>Vous avez une demande particulière ?</h3>
-          <p>
-            Cohabitation chien/chat, arrivée d’un bébé, adoption en refuge,
-            déménagement, changement de rythme, présentation à un congénère…
-          </p>
-          <p>CTA : “Me décrire votre situation”</p>
-        </div>
-      </section>
-
-      <section className="container">
-        <h2>Tarifs</h2>
-        <ul>
-          <li>Bilan comportemental (1h30–2h) : XX €</li>
-          <li>Séance individuelle (1h) : XX €</li>
-          <li>Cours collectif (1h) : XX € / chien</li>
-          <li>Balade éducative (1h–1h30) : XX € / chien</li>
-          <li>Garde / visites : à partir de XX € (selon durée et fréquence)</li>
-        </ul>
-        <ul>
-          <li>Forfait &quot;Pack&quot; de 3 séances individuelles : XX €</li>
-          <li>Forfait &quot;Pack&quot; de 5 séances individuelles : XX €</li>
-        </ul>
-
+        <h2>Ma façon de travailler</h2>
         <p>
-          Déplacements : inclus dans un rayon de 30 km, au-delà: frais de
-          déplacement selon la distance
+          Chaque chien est différent, et chaque humain aussi. Mon objectif n’est
+          pas d’appliquer une méthode toute faite, mais de vous proposer un
+          accompagnement clair, progressif et respectueux de votre duo.
+        </p>
+        <p>
+          On avance avec des exercices concrets, des explications simples et des
+          objectifs réalistes, pour que les progrès soient vraiment utiles dans
+          votre vie de tous les jours.
         </p>
       </section>
 
-      <section className="container" id='map-section'>
+      <section
+        className="container"
+        id="map-section"
+      >
         <h2>Zone d’intervention autour de Grenoble</h2>
         <p>
-          J’interviens à Grenoble et dans un rayon d’environ 30 km, notamment
-          dans les communes les plus connues de l’agglomération : Échirolles,
-          Saint-Martin-d’Hères, Fontaine, Meylan, Saint-Égrève, Sassenage,
-          Seyssinet-Pariset, Seyssins, Gières, Eybens, Le Pont-de-Claix, La
-          Tronche, Claix, Domène, Vif, Vizille…
-          <br />
-          Et un peu plus loin mais toujours “dans le coin” (selon accès / route)
-          : Voiron, Crolles, Vizille.
+          J’interviens à Grenoble et dans un rayon d’environ 30 km, à domicile
+          ou en extérieur selon vos besoins et les objectifs de la séance.
         </p>
         <p>
-          Si vous êtes à la limite du rayon, envoyez-moi votre commune : je vous
-          confirme rapidement.
+          Cela comprend notamment Grenoble, Échirolles, Saint-Martin-d’Hères,
+          Meylan, Fontaine, Sassenage, Seyssinet-Pariset, Gières, Eybens, La
+          Tronche, Claix, Domène, Vif, Vizille… et parfois un peu plus loin
+          selon l’accès.
         </p>
         <p>
-          J’interviens à domicile et en extérieur (parcs, quartiers calmes,
-          lieux de passage). Le lieux de rendez-vous est à définir ensemble
-          selon l’objectif (calme / urbain / contrôlé)
+          Si vous êtes à la limite du secteur, envoyez-moi simplement votre
+          commune : je vous confirme rapidement si je peux me déplacer.
         </p>
 
-          <GoogleMap />
+        <GoogleMap />
       </section>
 
       <section className="container">

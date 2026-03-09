@@ -133,10 +133,13 @@ export default async function HomePage() {
       <section className="container">
         <h2>Mes zones d&apos;interventions</h2>
         <p>
-          Séances à domicile et en extérieur (parcs, ville, lieux du quotidien).
+          Les accompagnements ont lieu à domicile ou en extérieur : parc,
+          quartier, centre-ville ou autres lieux du quotidien. L’objectif est de
+          travailler là où votre chien évolue vraiment, pour des progrès
+          concrets et utiles au jour le jour. Je me déplace autour de Grenoble
+          jusqu’à 30km (<Link href="/services#map-section" className='link-router'>voir la carte</Link>).
         </p>
-        <p>Je me déplace autour de Grenoble, jusqu’à X km (voir la carte).</p>
-        Bouton : Voir la zone d’intervention → /services
+
       </section>
 
       <section className="container">
