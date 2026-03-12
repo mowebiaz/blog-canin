@@ -23,11 +23,9 @@ import { getServerSideURL } from './utilities/getURL'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const isPreview = process.env.VERCEL_ENV === 'preview'
-const PREVIEW_URL =
-  isPreview && process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : undefined
+const prod = process.env.SITE_URL_PROD
+const dev = process.env.SITE_URL_DEV
+
 
 export default buildConfig({
   admin: {
@@ -137,8 +135,8 @@ export default buildConfig({
     },
   }),
 
-  cors: [getServerSideURL(), PREVIEW_URL || ''].filter(Boolean),
-  csrf: [getServerSideURL(), PREVIEW_URL || ''].filter(Boolean),
+  cors: [prod || '', dev || ''].filter(Boolean),
+  csrf: [prod || '', dev || ''].filter(Boolean),
 
   /*auth: {
     cookies: {
