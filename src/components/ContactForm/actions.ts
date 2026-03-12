@@ -35,7 +35,7 @@ export async function sendContactEmail(data: FormData): Promise<ActionState> {
     await resend.emails.send({
       from: 'MorganeWeb <mw@notifications.morganeweb.com>',
       to: email,
-      subject: `Nouveau message de ${result.data.name} sur xxx.morganeweb.com`,
+      subject: `Nouveau message de ${result.data.name} sur caniliane.morganeweb.com`,
       replyTo: result.data.email,
       text: `Nom: ${result.data.name}\nEmail: ${result.data.email}\nMessage: ${result.data.message}`,
     })
