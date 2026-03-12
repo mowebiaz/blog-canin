@@ -15,6 +15,20 @@ import './Blog.scss'
 export const revalidate = 600
 const postPerPage = 6
 
+const jsonLdBlog = {
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'Blog Caniliane',
+  description:
+    "Conseils et articles sur l'éducation canine positive par Caniliane, éducatrice canine à Grenoble.",
+  url: 'https://caniliane.morganeweb.com/blog',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Caniliane',
+    url: 'https://caniliane.morganeweb.com',
+  },
+}
+
 type Args = {
   params: Promise<{
     pageNumber: string
@@ -81,48 +95,56 @@ export default async function BlogPage({
   }
 
   return (
-    <main id="blog">
-      <div className="container">
-        <h1>Tous les articles ({posts.totalDocs})</h1>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLdBlog),
+        }}
+      />
+      <main id="blog">
+        <div className="container">
+          <h1>Tous les articles ({posts.totalDocs})</h1>
 
-        <div className="blog-toolbar">
-          <div>
-            <CategoryFilters
-              categories={categories}
-              currentCategorySlug={categorySlug}
-            />
+          <div className="blog-toolbar">
+            <div>
+              <CategoryFilters
+                categories={categories}
+                currentCategorySlug={categorySlug}
+              />
 
-            <PageRange
-              collection="posts"
-              currentPage={posts.page}
-              limit={posts.limit}
-              totalDocs={posts.totalDocs}
-            />
+              <PageRange
+                collection="posts"
+                currentPage={posts.page}
+                limit={posts.limit}
+                totalDocs={posts.totalDocs}
+              />
+            </div>
+
+            <Link
+              href="/search"
+              className="link-search"
+            >
+              Rechercher un article
+              <IoIosSearch />
+            </Link>
           </div>
 
-          <Link
-            href="/search"
-            className="link-search"
-          >
-            Rechercher un article
-            <IoIosSearch />
-          </Link>
-        </div>
+          <ArticleCardContainer posts={posts.docs} />
 
-        <ArticleCardContainer posts={posts.docs} />
-
-        <div>
-          {posts?.page && posts?.totalPages > 1 && (
-            <Pagination
-              page={posts.page}
-              totalPages={posts.totalPages}
-              basePath="/blog"
-              categorySlug={categorySlug !== 'all' ? categorySlug : undefined}
-            />
-          )}
+          <div>
+            {posts?.page && posts?.totalPages > 1 && (
+              <Pagination
+                page={posts.page}
+                totalPages={posts.totalPages}
+                basePath="/blog"
+                categorySlug={categorySlug !== 'all' ? categorySlug : undefined}
+              />
+            )}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
 
