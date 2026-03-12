@@ -54,7 +54,8 @@ export const NavMobile = () => {
           <Image
             src="/images/caniliane-logo.png"
             alt="Caniliane Logo"
-            fill
+            width={40}
+            height={40}
             priority
           />
         </Link>

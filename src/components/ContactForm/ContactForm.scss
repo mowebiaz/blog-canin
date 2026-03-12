@@ -134,12 +134,12 @@
         text-decoration-thickness: 1px;
         transition: all 0.2s ease-in-out;
         &:hover {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: underline;
         }
 
         &:focus-visible {
-            outline: 2px solid var(--secondary);
+            outline: 2px solid var(--primary);
             outline-offset: 3px;
             border-radius: 6px;
         }

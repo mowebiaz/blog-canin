@@ -63,12 +63,12 @@
         transition: all 0.2s ease;
 
         &:hover {
-            color: var(--secondary);
+            color: var(--primary);
             opacity: 1;
         }
 
         &:focus-visible {
-            outline: 2px solid var(--secondary);
+            outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
     }
@@ -80,7 +80,7 @@
 
     &__social:hover {
         .footer__icon {
-            color: var(--secondary);
+            color: var(--primary);
         }
     }
 
