@@ -3,9 +3,10 @@ import { getServerSideURL } from './getURL'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'This is an extension of the Payload blanck template',
-  title: 'Lien Canin',
-  siteName: 'Lien Canin',
+  description:
+    'Caniliane – éducatrice canine positive à Grenoble. Accompagnement bienveillant pour une relation harmonieuse avec votre chien.',
+  title: 'Caniliane',
+  siteName: 'Caniliane',
   images: [
     {
       url: `${getServerSideURL()}/images/opengraph/lien-canin.jpg`,

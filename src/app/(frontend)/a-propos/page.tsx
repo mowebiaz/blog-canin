@@ -1,6 +1,20 @@
 import Image from 'next/image'
 import { AnimatedSection } from '@/components/AnimatedSection/AnimatedSection'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import './About.scss'
+
+export const metadata = {
+  title: 'À propos',
+  description:
+    'Découvrez Lianne, éducatrice canine à Grenoble. Une approche bienveillante et positive pour aider votre chien à trouver sa place.',
+  openGraph: mergeOpenGraph({
+    title: 'À propos – Caniliane',
+    description:
+      'Découvrez Lianne, éducatrice canine à Grenoble. Une approche bienveillante et positive.',
+    url: '/a-propos',
+  }),
+  alternates: { canonical: '/a-propos' },
+}
 
 export default function AboutPage() {
   return (

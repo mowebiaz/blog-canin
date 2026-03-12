@@ -76,7 +76,7 @@ export default buildConfig({
           path: '@/components/Admin/ui/Logo.tsx',
           exportName: 'Logo',
         },
-        
+
         // icône de la navigation dans l'ui
         Icon: {
           path: '@/components/Admin/ui/HomeIcon.tsx',
@@ -192,18 +192,10 @@ export default buildConfig({
     }),
 
     seoPlugin({
-      /*     collections: ['posts'],
-    uploadsCollection: 'media', */
       generateTitle: ({ doc }) => doc.title,
-      //generateDescription: ({doc}) => doc.excerpt,
       generateDescription: ({ doc }) => doc.plaintext,
-      generateURL: ({ doc, collectionSlug }) =>
-        `http://localhost:3000/${collectionSlug}/${doc?.slug}`,
-      /*     tabbedUI: true,
-    fields: ({defaultFields}) => [
-      ...defaultFields,
-      {name: 'canonicalURL', type: 'text'},
-    ] */
+      generateURL: ({ doc }) =>
+        `${getServerSideURL()}/blog/${doc?.slug}`,
     }),
     searchPlugin({
       collections: ['posts'],

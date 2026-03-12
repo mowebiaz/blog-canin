@@ -1,4 +1,18 @@
 import { ContactForm } from '@/components/ContactForm/ContactForm'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+
+export const metadata = {
+  title: 'Contact',
+  description:
+    'Contactez Caniliane pour vos questions sur le comportement canin à Grenoble. Formulaire de contact et informations pratiques.',
+  openGraph: mergeOpenGraph({
+    title: 'Contact – Caniliane',
+    description:
+      'Contactez Caniliane pour vos questions sur le comportement canin à Grenoble.',
+    url: '/contact',
+  }),
+  alternates: { canonical: '/contact' },
+}
 
 export default function ContactPage() {
   return (

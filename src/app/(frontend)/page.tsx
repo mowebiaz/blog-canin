@@ -6,8 +6,22 @@ import { HomeHero } from '@/components/HomeHero/HomeHero'
 import { ReviewCardContainer } from '@/components/ReviewCardContainer/ReviewCardContainer'
 import { ServicesCircle } from '@/components/ServicesCircle/ServicesCircle'
 import { problems } from '@/data/problems'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { queryLastPosts } from '@/utilities/queryLastPosts'
 import './page.scss'
+
+export const metadata = {
+  title: 'Éducatrice canine à Grenoble',
+  description:
+    'Caniliane – éducatrice canine positive à Grenoble. Comprendre, guider et grandir ensemble pour un quotidien serein avec votre chien.',
+  openGraph: mergeOpenGraph({
+    title: 'Caniliane – Éducatrice canine à Grenoble',
+    description:
+      'Comprendre, guider et grandir ensemble pour un quotidien serein avec votre chien.',
+    url: '/',
+  }),
+  alternates: { canonical: '/' },
+}
 
 export default async function HomePage() {
   const lastPosts = await queryLastPosts()

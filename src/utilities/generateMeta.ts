@@ -23,44 +23,21 @@ export const generateMeta = async (args: {
   const { doc } = args || {}
 
   const ogImage = getImageURL(doc?.meta?.image)
-  const title = doc?.meta?.title ? doc.meta.title : 'Lien Canin'
+  const title = doc?.meta?.title ? doc.meta.title : 'Caniliane'
   const description = doc?.meta?.description ? doc.meta.description : ''
-  const url = doc?.meta?.canonicalUrl
-    ? doc.meta.canonicalUrl
-    : Array.isArray(doc?.slug)
-      ? doc.slug.join('/')
-      : '/'
+  const url = doc?.slug
+    ? `${getServerSideURL()}/blog/${doc.slug}`
+    : getServerSideURL()
 
   return {
     title,
     description,
     openGraph: mergeOpenGraph({
+      title,
       description,
       images: ogImage ? [{ url: ogImage }] : undefined,
       url,
     }),
     alternates: { canonical: url },
-
-    /*     openGraph: {
-      title,
-      description,
-      type: 'article',
-      url: `${getServerSideURL()}/blog/${doc?.slug}`,
-      images: [
-        {
-          url: ogImage,
-          width: 800,
-          height: 600,
-          alt: title,
-        },
-      ],
-    }, */
-    /*     twitter: {
-      card: 'summary_large_image',
-      title,
-      description,
-      images: [ogImage],
-    }, */
-    //alternates: { canonical: `${getServerSideURL()}/blog/${doc?.slug}`
   }
 }

@@ -1,4 +1,20 @@
-import { AxeptioConsentButton } from "@/components/AxeptioConsentButton/AxeptioConsentButton"
+import { AxeptioConsentButton } from '@/components/AxeptioConsentButton/AxeptioConsentButton'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+
+export const metadata = {
+  title: 'Politique de confidentialité',
+  description:
+    'Politique de confidentialité du site Caniliane – éducatrice canine à Grenoble.',
+  openGraph: mergeOpenGraph({
+    title: 'Politique de confidentialité – Caniliane',
+    url: '/politique-de-confidentialite',
+  }),
+  alternates: { canonical: '/politique-de-confidentialite' },
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
 
 export default function PolitiqueDeConfidentialitePage() {
   return (
@@ -144,7 +160,7 @@ export default function PolitiqueDeConfidentialitePage() {
           bannière de consentement affichée lors de votre première visite ou en
           cliquant sur le bouton ci‑dessous pour modifier vos choix :
         </p>
-        <AxeptioConsentButton/>
+        <AxeptioConsentButton />
         <p>
           Pour en savoir plus, vous pouvez consulter la politique de
           confidentialité de Google.

@@ -9,6 +9,7 @@ import { CategoryFilters } from '@/components/CategoryFilters/CategoryFilters'
 import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
 import type { Category } from '@/payload-types'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import './Blog.scss'
 
 export const revalidate = 600
@@ -130,7 +131,14 @@ export async function generateMetadata({
 }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
+    title: `Blog – Page ${pageNumber || '1'}`,
+    description: `Page ${pageNumber} du blog de Caniliane – articles et conseils en éducation canine.`,
+    openGraph: mergeOpenGraph({
+      title: `Blog – Page ${pageNumber}`,
+      description: `Page ${pageNumber} du blog de Caniliane.`,
+      url: `/blog/page/${pageNumber}`,
+    }),
+    alternates: { canonical: `/blog/page/${pageNumber}` },
   }
 }
 

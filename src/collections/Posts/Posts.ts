@@ -219,9 +219,6 @@ export const Posts: CollectionConfig = {
           fields: [
             MetaTitleField({
               hasGenerateFn: true,
-              /*               overrides: {
-                label: 'Whatever you want',
-              }, */
             }),
             MetaDescriptionField({
               hasGenerateFn: true,
@@ -229,17 +226,6 @@ export const Posts: CollectionConfig = {
             MetaImageField({
               relationTo: 'media',
             }),
-            {
-              name: 'canonicalUrl',
-              label: 'Canonical URL',
-              type: 'text',
-              hooks: {
-                beforeChange: [
-                  async ({ data, value }) =>
-                    !value ? `https://example.com/blog/${data?.slug}` : value,
-                ],
-              },
-            },
             PreviewField({
               hasGenerateFn: true,
               titlePath: 'meta.title',

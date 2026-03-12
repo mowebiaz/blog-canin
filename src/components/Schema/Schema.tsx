@@ -14,8 +14,8 @@ export const articleSchema = (props: Post) => {
     ...(imageURL && { image: [imageURL] }),
     author: {
       '@type': 'Person',
-      name: 'John Doe',
-      sameAs: ['https://www.johndoe.com', 'https://www.twitter.com/johndoe'],
+      name: 'Liane',
+      //sameAs: ['https://www.johndoe.com', 'https://www.twitter.com/johndoe'],
     },
   }
 }

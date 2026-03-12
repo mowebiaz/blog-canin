@@ -4,23 +4,24 @@ import { Footer } from '@/components/Footer/Footer'
 import { Navigation } from '@/components/Navigation/Navigation'
 import { AxeptioConsentProvider } from '@/contexts/AxeptioConsentContext'
 import { nunito, openSans } from '@/styles/fonts'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { getServerSideURL } from '@/utilities/getURL'
 import '@/styles/globals.scss'
 
 export const metadata = {
+  metadataBase: new URL(getServerSideURL()),
   title: {
     template: 'Caniliane | %s',
-    default: 'Caniliane', // a default is required when creating a template
+    default: 'Caniliane',
   },
-  /*   description:
-    'Caniliane - création de site internet à Grenoble. Développement sur mesure pour transformer vos idées en réalité numérique.',
-  openGraph: {
-    type: 'website',
-    siteName: 'Caniliane',
-    url: 'https://caniliane.com/',
-  },
+  description:
+    'Caniliane – éducatrice canine à Grenoble. Éducation positive à domicile et en extérieur, pour chiots, adolescents et chiens adultes.',
+  openGraph: mergeOpenGraph({
+    url: '/',
+  }),
   alternates: {
-    canonical: 'https://caniliane.com/',
-  }, */
+    canonical: '/',
+  },
 }
 
 export default function RootLayout({

@@ -3,7 +3,6 @@ import { FaArrowLeft } from 'react-icons/fa6'
 import { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 import Link from 'next/link'
-import Script from 'next/script'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { ArticleShareButton } from '@/components/ArticleShareButton/ArticleShareButton'
@@ -72,13 +71,10 @@ export default async function PostPage({ params: paramsPromise }: Args) {
         disableNotFound
       />
 
-      <Script
-        id="schema-script"
-        type={'application/ld+json'}
-        strategy={'lazyOnload'}
-      >
-        {JSON.stringify(schema)}
-      </Script>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <main id="post-page">
         {draft && <LivePreviewListener />}
 

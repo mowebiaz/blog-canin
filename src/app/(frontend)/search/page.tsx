@@ -8,6 +8,7 @@ import { ArticleCardContainer } from '@/components/ArticleCardContainer/ArticleC
 import { PageRange } from '@/components/Pagination/PageRange'
 import { SearchPagination } from '@/components/Pagination/SearchPagination'
 import { Search } from '@/components/Search/Search'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import './Search.scss'
 
 export default async function SearchPage(props: {
@@ -81,7 +82,13 @@ export default async function SearchPage(props: {
 
 export function generateMetadata(): Metadata {
   return {
-    title: 'blog - search',
-    description: 'Search page',
+    title: 'Recherche',
+    description: 'Rechercher un article sur le blog de Caniliane.',
+    openGraph: mergeOpenGraph({
+      title: 'Recherche – Caniliane',
+      description: 'Rechercher un article sur le blog de Caniliane.',
+      url: '/search',
+    }),
+    alternates: { canonical: '/search' },
   }
 }

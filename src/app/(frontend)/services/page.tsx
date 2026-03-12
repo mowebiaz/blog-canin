@@ -4,7 +4,21 @@ import { FaqComponent } from '@/components/FaqComponent/FaqComponent'
 import { GoogleMap } from '@/components/GoogleMap/GoogleMap'
 import { ServiceCardContainer } from '@/components/ServiceCardContainer/ServiceCardContainer'
 import { faqServices } from '@/data/faqs'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import './Services.scss'
+
+export const metadata = {
+  title: 'Services',
+  description:
+    'Services en éducation canine à Grenoble : séances individuelles, bilans comportementaux, balades éducatives et garde à domicile.',
+  openGraph: mergeOpenGraph({
+    title: 'Services – Caniliane',
+    description:
+      'Séances individuelles, bilans comportementaux, balades éducatives et garde à domicile à Grenoble.',
+    url: '/services',
+  }),
+  alternates: { canonical: '/services' },
+}
 
 export default function ServicesPage() {
   return (
