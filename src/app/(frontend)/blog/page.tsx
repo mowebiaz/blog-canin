@@ -70,10 +70,12 @@ export default async function BlogRoot({
               />
             </div>
 
-            <Link href="/search" className="link-search">
-              Rechercher un article
-              <IoIosSearch />
-            </Link>
+            <h2 >
+              <Link href="/search" className="link-search">
+                Rechercher un article
+                <IoIosSearch />
+              </Link>
+            </h2>
           </div>
 
           <ArticleCardContainer posts={posts.docs} />

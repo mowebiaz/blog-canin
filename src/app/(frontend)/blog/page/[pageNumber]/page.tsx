@@ -9,7 +9,7 @@ import { CategoryFilters } from '@/components/CategoryFilters/CategoryFilters'
 import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
-import { queryBlogListing, POST_PER_PAGE } from '@/utilities/queryBlogListing'
+import { POST_PER_PAGE, queryBlogListing } from '@/utilities/queryBlogListing'
 import './Blog.scss'
 
 const postPerPage = POST_PER_PAGE
@@ -72,6 +72,7 @@ export default async function BlogPage({
       <main id="blog">
         <div className="container">
           <h1>Tous les articles ({posts.totalDocs})</h1>
+          <h2>Articles et conseils en éducation canine positive</h2>
 
           <div className="blog-toolbar">
             <div>
@@ -88,13 +89,15 @@ export default async function BlogPage({
               />
             </div>
 
-            <Link
-              href="/search"
-              className="link-search"
-            >
-              Rechercher un article
-              <IoIosSearch />
-            </Link>
+            <h2>
+              <Link
+                href="/search"
+                className="link-search"
+              >
+                Rechercher un article
+                <IoIosSearch />
+              </Link>
+            </h2>
           </div>
 
           <ArticleCardContainer posts={posts.docs} />
