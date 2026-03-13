@@ -15,12 +15,12 @@
 
         &:hover {
             background-color: var(--primary);
-            color: var(--background);
+            color: white;
         }
 
         &--active {
             background-color: var(--primary);
-            color: var(--background);
+            color: white;
         }
     }
 }

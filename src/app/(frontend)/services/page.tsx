@@ -216,7 +216,12 @@ export default function ServicesPage() {
                 Cohabitation chien/chat, arrivée d’un bébé, adoption en refuge,
                 déménagement, changement de rythme, présentation à un congénère…
               </p>
-              <p>CTA : &quot;Me décrire votre situation&quot;</p>
+              <p>
+                <Link href="/contact" className="link-router">
+                  Contactez-moi
+                </Link>{' '}
+                pour me décrire votre situation et voir comment je peux vous accompagner.
+                </p>
             </div>
           </AnimatedSection>
 

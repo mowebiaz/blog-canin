@@ -29,7 +29,7 @@
     padding: 0.2rem 0.5rem;
     border-radius: 5px;
     font-weight: 500;
-    color: var(--background);
+    color: white;
 }
 
 @mixin returnBtn {
@@ -45,6 +45,6 @@
     transition: all ease 0.2s;
     &:hover {
         background-color: var(--primary);
-        color: var(--background);
+        color: white;
     }
 }
