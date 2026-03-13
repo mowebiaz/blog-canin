@@ -9,10 +9,7 @@ export const Footer = () => {
     <footer className="footer">
       <div className="footer__inner">
         <div className="footer__columns">
-          <section
-            className="footer__column"
-            aria-labelledby="footer-contact"
-          >
+          <section className="footer__column">
             <p className="footer__title">Contact</p>
             <address>
               <ul className="footer__list">
@@ -23,10 +20,7 @@ export const Footer = () => {
             </address>
           </section>
 
-          <section
-            className="footer__column"
-            aria-labelledby="footer-area"
-          >
+          <section className="footer__column">
             <p className="footer__title">Zone d&apos;intervention</p>
             <p>Grenoble +/- 30 km</p>
             <p>à domicile et en extérieur</p>
@@ -41,10 +35,7 @@ export const Footer = () => {
             </ul>
           </section>
 
-          <section
-            className="footer__column"
-            aria-labelledby="footer-social"
-          >
+          <section className="footer__column">
             <p className="footer__title">Réseaux sociaux</p>
             <div className="footer__socials">
               <a
@@ -76,10 +67,7 @@ export const Footer = () => {
         </div>
 
         <div className="footer__bottom">
-          <div
-            className="footer__legal"
-            aria-label="Pied de page"
-          >
+          <div className="footer__legal">
             <Link
               className="footer__link"
               href="/mentions-legales"
