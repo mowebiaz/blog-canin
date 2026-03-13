@@ -19,9 +19,10 @@ export const ServiceCardContainer = () => {
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <div className="services-grid">
+    <StaggerContainer className="services-grid">
       <ServiceCard
         id="seance-individuelle"
+        variants={shouldReduceMotion ? noMotionVariants : itemVariants}
         icon={<FaDog aria-hidden="true" />}
         title="Éducation individuelle"
         description="Un accompagnement sur mesure pour travailler ce qui compte vraiment dans votre quotidien avec votre chien."
@@ -45,6 +46,7 @@ export const ServiceCardContainer = () => {
 
       <ServiceCard
         id="education-collective"
+        variants={shouldReduceMotion ? noMotionVariants : itemVariants}
         icon={<FaPeopleGroup aria-hidden="true" />}
         title="Éducation collective"
         description="Des séances en petit groupe pour apprendre avec d’autres chiens, dans un cadre progressif et rassurant."
@@ -68,6 +70,7 @@ export const ServiceCardContainer = () => {
 
       <ServiceCard
         id="bilan"
+        variants={shouldReduceMotion ? noMotionVariants : itemVariants}
         icon={<FaClipboardList aria-hidden="true" />}
         title="Bilan comportemental"
         description="Quand le quotidien devient compliqué, ou pour retrouver des bases plus sereines."
@@ -90,6 +93,7 @@ export const ServiceCardContainer = () => {
 
       <ServiceCard
         id="balades-educatives"
+        variants={shouldReduceMotion ? noMotionVariants : itemVariants}
         icon={<FaPersonWalking aria-hidden="true" />}
         title="Balades éducatives"
         description="Une balade éducative : pour progresser ensemble, en situation réelle."
@@ -109,6 +113,6 @@ export const ServiceCardContainer = () => {
         ]}
         price="Balade éducative (1h–1h30) : XX € / chien"
       />
-    </div>
+    </StaggerContainer>
   )
 }
