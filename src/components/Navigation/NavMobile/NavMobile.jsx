@@ -45,7 +45,10 @@ export const NavMobile = () => {
   }, [isOpen])
 
   return (
-    <motion.nav className={isScrolled ? 'nav-mobile scrolled' : 'nav-mobile'}>
+    <motion.nav
+      className={isScrolled ? 'nav-mobile scrolled' : 'nav-mobile'}
+      aria-label="Navigation principale"
+    >
       <div className="logo-container">
         <Link
           href="/"
@@ -67,11 +70,13 @@ export const NavMobile = () => {
         distance="sm"
         rounded
         hideOutline={false}
-        aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+        aria-controls="nav-mobile-menu"
       />
       {isOpen && (
         <AnimatePresence>
           <motion.div
+            id="nav-mobile-menu"
             className="nav-mobile__container"
             initial={{ y: '-100%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
