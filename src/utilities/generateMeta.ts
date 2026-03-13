@@ -7,7 +7,7 @@ export const getImageURL = (
   image?: Media | Config['db']['defaultIDType'] | null,
 ) => {
   const serverUrl = getServerSideURL()
-  let url = serverUrl + '/images/opengraph/lien-canin.jpg'
+  let url = serverUrl + '/images/opengraph/caniliane.png'
 
   if (image && typeof image === 'object' && 'url' in image) {
     const ogURL = image.sizes?.og?.url

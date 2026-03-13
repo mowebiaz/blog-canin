@@ -9,7 +9,7 @@ const defaultOpenGraph: Metadata['openGraph'] = {
   siteName: 'Caniliane',
   images: [
     {
-      url: `${getServerSideURL()}/images/opengraph/lien-canin.jpg`,
+      url: `${getServerSideURL()}/images/opengraph/caniliane.png`,
     },
   ],
 }
