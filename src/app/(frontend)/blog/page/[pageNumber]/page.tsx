@@ -8,12 +8,11 @@ import { ArticleCardContainer } from '@/components/ArticleCardContainer/ArticleC
 import { CategoryFilters } from '@/components/CategoryFilters/CategoryFilters'
 import { PageRange } from '@/components/Pagination/PageRange'
 import { Pagination } from '@/components/Pagination/Pagination'
-import type { Category } from '@/payload-types'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { queryBlogListing, POST_PER_PAGE } from '@/utilities/queryBlogListing'
 import './Blog.scss'
 
-export const revalidate = 600
-const postPerPage = 6
+const postPerPage = POST_PER_PAGE
 
 const jsonLdBlog = {
   '@context': 'https://schema.org',
@@ -46,51 +45,19 @@ export default async function BlogPage({
   const categorySlug = searchParams.category || 'all'
   const sanitizedPageNumber = Number(pageNumber)
 
-  const payload = await getPayload({ config: configPromise })
-
   if (!Number.isInteger(sanitizedPageNumber) || sanitizedPageNumber < 1)
     notFound()
 
-  // Charger les catégories pour les filtres et pour résoudre le slug -> id
-  const categoriesResult = await payload.find({
-    collection: 'categories',
-    limit: 50,
-    sort: 'title',
-  })
-
-  const categories = categoriesResult.docs as Category[]
-
-  const activeCategory = categories.find((cat) => cat.slug === categorySlug)
+  const { posts, categories, activeCategory } = await queryBlogListing(
+    sanitizedPageNumber,
+    categorySlug,
+  )
 
   if (!activeCategory && categorySlug !== 'all') {
     notFound()
   }
 
-  const where = {
-    ...(categorySlug !== 'all' && activeCategory
-      ? { categories: { equals: activeCategory.id } }
-      : {}),
-  }
-
-  if (activeCategory) {
-    // Relationship hasMany vers `categories` -> on filtre par id
-    where.categories = {
-      equals: activeCategory.id,
-    }
-  }
-
-  const posts = await payload.find({
-    collection: 'posts',
-    depth: 1,
-    limit: postPerPage,
-    page: sanitizedPageNumber,
-    sort: '-publishedAt',
-    where,
-    overrideAccess: false,
-  })
-
   if (posts.totalPages > 0 && sanitizedPageNumber > posts.totalPages) {
-    //notFound()
     return <h1>Vous avez vu tous les articles.</h1>
   }
 
