@@ -11,6 +11,7 @@ export const HomeHero = () => {
           alt="hero"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
         />
       </div>
