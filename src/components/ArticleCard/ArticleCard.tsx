@@ -26,6 +26,7 @@ export interface ArticleCardProps extends HTMLMotionProps<'article'> {
   alignItems?: 'center'
   doc?: CardPostData
   basePath?: string
+  priority?: boolean
   showCategories?: boolean
   title?: string
 }
@@ -39,6 +40,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
     className,
     doc,
     basePath,
+    priority,
     showCategories,
     title: titleFromProps,
     ...rest
@@ -66,6 +68,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
               src={'/images/article-default.webp'}
               alt="Default article image"
               fill
+              priority={priority}
+              loading={priority ? undefined : 'lazy'}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
@@ -74,6 +78,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
           <Media
             resource={coverImage}
             size="(max-width: 768px) 100vw, 50vw"
+            priority={priority}
           />
         )}
       </div>

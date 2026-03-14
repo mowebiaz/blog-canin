@@ -20,6 +20,7 @@ export const ArticleCardContainer: React.FC<Props> = (props) => {
                 doc={result}
                 basePath="blog"
                 showCategories
+                priority={index < 2}
                 key={index}
               />
             )
