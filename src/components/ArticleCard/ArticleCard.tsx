@@ -2,10 +2,6 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {
-  motion,
-  type HTMLMotionProps,
-} from 'motion/react'
 import { Media } from '@/components/Media'
 import type { Media as MediaProps } from '@/payload-types'
 import { formatDateTime } from '@/utilities/formatDateTime'
@@ -22,8 +18,9 @@ export type CardPostData = {
 
 }
 
-export interface ArticleCardProps extends HTMLMotionProps<'article'> {
+export interface ArticleCardProps {
   alignItems?: 'center'
+  className?: string
   doc?: CardPostData
   basePath?: string
   priority?: boolean
@@ -43,7 +40,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
     priority,
     showCategories,
     title: titleFromProps,
-    ...rest
   } = props
 
   const { slug, categories, plaintext, title, coverImage, publishedAt } =
@@ -56,8 +52,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
   const href = `/${basePath}/${slug}`
 
   return (
-    <motion.article
-      {...rest}
+    <article
       className={`article-card${className ? ` ${className}` : ''}`}
       ref={cardRef}
     >
@@ -127,6 +122,6 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
           </div>
         )}
       </div>
-    </motion.article>
+    </article>
   )
 }
