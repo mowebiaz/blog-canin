@@ -35,6 +35,8 @@ export function ArticleShareButton({
   const [copyError, setCopyError] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+  // Ref pour bloquer la fermeture du menu pendant l'affichage du feedback
+  const blockCloseRef = useRef(false)
 
   // Cleanup timeout on unmount to prevent memory leaks
   useEffect(() => {
@@ -76,8 +78,14 @@ export function ArticleShareButton({
   }
 
   const onCopy = async () => {
+    // Bloquer la fermeture synchrone du menu par React Aria avant la fin de l'async
+    blockCloseRef.current = true
+
     const shareUrl = getUrl()
-    if (!shareUrl) return
+    if (!shareUrl) {
+      blockCloseRef.current = false
+      return
+    }
 
     // Clear previous timeout
     if (timeoutRef.current) {
@@ -91,13 +99,14 @@ export function ArticleShareButton({
       setCopyError(false)
       timeoutRef.current = setTimeout(() => {
         setCopied(false)
+        blockCloseRef.current = false
+        setIsOpen(false)
       }, 2000)
-      // Close menu after successful copy
-      setTimeout(() => setIsOpen(false), 500)
     } else {
       setCopyError(true)
       timeoutRef.current = setTimeout(() => {
         setCopyError(false)
+        blockCloseRef.current = false
       }, 2000)
     }
   }
@@ -135,7 +144,11 @@ export function ArticleShareButton({
   return (
     <MenuTrigger
       isOpen={isOpen}
-      onOpenChange={setIsOpen}
+      onOpenChange={(open) => {
+        // Ne pas fermer pendant l'affichage du feedback de copie
+        if (!open && blockCloseRef.current) return
+        setIsOpen(open)
+      }}
     >
       <Button
         className={`share__button ${className}`}
