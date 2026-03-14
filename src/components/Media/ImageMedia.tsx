@@ -1,35 +1,6 @@
 import type { StaticImageData } from 'next/image'
 import Image from 'next/image'
-import type { Media as MediaType } from '@/payload-types'
 import type { Props as MediaProps } from './types'
-
-function buildSrcSet(resource: MediaType): string {
-  const { sizes, url, width } = resource
-  const entries: string[] = []
-
-  if (sizes?.xs?.url && sizes.xs.width) {
-    entries.push(`${sizes.xs.url} ${sizes.xs.width}w`)
-  }
-    if (sizes?.sm?.url && sizes.sm.width) {
-    entries.push(`${sizes.sm.url} ${sizes.sm.width}w`)
-  }
-  if (sizes?.md?.url && sizes.md.width) {
-    entries.push(`${sizes.md.url} ${sizes.md.width}w`)
-  }
-  if (sizes?.lg?.url && sizes.lg.width) {
-    entries.push(`${sizes.lg.url} ${sizes.lg.width}w`)
-  }
-    if (sizes?.xl?.url && sizes.xl.width) {
-    entries.push(`${sizes.xl.url} ${sizes.xl.width}w`)
-  }
-
-  // Fallback sur l'image originale
-  if (url && width) {
-    entries.push(`${url} ${width}w`)
-  }
-
-  return entries.join(', ')
-}
 
 export const ImageMedia: React.FC<MediaProps> = (props) => {
   const {
@@ -45,7 +16,6 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   } = props
 
   // Cas import statique (ex: import logo from '@/public/logo.png')
-  // On délègue à next/image qui gère l'optimisation côté serveur Next.js.
   if (srcFromProps) {
     return (
       <Image
@@ -61,34 +31,24 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
   }
 
   // Cas ressource Payload (images sur S3)
-  // On utilise un <img> natif avec srcset construit depuis les variantes Payload,
-  // ce qui évite de passer par le serveur Next.js pour des images déjà optimisées.
+  // On délègue l'optimisation (redimensionnement, format, qualité) à next/image.
   if (!resource || typeof resource !== 'object' || !resource.url) return null
 
   const { alt: altFromResource, url, width, height } = resource
   const alt = altFromProps || altFromResource || ''
-  const srcset = buildSrcSet(resource)
-  const loading: 'lazy' | 'eager' = priority ? 'eager' : (loadingFromProps ?? 'lazy')
-
-  // En mode fill, l'image couvre tout son parent (qui doit être en position relative)
-  const fillStyle: React.CSSProperties | undefined = fill
-    ? { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }
-    : undefined
 
   return (
     <picture className={pictureClassName}>
-      <img
+      <Image
         alt={alt}
         className={imgClassName}
-        decoding="async"
-        fetchPriority={priority ? 'high' : 'auto'}
+        fill={fill}
         height={fill ? undefined : (height ?? undefined)}
         width={fill ? undefined : (width ?? undefined)}
-        loading={loading}
+        priority={priority}
+        loading={priority ? undefined : (loadingFromProps ?? 'lazy')}
         sizes={sizesFromProps ?? '100vw'}
         src={url}
-        srcSet={srcset || undefined}
-        style={fillStyle}
       />
     </picture>
   )

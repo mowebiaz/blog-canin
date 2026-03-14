@@ -40,6 +40,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
           imgClassName={imgClassName}
           resource={media}
           src={staticImage}
+          size="(max-width: 1280px) 100vw, 1280px"
         />
       )}
       {caption && (

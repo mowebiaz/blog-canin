@@ -77,7 +77,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = (props) => {
         {coverImage && typeof coverImage === 'object' && (
           <Media
             resource={coverImage}
-            size="(max-width: 768px) 100vw, 50vw"
+            size="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 582px"
             priority={priority}
           />
         )}
