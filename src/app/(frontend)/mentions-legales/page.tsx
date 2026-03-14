@@ -93,6 +93,7 @@ export default function MentionsLegalesPage() {
           <li>Unsplash</li>
           <li>Freepik</li>
           <li>Pexels</li>
+          <li>Gemini (images générées par IA)</li>
         </ul>
 
         <h2>Caractère fictif des informations</h2>
