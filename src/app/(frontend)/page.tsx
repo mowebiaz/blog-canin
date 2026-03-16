@@ -95,7 +95,7 @@ export default async function HomePage() {
             avec des exercices faciles à refaire et un plan clair.
           </p>
           <p className="centered">
-            Méthode respectueuse & positive · À domicile & en extérieur ·
+            Méthode respectueuse et positive · À domicile & en extérieur ·
             Chiots, ado, adultes
           </p>
         </div>

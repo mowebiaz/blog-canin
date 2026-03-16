@@ -6,11 +6,11 @@ import './About.scss'
 export const metadata = {
   title: 'À propos',
   description:
-    'Découvrez Lianne, éducatrice canine à Grenoble. Une approche bienveillante et positive pour aider votre chien à trouver sa place.',
+    'Découvrez Liane, éducatrice canine à Grenoble. Une approche bienveillante et positive pour aider votre chien à trouver sa place.',
   openGraph: mergeOpenGraph({
     title: 'À propos – Caniliane',
     description:
-      'Découvrez Lianne, éducatrice canine à Grenoble. Une approche bienveillante et positive.',
+      'Découvrez Liane, éducatrice canine à Grenoble. Une approche bienveillante et positive.',
     url: '/a-propos',
   }),
   alternates: { canonical: '/a-propos' },
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <div className="intro__image">
             <Image
               src={'/images/educatrice-canine.webp'}
-              alt={'Lianne, educatrice canine à Grenoble'}
+              alt={'Liane, educatrice canine à Grenoble'}
               fill
               priority
               sizes={'(max-width: 576px) 100vw, (max-width: 768px) 65vw, 33vw '}
@@ -65,7 +65,7 @@ export default function AboutPage() {
 
           <div className="container">
             <p>
-              Je m’appelle Lianne, éducatrice canine à Grenoble et ses environs.
+              Je m’appelle Liane, éducatrice canine à Grenoble et ses environs.
               Si je fais ce métier aujourd’hui, c’est parce que je crois
               profondément à une chose :{' '}
               <span className="text-accent">

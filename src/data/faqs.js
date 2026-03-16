@@ -22,7 +22,7 @@ export const faqServices = [
   {
     id: 5,
     question: "Que faut-il prévoir ?",
-    answer: "Friandises appétentes, harnais confortable, longe si vous en avez (sinon je vous conseille).",
+    answer: "Friandises appétentes, harnais confortable, une longe si vous en avez une (sinon je vous conseille).",
   }
 
 ]

@@ -7,7 +7,7 @@ export const HomeHero = () => {
     <div className="home-hero">
       <div className="home-hero__image">
         <Image
-          src="/images/lianne.webp"
+          src="/images/liane.webp"
           alt="hero"
           fill
           priority
@@ -17,7 +17,7 @@ export const HomeHero = () => {
       </div>
       <div className="home-hero__content">
         <h1 className="home-hero__title">
-          Lianne
+          Liane
           <br />
           <span className="subtitle">
             Éducatrice canine à Grenoble

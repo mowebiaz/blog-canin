@@ -276,8 +276,8 @@ export default function ServicesPage() {
             selon l’accès.
           </p>
           <p>
-            Si vous êtes à la limite du secteur, envoyez-moi simplement votre
-            commune : je vous confirme rapidement si je peux me déplacer.
+            Si vous êtes à la limite du secteur, indiquez-moi votre
+            commune : je vous confirmerai rapidement si je peux me déplacer.
           </p>
 
           <GoogleMap />
