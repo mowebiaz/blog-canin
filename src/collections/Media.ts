@@ -3,7 +3,6 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
-//import type { Media as MediaType } from '@/payload-types'
 import { anyone } from './Users/access/anyone'
 import user from './Users/access/user'
 
