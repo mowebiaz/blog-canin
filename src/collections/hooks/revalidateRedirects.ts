@@ -6,7 +6,7 @@ export const revalidateRedirects: CollectionAfterChangeHook = async ({
   req: { payload },
 }) => {
   payload.logger.info(`Revalidating redirects...`)
-  revalidateTag('redirects')
+  revalidateTag('redirects', { expire: 0 })
 
   return doc
 }

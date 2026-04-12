@@ -14,9 +14,9 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
       console.log(`Revalidating post at path: ${path}`)
 
       revalidatePath(path)
-      revalidateTag('posts-sitemap')
-      revalidateTag('home-last-posts')
-      revalidateTag('blog-listing')
+      revalidateTag('posts-sitemap', { expire: 0 })
+      revalidateTag('home-last-posts', { expire: 0 })
+      revalidateTag('blog-listing', { expire: 0 })
     }
     // If the post was previously published, we need to revalidate the old path
     if (previousDoc._status === 'published' && doc._status !== 'published') {
@@ -25,9 +25,9 @@ export const revalidatePost: CollectionAfterChangeHook<Post> = ({
       console.log(`Revalidating old post at path: ${oldPath}`)
 
       revalidatePath(oldPath)
-      revalidateTag('posts-sitemap')
-      revalidateTag('home-last-posts')
-      revalidateTag('blog-listing')
+      revalidateTag('posts-sitemap', { expire: 0 })
+      revalidateTag('home-last-posts', { expire: 0 })
+      revalidateTag('blog-listing', { expire: 0 })
     }
   }
   return doc
@@ -44,9 +44,9 @@ export const revalidateDelete: CollectionAfterDeleteHook<Post> = ({
       console.log(`Revalidating deleted post at path: ${path}`)
 
       revalidatePath(path)
-      revalidateTag('posts-sitemap')
-      revalidateTag('home-last-posts')
-      revalidateTag('blog-listing')
+      revalidateTag('posts-sitemap', { expire: 0 })
+      revalidateTag('home-last-posts', { expire: 0 })
+      revalidateTag('blog-listing', { expire: 0 })
     }
   }
 
