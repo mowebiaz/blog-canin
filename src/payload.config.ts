@@ -26,6 +26,18 @@ const dirname = path.dirname(filename)
 const prod = process.env.SITE_URL_PROD
 const dev = process.env.SITE_URL_DEV
 
+// Les previews Vercel (*.vercel.app) doivent être autorisées, sinon le cookie d'auth est ignoré
+const previewOrigins =
+  process.env.VERCEL_ENV === 'preview'
+    ? [process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL]
+        .filter(Boolean)
+        .map((host) => `https://${host}`)
+    : []
+
+const allowedOrigins = [prod, dev, ...previewOrigins].filter(
+  (origin): origin is string => Boolean(origin),
+)
+
 
 export default buildConfig({
   admin: {
@@ -135,8 +147,8 @@ export default buildConfig({
     },
   }),
 
-  cors: [prod || '', dev || ''].filter(Boolean),
-  csrf: [prod || '', dev || ''].filter(Boolean),
+  cors: allowedOrigins,
+  csrf: allowedOrigins,
 
   /*auth: {
     cookies: {
