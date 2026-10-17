@@ -2,7 +2,7 @@ import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { NextRequest, NextResponse } from 'next/server'
 import configPromise from '@payload-config'
-import type { CollectionSlug, PayloadRequest } from 'payload'
+import type { CollectionSlug, TypedUser } from 'payload'
 import { getPayload } from 'payload'
 
 export async function GET(req: NextRequest) {
@@ -24,20 +24,27 @@ export async function GET(req: NextRequest) {
     return new Response('Insufficient search params', { status: 404 })
   }
 
-  if (!path.startsWith('/')) {
+  // Le parseur d'URL normalise '//', '/\' et les tabulations comme le navigateur :
+  // si l'hôte change, le chemin mènerait vers un site externe (redirection ouverte)
+  const base = 'http://localhost'
+  const isRelativePath =
+    path.startsWith('/') &&
+    URL.canParse(path, base) &&
+    new URL(path, base).origin === base
+
+  if (!isRelativePath) {
     return new Response(
       'This endpoint can only be used for relative previews',
       { status: 500 },
     )
   }
 
-  let user
+  let user: TypedUser | null = null
 
   try {
-    user = await payload.auth({
-      req: req as unknown as PayloadRequest,
-      headers: req.headers,
-    })
+    // payload.auth() renvoie toujours { user, permissions } : il faut lire .user
+    const authResult = await payload.auth({ headers: req.headers })
+    user = authResult.user
   } catch (error) {
     payload.logger.error(
       { err: error },
