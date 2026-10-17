@@ -190,7 +190,10 @@ export default async function HomePage() {
           <h2>Ressources et conseils</h2>
 
           <p>Des articles courts, pratiques, et sans culpabiliser.</p>
-          <ArticleCardContainer posts={lastPosts} />
+          <ArticleCardContainer
+            posts={lastPosts}
+            priorityCount={0}
+          />
           <Link
             className="btn btn--primary"
             href="/blog"

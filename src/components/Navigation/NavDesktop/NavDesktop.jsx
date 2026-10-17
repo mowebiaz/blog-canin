@@ -33,7 +33,8 @@ export const NavDesktop = () => {
             src="/images/caniliane-logo.png"
             alt="Caniliane Logo"
             fill
-            priority
+            sizes="80px"
+            loading="eager"
           />
         </Link>
       </div>

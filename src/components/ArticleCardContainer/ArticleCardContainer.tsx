@@ -5,10 +5,12 @@ import './ArticleCardContainer.scss'
 
 export type Props = {
   posts: CardPostData[]
+  /** Number of leading cards whose image is preloaded (use 0 when the list is below the fold). */
+  priorityCount?: number
 }
 
 export const ArticleCardContainer: React.FC<Props> = (props) => {
-  const { posts } = props
+  const { posts, priorityCount = 2 } = props
 
   return (
     <div>
@@ -20,7 +22,7 @@ export const ArticleCardContainer: React.FC<Props> = (props) => {
                 doc={result}
                 basePath="blog"
                 showCategories
-                priority={index < 2}
+                priority={index < priorityCount}
                 key={index}
               />
             )

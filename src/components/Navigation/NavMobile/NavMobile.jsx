@@ -59,7 +59,7 @@ export const NavMobile = () => {
             alt="Caniliane Logo"
             width={40}
             height={40}
-            priority
+            loading="eager"
           />
         </Link>
       </div>
