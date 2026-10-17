@@ -63,7 +63,7 @@
         }
     }
 
-    // ── Consent placeholder ──────────────────────────────────────────
+    // ── Click-to-load placeholder ──────────────────────────────────────────
 
     &--placeholder {
         position: relative;
@@ -101,8 +101,31 @@
         color: var(--foreground);
     }
 
-    &__placeholder-btn {
+    &__activate-btn {
+        display: inline-block;
+        width: fit-content;
         margin-top: 0.25rem;
+        border-radius: 5px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all ease 0.2s;
+        background-color: var(--primary);
+        color: rgb(249, 246, 241);
+        padding: 0.5rem 1rem;
+
+        &:hover {
+            transform: translate(0, -3px);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--foreground);
+            outline-offset: 2px;
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--secondary);
+        outline-offset: 2px;
     }
 }
 

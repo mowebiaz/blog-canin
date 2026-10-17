@@ -13,15 +13,14 @@ A full-stack blog website for dog-related content, built with Next.js App Router
 - **[Resend](https://resend.com/)** — Transactional email
 - **[Motion](https://motion.dev/)** — Animations
 - **[React Aria Components](https://react-spectrum.adobe.com/react-aria/)** — Accessible UI primitives
-- **[Axeptio](https://www.axeptio.eu/)** — Cookie consent
-- **[Google Maps](https://developers.google.com/maps)** — Embedded map
+- **[Google Maps](https://developers.google.com/maps)** — Embedded map (click-to-load, no cookie banner needed)
 - **[Vercel](https://vercel.com/)** — Deployment
 
 ## Getting Started
 
 ### Prerequisites
 
-You will need active accounts and credentials for: Vercel Postgres, an S3-compatible storage provider (e.g. Cloudflare R2), Resend, Google Maps, and Axeptio.
+You will need active accounts and credentials for: Vercel Postgres, an S3-compatible storage provider (e.g. Cloudflare R2), Resend, and Google Maps.
 
 ### Installation
 
@@ -80,8 +79,4 @@ EMAIL=
 
 # Google Maps
 NEXT_PUBLIC_GOOGLE_MAP_API_KEY=
-
-# Axeptio
-NEXT_PUBLIC_AXEPTIO_CLIENT_ID=6
-NEXT_PUBLIC_AXEPTIO_COOKIES_VERSION=
 ```

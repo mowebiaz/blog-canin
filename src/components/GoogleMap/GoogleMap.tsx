@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 import { importLibrary, setOptions } from '@googlemaps/js-api-loader'
-import { useAxeptioConsent } from '@/contexts/AxeptioConsentContext'
-import { AxeptioConsentButton } from '../AxeptioConsentButton/AxeptioConsentButton'
 import './GoogleMap.scss'
 
 const zonePaths: google.maps.LatLngLiteral[] = [
@@ -20,22 +18,22 @@ const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY
 
 let configured = false
 const LOADING_MESSAGE = 'Chargement de la carte'
-
-/** Vendor name configured in the Axeptio dashboard for Google Maps */
-const CONSENT_VENDOR = 'gmaps'
 const UNAVAILABLE_MESSAGE =
   'La carte n’est pas disponible pour le moment. Vous pouvez me contacter pour vérifier votre zone d’intervention.'
 
 export function GoogleMap() {
   const mapDivRef = useRef<HTMLDivElement | null>(null)
-  const { vendors, ready, openConsentManager } = useAxeptioConsent()
-  const gmapsGranted = ready && vendors[CONSENT_VENDOR] === true
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  // Not persisted on purpose: Google is only contacted after an explicit click on each visit
+  const [mapEnabled, setMapEnabled] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(
     apiKey ? LOADING_MESSAGE : UNAVAILABLE_MESSAGE,
   )
 
   useEffect(() => {
-    if (!gmapsGranted) return
+    if (!mapEnabled) return
+    // The activation button is unmounted on click: keep keyboard focus in the map area
+    containerRef.current?.focus()
     if (!mapDivRef.current) return
 
     if (!apiKey) {
@@ -94,9 +92,9 @@ export function GoogleMap() {
       polygon?.setMap(null)
       polygon = null
     }
-  }, [gmapsGranted])
+  }, [mapEnabled])
 
-  if (!gmapsGranted) {
+  if (!mapEnabled) {
     return (
       <div className="google-map google-map--placeholder">
         <div className="google-map__placeholder-overlay">
@@ -105,10 +103,16 @@ export function GoogleMap() {
             size={40}
           />
           <p className="google-map__placeholder-text">
-            Pour afficher la carte Google Maps, veuillez accepter les cookies
-            correspondants.
+            La carte Google est désactivée pour protéger votre vie privée. En
+            l’activant, vous acceptez le chargement de contenu depuis Google.
           </p>
-          <AxeptioConsentButton />
+          <button
+            type="button"
+            className="google-map__activate-btn"
+            onClick={() => setMapEnabled(true)}
+          >
+            Activer la carte
+          </button>
         </div>
       </div>
     )
@@ -116,6 +120,8 @@ export function GoogleMap() {
 
   return (
     <div
+      ref={containerRef}
+      tabIndex={-1}
       className={`google-map${statusMessage !== null ? ' google-map--has-status' : ''}`}
     >
       <div

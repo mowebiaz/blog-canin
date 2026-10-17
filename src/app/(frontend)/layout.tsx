@@ -1,8 +1,6 @@
 import { AdminBar } from '@/components/AdminBar/AdminBar'
-import { AxeptioScript } from '@/components/Axeptio/AxeptioScript'
 import { Footer } from '@/components/Footer/Footer'
 import { Navigation } from '@/components/Navigation/Navigation'
-import { AxeptioConsentProvider } from '@/contexts/AxeptioConsentContext'
 import { nunito, openSans } from '@/styles/fonts'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { getServerSideURL } from '@/utilities/getURL'
@@ -36,13 +34,10 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className={`${openSans.variable} ${nunito.variable}`}>
-        <AxeptioConsentProvider>
-          <Navigation />
-          <AdminBar />
-          {children}
-          <Footer />
-        </AxeptioConsentProvider>
-        <AxeptioScript />
+        <Navigation />
+        <AdminBar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

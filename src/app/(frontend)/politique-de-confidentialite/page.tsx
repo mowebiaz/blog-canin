@@ -1,4 +1,3 @@
-import { AxeptioConsentButton } from '@/components/AxeptioConsentButton/AxeptioConsentButton'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 
 export const metadata = {
@@ -54,11 +53,15 @@ export default function PolitiqueDeConfidentialitePage() {
 
         <h3>Carte Google Maps</h3>
         <p>
-          Le site affiche une carte Google Maps sur certaines pages afin de
-          faciliter la localisation de l’activité. L’affichage de cette carte
-          peut entraîner des échanges de données entre votre navigateur et
-          Google, notamment votre adresse IP et certaines données techniques de
-          connexion.
+          La page Services propose une carte Google Maps présentant la zone
+          d’intervention. Cette carte est désactivée par défaut : tant que vous
+          ne cliquez pas sur le bouton « Activer la carte », aucun contenu
+          n’est chargé depuis Google et aucune donnée ne lui est transmise.
+        </p>
+        <p>
+          Si vous activez la carte, votre navigateur se connecte aux serveurs
+          de Google, ce qui entraîne la transmission de certaines données,
+          notamment votre adresse IP et des données techniques de connexion.
         </p>
 
         <h2>Finalités</h2>
@@ -70,7 +73,10 @@ export default function PolitiqueDeConfidentialitePage() {
           <li>
             assurer le bon fonctionnement technique et la sécurité du site,
           </li>
-          <li>afficher la localisation via la carte Google Maps.</li>
+          <li>
+            afficher, à votre demande, la zone d’intervention via la carte
+            Google Maps.
+          </li>
         </ul>
         <p>
           Aucune donnée n’est vendue. Aucune donnée n’est utilisée à des fins
@@ -85,9 +91,10 @@ export default function PolitiqueDeConfidentialitePage() {
           prévention du spam et à la gestion des messages reçus.
         </p>
         <p>
-          L’affichage de la carte Google Maps repose sur l’intérêt légitime
-          d’information et de localisation de l’activité, sous réserve de votre
-          navigation sur la page concernée.
+          L’affichage de la carte Google Maps repose sur votre consentement,
+          exprimé en cliquant sur le bouton « Activer la carte ». Ce choix n’est
+          pas mémorisé : la carte est à nouveau désactivée à chaque chargement
+          de la page.
         </p>
 
         <h2>Destinataires des données et sous-traitants</h2>
@@ -104,7 +111,9 @@ export default function PolitiqueDeConfidentialitePage() {
           <li>l’hébergeur du site,</li>
           <li>un prestataire d’envoi d’e-mails,</li>
           <li>un prestataire de base de données ou de stockage,</li>
-          <li>Google, dans le cadre de l’intégration de Google Maps.</li>
+          <li>
+            Google, uniquement si vous activez la carte Google Maps.
+          </li>
         </ul>
         <p>
           Ces prestataires n’utilisent pas vos données pour leur propre compte,
@@ -138,7 +147,8 @@ export default function PolitiqueDeConfidentialitePage() {
         </p>
         <p>
           Vous pouvez également retirer votre consentement lorsque le traitement
-          repose sur celui-ci.
+          repose sur celui-ci. Pour la carte Google Maps, il suffit de recharger
+          la page : la carte est alors de nouveau désactivée.
         </p>
         <p>
           Pour toute demande relative à vos données personnelles :
@@ -147,23 +157,30 @@ export default function PolitiqueDeConfidentialitePage() {
 
         <h2>Cookies et traceurs</h2>
         <p>
-          Ce site n’utilise pas de cookies ni de traceurs à des fins de mesure
-          d’audience, de statistiques ou de publicité.
+          Ce site ne dépose aucun cookie ni traceur dans le navigateur des
+          visiteurs : il n’utilise ni outil de mesure d’audience, ni publicité,
+          ni outil de gestion du consentement. C’est pourquoi aucune bannière de
+          cookies ne s’affiche.
         </p>
         <p>
-          En revanche, l’intégration d’une carte Google Maps peut conduire
-          Google à déposer ou lire certains traceurs ou à collecter des données
-          techniques nécessaires à l’affichage du service.
+          Seul l’espace d’administration, réservé à l’éditrice du site, utilise
+          un cookie de connexion strictement nécessaire à son fonctionnement.
         </p>
         <p>
-          Vous pouvez gérer vos préférences à tout moment : à l’aide de la
-          bannière de consentement affichée lors de votre première visite ou en
-          cliquant sur le bouton ci‑dessous pour modifier vos choix :
+          Si vous activez la carte Google Maps, Google peut déposer ou lire
+          certains traceurs et collecter des données techniques nécessaires à
+          l’affichage du service. Ce chargement n’a lieu qu’après votre clic sur
+          le bouton « Activer la carte ».
         </p>
-        <AxeptioConsentButton />
         <p>
-          Pour en savoir plus, vous pouvez consulter la politique de
-          confidentialité de Google.
+          Pour en savoir plus, vous pouvez consulter la{' '}
+          <a
+            href="https://policies.google.com/privacy?hl=fr"
+            rel="noopener noreferrer"
+          >
+            politique de confidentialité de Google
+          </a>
+          .
         </p>
 
         <h2>Évolutions de la politique</h2>
@@ -177,7 +194,7 @@ export default function PolitiqueDeConfidentialitePage() {
           de traceurs, cette page sera mise à jour.
         </p>
 
-        <p>Dernière mise à jour : 07/03/2026</p>
+        <p>Dernière mise à jour : 17/10/2026</p>
       </div>
     </main>
   )
