@@ -9,7 +9,7 @@
     "start": "next start",
     "dev:prod": "rm -rf .next && npm run build && npm start",
     "lint": "eslint",
-    "payload": "cross-env PAYLOAD_CONFIG_PATH=src/payload.config.ts payload",
+    "payload": "payload",
     "ci": "payload migrate && npm run build"
   },
   "dependencies": {
