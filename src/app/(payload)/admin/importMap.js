@@ -34,9 +34,10 @@ import { Logo as Logo_804c26b5b095e69c798a000ff001e302 } from '@/components/Admi
 import { Logout as Logout_62f08f92b00a7306634db9272517c36a } from '@/components/Admin/ui/logout.tsx'
 import { LoginInstruction as LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c } from '@/components/Admin/ui/afterLogin.tsx'
 import { Welcome as Welcome_fdae91cc357a05f8fe0bfc660eabd8ba } from '@/components/Admin/ui/beforeDashboard.tsx'
-import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } from '@payloadcms/next/rsc'
+import { S3ClientUploadHandler as S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24 } from '@payloadcms/storage-s3/client'
 
+/** @type import('payload').ImportMap */
 export const importMap = {
   "src/components/Admin/Fields/slug/SlugComponent#SlugComponent": SlugComponent_87bd6d03759ea917eac9ad9783d68ef0,
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -74,6 +75,6 @@ export const importMap = {
   "@/components/Admin/ui/logout.tsx#Logout": Logout_62f08f92b00a7306634db9272517c36a,
   "@/components/Admin/ui/afterLogin.tsx#LoginInstruction": LoginInstruction_b7867967b91dbf7d5a30e5848bd2d55c,
   "@/components/Admin/ui/beforeDashboard.tsx#Welcome": Welcome_fdae91cc357a05f8fe0bfc660eabd8ba,
-  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24,
-  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1
+  "@payloadcms/next/rsc#CollectionCards": CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1,
+  "@payloadcms/storage-s3/client#S3ClientUploadHandler": S3ClientUploadHandler_f97aa6c64367fa259c5bc0567239ef24
 }
