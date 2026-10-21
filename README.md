@@ -14,13 +14,14 @@ A full-stack blog website for dog-related content, built with Next.js App Router
 - **[Motion](https://motion.dev/)** — Animations
 - **[React Aria Components](https://react-spectrum.adobe.com/react-aria/)** — Accessible UI primitives
 - **[Google Maps](https://developers.google.com/maps)** — Embedded map (click-to-load, no cookie banner needed)
+- **[Sentry](https://sentry.io/)** — Error monitoring & performance tracing
 - **[Vercel](https://vercel.com/)** — Deployment
 
 ## Getting Started
 
 ### Prerequisites
 
-You will need active accounts and credentials for: Vercel Postgres, an S3-compatible storage provider (e.g. Cloudflare R2), Resend, and Google Maps.
+You will need active accounts and credentials for: Vercel Postgres, an S3-compatible storage provider (e.g. Cloudflare R2), Resend, Google Maps, and Sentry.
 
 ### Installation
 
@@ -79,4 +80,8 @@ EMAIL=
 
 # Google Maps
 NEXT_PUBLIC_GOOGLE_MAP_API_KEY=
+
+# Monitoring (Sentry)
+NEXT_PUBLIC_SENTRY_DSN=
+SENTRY_AUTH_TOKEN=      
 ```

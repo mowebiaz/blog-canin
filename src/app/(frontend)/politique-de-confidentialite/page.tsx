@@ -50,6 +50,13 @@ export default function PolitiqueDeConfidentialitePage() {
           strictement nécessaires au bon fonctionnement, à la sécurité, à la
           prévention du spam et au diagnostic d’éventuelles erreurs.
         </p>
+        <p>
+          Afin de détecter et corriger les erreurs et d’analyser les
+          performances du site, des informations techniques (page consultée,
+          type de navigateur et de système, détail de l’erreur) sont transmises
+          à Sentry, service de suivi des erreurs. Aucune donnée d’identification
+          (nom, e-mail) n’est envoyée, et l’adresse IP n’est pas conservée.
+        </p>
 
         <h3>Carte Google Maps</h3>
         <p>
@@ -91,6 +98,10 @@ export default function PolitiqueDeConfidentialitePage() {
           prévention du spam et à la gestion des messages reçus.
         </p>
         <p>
+          Le suivi des erreurs repose sur l’intérêt légitime de l’éditrice à
+          assurer le bon fonctionnement et la sécurité du site.
+        </p>
+        <p>
           L’affichage de la carte Google Maps repose sur votre consentement,
           exprimé en cliquant sur le bouton « Activer la carte ». Ce choix n’est
           pas mémorisé : la carte est à nouveau désactivée à chaque chargement
@@ -112,6 +123,11 @@ export default function PolitiqueDeConfidentialitePage() {
           <li>un prestataire d’envoi d’e-mails,</li>
           <li>un prestataire de base de données ou de stockage,</li>
           <li>
+            un service de suivi des erreurs et des performances (Sentry,
+            Functional Software Inc.), dont les données sont hébergées dans
+            l’Union européenne,
+          </li>
+          <li>
             Google, uniquement si vous activez la carte Google Maps.
           </li>
         </ul>
@@ -130,7 +146,8 @@ export default function PolitiqueDeConfidentialitePage() {
         </p>
         <p>
           Les logs techniques sont conservés pendant une durée limitée,
-          proportionnée aux besoins de sécurité et de maintenance.
+          proportionnée aux besoins de sécurité et de maintenance. Les rapports
+          d’erreurs sont conservés au maximum 90 jours.
         </p>
         <p>
           Les données éventuellement traitées par Google dans le cadre de
@@ -194,7 +211,7 @@ export default function PolitiqueDeConfidentialitePage() {
           de traceurs, cette page sera mise à jour.
         </p>
 
-        <p>Dernière mise à jour : 17/10/2026</p>
+        <p>Dernière mise à jour : 21/10/2026</p>
       </div>
     </main>
   )
