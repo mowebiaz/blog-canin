@@ -46,7 +46,8 @@ next-env.d.ts
 
 media/
 
-/.github/
+/.github/*
+!/.github/dependabot.yml
 
 docs/
 
