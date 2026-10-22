@@ -10,3 +10,9 @@ updates:
       interval: "weekly"
 
     open-pull-requests-limit: 5
+  
+    ignore:
+      # Node types must match the Node version used in production (24.x)
+      - dependency-name: "@types/node"
+        update-types:
+          - "version-update:semver-major"
