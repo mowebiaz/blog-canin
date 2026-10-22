@@ -73,9 +73,10 @@ export const NavMobile = () => {
         label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
         aria-controls="nav-mobile-menu"
       />
-      {isOpen && (
-        <AnimatePresence>
+      <AnimatePresence>
+        {isOpen && (
           <motion.div
+            key="nav-mobile-menu"
             id="nav-mobile-menu"
             className="nav-mobile__container"
             initial={{ y: '-100%', opacity: 0 }}
@@ -101,8 +102,8 @@ export const NavMobile = () => {
               ))}
             </ul>
           </motion.div>
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
