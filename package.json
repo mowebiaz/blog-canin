@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@googlemaps/js-api-loader": "^2.0.2",
-    "@hookform/resolvers": "^5.2.2",
+    "@hookform/resolvers": "^6.0.0",
     "@payloadcms/admin-bar": "3.91.0",
     "@payloadcms/db-vercel-postgres": "3.91.0",
     "@payloadcms/email-resend": "3.91.0",
