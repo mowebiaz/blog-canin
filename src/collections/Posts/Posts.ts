@@ -71,7 +71,7 @@ export const Posts: CollectionConfig = {
     components: {
       beforeListTable: [
         {
-          path: 'src/collections/Posts/components/PostsByStatus.tsx',
+          path: '@/collections/Posts/components/PostsByStatus.tsx',
           exportName: 'PostsByStatus',
         },
       ],

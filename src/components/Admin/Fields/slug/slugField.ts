@@ -39,7 +39,7 @@ export const slugField: Slug = (fieldToUse = 'title', overrides = {}) => {
       ...(slugOverrides?.admin || {}),
       components: {
         Field: {
-          path: 'src/components/Admin/Fields/slug/SlugComponent',
+          path: '@/components/Admin/Fields/slug/SlugComponent',
           exportName: 'SlugComponent',
           clientProps: {
             fieldToUse,

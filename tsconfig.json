@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "ES2022",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
+    ],
+    "types": [
+      "node",
+      "google.maps"
     ],
     "allowJs": true,
     "skipLibCheck": true,
