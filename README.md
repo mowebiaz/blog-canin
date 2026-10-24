@@ -4,17 +4,17 @@ A full-stack blog website for dog-related content, built with Next.js App Router
 
 ## Tech Stack
 
-- **[Next.js 15](https://nextjs.org/)**
-- **[React 19](https://react.dev/)** 
-- **[PayloadCMS v3](https://payloadcms.com/)** — Headless CMS with custom admin UI
+- **[Next.js 16](https://nextjs.org/)** — App Router
+- **[React 19](https://react.dev/)**
+- **[PayloadCMS 3.91](https://payloadcms.com/)** — Headless CMS with custom admin UI
 - **[SCSS](https://sass-lang.com/)** — Styling (no Tailwind)
 - **[Vercel Postgres](https://vercel.com/storage/postgres)** — Database
 - **[Cloudflare R2](https://www.cloudflare.com/developer-platform/products/r2/)** (S3-compatible) — Media storage
 - **[Resend](https://resend.com/)** — Transactional email
-- **[Motion](https://motion.dev/)** — Animations
+- **[Motion 14](https://motion.dev/)** — Animations
 - **[React Aria Components](https://react-spectrum.adobe.com/react-aria/)** — Accessible UI primitives
-- **[Google Maps](https://developers.google.com/maps)** — Embedded map (click-to-load, no cookie banner needed)
-- **[Sentry](https://sentry.io/)** — Error monitoring & performance tracing
+- **[Google Maps](https://developers.google.com/maps)** — Embedded map 
+- **[Sentry 11](https://sentry.io/)** — Error monitoring & performance tracing
 - **[Vercel](https://vercel.com/)** — Deployment
 
 ## Getting Started
