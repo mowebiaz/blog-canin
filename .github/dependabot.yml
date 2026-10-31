@@ -10,6 +10,12 @@ updates:
       interval: "weekly"
 
     open-pull-requests-limit: 5
+
+    groups:
+      payload:
+        patterns:
+          - "payload"
+          - "@payloadcms/*"
   
     ignore:
       # Node types must match the Node version used in production (24.x)
